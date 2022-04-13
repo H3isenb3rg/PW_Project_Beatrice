@@ -1,0 +1,1450 @@
+{
+    "elements": [
+        {
+            "attributes": {
+                "name": "Event Details",
+                "default": false,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1110,
+                        "y": -910
+                    },
+                    "size": {
+                        "height": 120,
+                        "width": 200
+                    }
+                }
+            },
+            "id": "231fe9a8-cc61-42f2-9e09-bf098f55fc5a",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "Go To Event Details",
+                "parameters": [],
+                "results": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 940,
+                        "y": -850
+                    },
+                    "size": {
+                        "height": 50,
+                        "width": 140
+                    }
+                }
+            },
+            "id": "27526de3-452f-4e07-88c0-946169b9a097",
+            "type": "ifml.Action"
+        },
+        {
+            "attributes": {
+                "name": "Base Events Page",
+                "default": false,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 710,
+                        "y": -910
+                    },
+                    "size": {
+                        "height": 120,
+                        "width": 200
+                    }
+                }
+            },
+            "id": "3b00cb7e-f340-43f3-8e35-658e0aa2d12f",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "Go To Team Page",
+                "parameters": [],
+                "results": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 490,
+                        "y": -570
+                    },
+                    "size": {
+                        "height": 50,
+                        "width": 130
+                    }
+                }
+            },
+            "id": "4128312b-338c-42e9-b5a5-d05f3890a286",
+            "type": "ifml.Action"
+        },
+        {
+            "attributes": {
+                "name": "New/Edit Event",
+                "default": false,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1030,
+                        "y": -620
+                    },
+                    "size": {
+                        "height": 120,
+                        "width": 200
+                    }
+                }
+            },
+            "id": "4199aae4-9e7c-4103-9bfa-0f7fb7a6f724",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "Admin Events Page",
+                "default": false,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 710,
+                        "y": -770
+                    },
+                    "size": {
+                        "height": 140,
+                        "width": 200
+                    }
+                }
+            },
+            "id": "5fe9e004-52a8-4dea-9fc8-b2857dcf007d",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "Home Page",
+                "default": true,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 230,
+                        "y": -700
+                    },
+                    "size": {
+                        "height": 200,
+                        "width": 190
+                    }
+                }
+            },
+            "id": "d4b7a0ae-ecc0-4a08-befa-b92b28faf530",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "Base Team Page",
+                "default": false,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 710,
+                        "y": -500
+                    },
+                    "size": {
+                        "height": 110,
+                        "width": 200
+                    }
+                }
+            },
+            "id": "e7599f26-2e18-4433-91e2-10e4305b3df3",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "Go To Events Page",
+                "parameters": [],
+                "results": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 500,
+                        "y": -810
+                    },
+                    "size": {
+                        "height": 50,
+                        "width": 130
+                    }
+                }
+            },
+            "id": "f1580198-e5e4-4cfa-980d-0fc74dbb025b",
+            "type": "ifml.Action"
+        },
+        {
+            "attributes": {
+                "name": "Chosen Event",
+                "stereotype": "details",
+                "fields": [],
+                "collection": "Events"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1130,
+                        "y": -870
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "fb6d9cdb-e49f-4b0a-bbe4-3117fc498da2",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": ""
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1070,
+                        "y": -850
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "top"
+                    }
+                }
+            },
+            "id": "a3e716af-e9d3-402f-8a06-f44d3d2c41e2",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Future Events",
+                "stereotype": "list",
+                "fields": [],
+                "collection": "Events",
+                "filters": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 730,
+                        "y": -880
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "2d24f6ad-2aed-4bba-ab45-584b71c9c95f",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": "Not Admin"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 580,
+                        "y": -530
+                    },
+                    "name": {
+                        "horizontal": "right-outer",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "7dcb1bf8-3933-4f7c-9032-ae004d753c67",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Event Details",
+                "stereotype": "form",
+                "fields": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1050,
+                        "y": -590
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "839992f4-28e0-46e6-aec7-324761cb7597",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": "Future Events",
+                "stereotype": "list",
+                "fields": [],
+                "collection": "Events",
+                "filters": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 730,
+                        "y": -730
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "e95dc902-5479-43cc-868a-6bf19ceab9d0",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": "Navbar|Il Team "
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 410,
+                        "y": -610
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "middle"
+                    }
+                }
+            },
+            "id": "3df357d3-3f3a-4059-b0c6-1278688d9438",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "selected",
+                "stereotype": "selection"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 870,
+                        "y": -830
+                    },
+                    "name": {
+                        "horizontal": "right",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "799e93a0-bdac-43cc-b383-93a6dc50f4d8",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "delete",
+                "stereotype": "selection"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 870,
+                        "y": -730
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "top"
+                    }
+                }
+            },
+            "id": "298a393b-3f69-4b9c-91a2-fd65fe2ce9cf",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "New Event"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 900,
+                        "y": -670
+                    },
+                    "name": {
+                        "horizontal": "right-outer",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "970149aa-2e45-45fd-93cd-1deebd5323bb",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Team Members",
+                "stereotype": "list",
+                "fields": [],
+                "collection": "Team",
+                "filters": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 730,
+                        "y": -470
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "559b06a0-8e88-46d2-8c63-238b5899b573",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": "Admin Team Page",
+                "default": false,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 710,
+                        "y": -380
+                    },
+                    "size": {
+                        "height": 140,
+                        "width": 200
+                    }
+                }
+            },
+            "id": "a89b515e-b896-4481-b3f6-39dc2df3c691",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "Team Members",
+                "stereotype": "list",
+                "fields": [],
+                "collection": "Team",
+                "filters": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 730,
+                        "y": -340
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "541e608e-8ebf-4275-947e-f5d983ec10ee",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": "edit",
+                "stereotype": "selection"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 870,
+                        "y": -290
+                    },
+                    "name": {
+                        "horizontal": "right",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "e52c8c62-5183-424d-bc22-2adcba225f8e",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "New/Edit Member",
+                "default": false,
+                "landmark": false,
+                "xor": false
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1030,
+                        "y": -380
+                    },
+                    "size": {
+                        "height": 140,
+                        "width": 200
+                    }
+                }
+            },
+            "id": "83c8d4bb-2641-49c9-abba-9b9ce9276da9",
+            "type": "ifml.ViewContainer"
+        },
+        {
+            "attributes": {
+                "name": "New Member"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 900,
+                        "y": -350
+                    },
+                    "name": {
+                        "horizontal": "right-outer",
+                        "vertical": "top"
+                    }
+                }
+            },
+            "id": "53d8c898-46b5-4870-84bd-37fa22c97885",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Member Details",
+                "stereotype": "form",
+                "fields": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1060,
+                        "y": -340
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "80eb029f-b7fd-47d1-86da-652f41ad3546",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": "Submit"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1120,
+                        "y": -290
+                    },
+                    "name": {
+                        "horizontal": "right-outer",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "47990775-57bc-4353-978f-db862c992832",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "edit",
+                "stereotype": "selection"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 850,
+                        "y": -680
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "d02a9101-d7d8-41c4-9833-525967a5e88f",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Update Members List",
+                "parameters": [],
+                "results": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 880,
+                        "y": -220
+                    },
+                    "size": {
+                        "height": 50,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "24096078-3048-4e37-967a-338949cd9036",
+            "type": "ifml.Action"
+        },
+        {
+            "attributes": {
+                "name": ""
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 870,
+                        "y": -220
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "top"
+                    }
+                }
+            },
+            "id": "5ce1534f-1c1b-42b9-b1e1-710a7fce573a",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Navbar|Log in "
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 410,
+                        "y": -670
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "middle"
+                    }
+                }
+            },
+            "id": "c14c6f69-2f68-49c3-9012-106084d83929",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Navbar|Events "
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 410,
+                        "y": -640
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "middle"
+                    }
+                }
+            },
+            "id": "ec1154a9-4c26-4719-a5dd-2cdaa0f075e4",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Videos & Gallery",
+                "stereotype": "list",
+                "fields": [],
+                "collection": "Media",
+                "filters": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 250,
+                        "y": -580
+                    },
+                    "size": {
+                        "height": 60,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "a919dc03-87b3-425f-9223-f8c01b998d41",
+            "type": "ifml.ViewComponent"
+        },
+        {
+            "attributes": {
+                "name": "Is Admin"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 550,
+                        "y": -770
+                    },
+                    "name": {
+                        "horizontal": "right-outer",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "4fe9438c-d4bd-4e0d-95d7-39b76b5d03c4",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Not Admin"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 550,
+                        "y": -820
+                    },
+                    "name": {
+                        "horizontal": "right-outer",
+                        "vertical": "top"
+                    }
+                }
+            },
+            "id": "501b311a-abff-4fc8-ae79-d3c8a4f0a950",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Delete Event",
+                "parameters": [],
+                "results": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 950,
+                        "y": -780
+                    },
+                    "size": {
+                        "height": 50,
+                        "width": 110
+                    }
+                }
+            },
+            "id": "20f4e087-136b-4259-83f7-b3636e727bbf",
+            "type": "ifml.Action"
+        },
+        {
+            "attributes": {
+                "name": ""
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1000,
+                        "y": -740
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "top"
+                    }
+                }
+            },
+            "id": "102ac7a6-167d-4cc2-96ef-0637b79a54b2",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Update Events List",
+                "parameters": [],
+                "results": []
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 780,
+                        "y": -570
+                    },
+                    "size": {
+                        "height": 50,
+                        "width": 150
+                    }
+                }
+            },
+            "id": "8d4139f0-0196-4545-8cc6-b7558e07c3ea",
+            "type": "ifml.Action"
+        },
+        {
+            "attributes": {
+                "name": ""
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 770,
+                        "y": -560
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "top"
+                    }
+                }
+            },
+            "id": "44ea2a0a-d752-497c-a15f-1b6f80bc27dd",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Submit"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 1040,
+                        "y": -550
+                    },
+                    "name": {
+                        "horizontal": "middle",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "4fed0865-3f80-4123-a6f6-310ea634dc12",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "name": "Is Admin"
+            },
+            "metadata": {
+                "graphics": {
+                    "position": {
+                        "x": 520,
+                        "y": -530
+                    },
+                    "name": {
+                        "horizontal": "left-outer",
+                        "vertical": "bottom"
+                    }
+                }
+            },
+            "id": "6b30af19-1030-4243-91a8-b9dbb5c36e25",
+            "type": "ifml.Event"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": []
+                }
+            },
+            "id": "5fb7b621-1964-40e9-b76d-3a9a8b369a65",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 740,
+                            "y": -550
+                        }
+                    ]
+                }
+            },
+            "id": "62562f07-12fe-41b6-a11a-3f608011bd63",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 1010,
+                            "y": -700
+                        }
+                    ]
+                }
+            },
+            "id": "641ada82-6190-4e50-8a35-12b87a2c9697",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {}
+            },
+            "id": "7fea4924-9421-4432-b0be-268928dccafb",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 590,
+                            "y": -450
+                        }
+                    ]
+                }
+            },
+            "id": "801d41f9-83a9-4d76-98bc-468a81a71b25",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {}
+            },
+            "id": "8d7ac6d2-de43-46a0-974c-bb18d02872b1",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 880,
+                            "y": -750
+                        }
+                    ]
+                }
+            },
+            "id": "c2611a64-d8cf-4855-86b7-9bf3f6dc49f4",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 570,
+                            "y": -600
+                        }
+                    ]
+                }
+            },
+            "id": "c89b5dd2-757d-4b3d-8348-46574e03c3dd",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 1130,
+                            "y": -660
+                        }
+                    ]
+                }
+            },
+            "id": "ce6c3e90-8b24-4a1c-a4c1-729c7d82ceca",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {}
+            },
+            "id": "0dc39722-b8eb-4668-91dd-5594a81dc800",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {}
+            },
+            "id": "ab9a88fe-98a6-4694-bf9d-ecb696c441f4",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 860,
+                            "y": -590
+                        }
+                    ]
+                }
+            },
+            "id": "7ca56ecc-5c08-4d5e-a427-31a66abd0c1d",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 810,
+                            "y": -210
+                        }
+                    ]
+                }
+            },
+            "id": "a8a88d25-02e7-4538-a6ca-ddcbbdb50056",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 1130,
+                            "y": -200
+                        }
+                    ]
+                }
+            },
+            "id": "f0084b4b-35d5-4381-902f-e1f366fd972e",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 450,
+                            "y": -630
+                        },
+                        {
+                            "x": 450,
+                            "y": -780
+                        }
+                    ]
+                }
+            },
+            "id": "51a9110a-ebd4-497b-ab76-ff678abf7488",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 530,
+                            "y": -350
+                        }
+                    ]
+                }
+            },
+            "id": "77a7ce2c-d7e1-45c8-a8aa-e3f03f156f3b",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 560,
+                            "y": -690
+                        }
+                    ]
+                }
+            },
+            "id": "1e80bddb-63a8-442d-924f-01d3b2faaba7",
+            "type": "ifml.NavigationFlow"
+        },
+        {
+            "attributes": {
+                "bindings": []
+            },
+            "metadata": {
+                "graphics": {
+                    "vertices": [
+                        {
+                            "x": 560,
+                            "y": -870
+                        }
+                    ]
+                }
+            },
+            "id": "15c3b577-a399-41a5-b0ac-e46f0e985302",
+            "type": "ifml.NavigationFlow"
+        }
+    ],
+    "relations": [
+        {
+            "type": "hierarchy",
+            "parent": "231fe9a8-cc61-42f2-9e09-bf098f55fc5a",
+            "child": "fb6d9cdb-e49f-4b0a-bbe4-3117fc498da2"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "27526de3-452f-4e07-88c0-946169b9a097",
+            "child": "a3e716af-e9d3-402f-8a06-f44d3d2c41e2"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "3b00cb7e-f340-43f3-8e35-658e0aa2d12f",
+            "child": "2d24f6ad-2aed-4bba-ab45-584b71c9c95f"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "4128312b-338c-42e9-b5a5-d05f3890a286",
+            "child": "7dcb1bf8-3933-4f7c-9032-ae004d753c67"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "4199aae4-9e7c-4103-9bfa-0f7fb7a6f724",
+            "child": "839992f4-28e0-46e6-aec7-324761cb7597"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "5fe9e004-52a8-4dea-9fc8-b2857dcf007d",
+            "child": "e95dc902-5479-43cc-868a-6bf19ceab9d0"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "d4b7a0ae-ecc0-4a08-befa-b92b28faf530",
+            "child": "3df357d3-3f3a-4059-b0c6-1278688d9438"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "2d24f6ad-2aed-4bba-ab45-584b71c9c95f",
+            "child": "799e93a0-bdac-43cc-b383-93a6dc50f4d8"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "e95dc902-5479-43cc-868a-6bf19ceab9d0",
+            "child": "298a393b-3f69-4b9c-91a2-fd65fe2ce9cf"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "5fe9e004-52a8-4dea-9fc8-b2857dcf007d",
+            "child": "970149aa-2e45-45fd-93cd-1deebd5323bb"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "e7599f26-2e18-4433-91e2-10e4305b3df3",
+            "child": "559b06a0-8e88-46d2-8c63-238b5899b573"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "a89b515e-b896-4481-b3f6-39dc2df3c691",
+            "child": "541e608e-8ebf-4275-947e-f5d983ec10ee"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "541e608e-8ebf-4275-947e-f5d983ec10ee",
+            "child": "e52c8c62-5183-424d-bc22-2adcba225f8e"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "a89b515e-b896-4481-b3f6-39dc2df3c691",
+            "child": "53d8c898-46b5-4870-84bd-37fa22c97885"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "83c8d4bb-2641-49c9-abba-9b9ce9276da9",
+            "child": "80eb029f-b7fd-47d1-86da-652f41ad3546"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "80eb029f-b7fd-47d1-86da-652f41ad3546",
+            "child": "47990775-57bc-4353-978f-db862c992832"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "e95dc902-5479-43cc-868a-6bf19ceab9d0",
+            "child": "d02a9101-d7d8-41c4-9833-525967a5e88f"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "24096078-3048-4e37-967a-338949cd9036",
+            "child": "5ce1534f-1c1b-42b9-b1e1-710a7fce573a"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "d4b7a0ae-ecc0-4a08-befa-b92b28faf530",
+            "child": "c14c6f69-2f68-49c3-9012-106084d83929"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "d4b7a0ae-ecc0-4a08-befa-b92b28faf530",
+            "child": "ec1154a9-4c26-4719-a5dd-2cdaa0f075e4"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "d4b7a0ae-ecc0-4a08-befa-b92b28faf530",
+            "child": "a919dc03-87b3-425f-9223-f8c01b998d41"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "f1580198-e5e4-4cfa-980d-0fc74dbb025b",
+            "child": "4fe9438c-d4bd-4e0d-95d7-39b76b5d03c4"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "f1580198-e5e4-4cfa-980d-0fc74dbb025b",
+            "child": "501b311a-abff-4fc8-ae79-d3c8a4f0a950"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "20f4e087-136b-4259-83f7-b3636e727bbf",
+            "child": "102ac7a6-167d-4cc2-96ef-0637b79a54b2"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "8d4139f0-0196-4545-8cc6-b7558e07c3ea",
+            "child": "44ea2a0a-d752-497c-a15f-1b6f80bc27dd"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "839992f4-28e0-46e6-aec7-324761cb7597",
+            "child": "4fed0865-3f80-4123-a6f6-310ea634dc12"
+        },
+        {
+            "type": "hierarchy",
+            "parent": "4128312b-338c-42e9-b5a5-d05f3890a286",
+            "child": "6b30af19-1030-4243-91a8-b9dbb5c36e25"
+        },
+        {
+            "type": "source",
+            "flow": "5fb7b621-1964-40e9-b76d-3a9a8b369a65",
+            "source": "4fed0865-3f80-4123-a6f6-310ea634dc12"
+        },
+        {
+            "type": "source",
+            "flow": "62562f07-12fe-41b6-a11a-3f608011bd63",
+            "source": "44ea2a0a-d752-497c-a15f-1b6f80bc27dd"
+        },
+        {
+            "type": "source",
+            "flow": "641ada82-6190-4e50-8a35-12b87a2c9697",
+            "source": "102ac7a6-167d-4cc2-96ef-0637b79a54b2"
+        },
+        {
+            "type": "source",
+            "flow": "7fea4924-9421-4432-b0be-268928dccafb",
+            "source": "799e93a0-bdac-43cc-b383-93a6dc50f4d8"
+        },
+        {
+            "type": "source",
+            "flow": "801d41f9-83a9-4d76-98bc-468a81a71b25",
+            "source": "7dcb1bf8-3933-4f7c-9032-ae004d753c67"
+        },
+        {
+            "type": "source",
+            "flow": "8d7ac6d2-de43-46a0-974c-bb18d02872b1",
+            "source": "a3e716af-e9d3-402f-8a06-f44d3d2c41e2"
+        },
+        {
+            "type": "source",
+            "flow": "c2611a64-d8cf-4855-86b7-9bf3f6dc49f4",
+            "source": "298a393b-3f69-4b9c-91a2-fd65fe2ce9cf"
+        },
+        {
+            "type": "source",
+            "flow": "c89b5dd2-757d-4b3d-8348-46574e03c3dd",
+            "source": "3df357d3-3f3a-4059-b0c6-1278688d9438"
+        },
+        {
+            "type": "source",
+            "flow": "ce6c3e90-8b24-4a1c-a4c1-729c7d82ceca",
+            "source": "970149aa-2e45-45fd-93cd-1deebd5323bb"
+        },
+        {
+            "type": "source",
+            "flow": "0dc39722-b8eb-4668-91dd-5594a81dc800",
+            "source": "53d8c898-46b5-4870-84bd-37fa22c97885"
+        },
+        {
+            "type": "source",
+            "flow": "ab9a88fe-98a6-4694-bf9d-ecb696c441f4",
+            "source": "e52c8c62-5183-424d-bc22-2adcba225f8e"
+        },
+        {
+            "type": "source",
+            "flow": "7ca56ecc-5c08-4d5e-a427-31a66abd0c1d",
+            "source": "d02a9101-d7d8-41c4-9833-525967a5e88f"
+        },
+        {
+            "type": "source",
+            "flow": "a8a88d25-02e7-4538-a6ca-ddcbbdb50056",
+            "source": "5ce1534f-1c1b-42b9-b1e1-710a7fce573a"
+        },
+        {
+            "type": "source",
+            "flow": "f0084b4b-35d5-4381-902f-e1f366fd972e",
+            "source": "47990775-57bc-4353-978f-db862c992832"
+        },
+        {
+            "type": "source",
+            "flow": "51a9110a-ebd4-497b-ab76-ff678abf7488",
+            "source": "ec1154a9-4c26-4719-a5dd-2cdaa0f075e4"
+        },
+        {
+            "type": "source",
+            "flow": "77a7ce2c-d7e1-45c8-a8aa-e3f03f156f3b",
+            "source": "6b30af19-1030-4243-91a8-b9dbb5c36e25"
+        },
+        {
+            "type": "source",
+            "flow": "1e80bddb-63a8-442d-924f-01d3b2faaba7",
+            "source": "4fe9438c-d4bd-4e0d-95d7-39b76b5d03c4"
+        },
+        {
+            "type": "source",
+            "flow": "15c3b577-a399-41a5-b0ac-e46f0e985302",
+            "source": "501b311a-abff-4fc8-ae79-d3c8a4f0a950"
+        },
+        {
+            "type": "target",
+            "flow": "5fb7b621-1964-40e9-b76d-3a9a8b369a65",
+            "target": "8d4139f0-0196-4545-8cc6-b7558e07c3ea"
+        },
+        {
+            "type": "target",
+            "flow": "62562f07-12fe-41b6-a11a-3f608011bd63",
+            "target": "5fe9e004-52a8-4dea-9fc8-b2857dcf007d"
+        },
+        {
+            "type": "target",
+            "flow": "641ada82-6190-4e50-8a35-12b87a2c9697",
+            "target": "e95dc902-5479-43cc-868a-6bf19ceab9d0"
+        },
+        {
+            "type": "target",
+            "flow": "7fea4924-9421-4432-b0be-268928dccafb",
+            "target": "27526de3-452f-4e07-88c0-946169b9a097"
+        },
+        {
+            "type": "target",
+            "flow": "801d41f9-83a9-4d76-98bc-468a81a71b25",
+            "target": "e7599f26-2e18-4433-91e2-10e4305b3df3"
+        },
+        {
+            "type": "target",
+            "flow": "8d7ac6d2-de43-46a0-974c-bb18d02872b1",
+            "target": "231fe9a8-cc61-42f2-9e09-bf098f55fc5a"
+        },
+        {
+            "type": "target",
+            "flow": "c2611a64-d8cf-4855-86b7-9bf3f6dc49f4",
+            "target": "20f4e087-136b-4259-83f7-b3636e727bbf"
+        },
+        {
+            "type": "target",
+            "flow": "c89b5dd2-757d-4b3d-8348-46574e03c3dd",
+            "target": "4128312b-338c-42e9-b5a5-d05f3890a286"
+        },
+        {
+            "type": "target",
+            "flow": "ce6c3e90-8b24-4a1c-a4c1-729c7d82ceca",
+            "target": "4199aae4-9e7c-4103-9bfa-0f7fb7a6f724"
+        },
+        {
+            "type": "target",
+            "flow": "0dc39722-b8eb-4668-91dd-5594a81dc800",
+            "target": "83c8d4bb-2641-49c9-abba-9b9ce9276da9"
+        },
+        {
+            "type": "target",
+            "flow": "ab9a88fe-98a6-4694-bf9d-ecb696c441f4",
+            "target": "83c8d4bb-2641-49c9-abba-9b9ce9276da9"
+        },
+        {
+            "type": "target",
+            "flow": "7ca56ecc-5c08-4d5e-a427-31a66abd0c1d",
+            "target": "4199aae4-9e7c-4103-9bfa-0f7fb7a6f724"
+        },
+        {
+            "type": "target",
+            "flow": "a8a88d25-02e7-4538-a6ca-ddcbbdb50056",
+            "target": "a89b515e-b896-4481-b3f6-39dc2df3c691"
+        },
+        {
+            "type": "target",
+            "flow": "f0084b4b-35d5-4381-902f-e1f366fd972e",
+            "target": "24096078-3048-4e37-967a-338949cd9036"
+        },
+        {
+            "type": "target",
+            "flow": "51a9110a-ebd4-497b-ab76-ff678abf7488",
+            "target": "f1580198-e5e4-4cfa-980d-0fc74dbb025b"
+        },
+        {
+            "type": "target",
+            "flow": "77a7ce2c-d7e1-45c8-a8aa-e3f03f156f3b",
+            "target": "a89b515e-b896-4481-b3f6-39dc2df3c691"
+        },
+        {
+            "type": "target",
+            "flow": "1e80bddb-63a8-442d-924f-01d3b2faaba7",
+            "target": "5fe9e004-52a8-4dea-9fc8-b2857dcf007d"
+        },
+        {
+            "type": "target",
+            "flow": "15c3b577-a399-41a5-b0ac-e46f0e985302",
+            "target": "3b00cb7e-f340-43f3-8e35-658e0aa2d12f"
+        }
+    ],
+    "statistics": {
+        "session": {
+            "started_at": "2022-04-13T16:10:18.777Z",
+            "ended_at": "2022-04-13T16:45:43.452Z"
+        }
+    }
+}
