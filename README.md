@@ -1,8 +1,8 @@
-# PW_Project_Beatrice
+# ArcangeloDJ 2.0
 
-Progetto per il corso di Programmazione Web e Servizi Digitali (AA. 2021/2022)  
+Progetto per il corso di Programmazione Web e Servizi Digitali (AA. 2021/2022) di Matteo Beatrice
 
-- [PW_Project_Beatrice](#pw_project_beatrice)
+- [ArcangeloDJ 2.0](#arcangelodj-20)
   - [Descrizione](#descrizione)
     - [Funzionalità principali](#funzionalità-principali)
     - [Schemi di Alto Livello](#schemi-di-alto-livello)
