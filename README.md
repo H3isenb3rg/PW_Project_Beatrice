@@ -11,13 +11,19 @@ Progetto per il corso di Programmazione Web e Servizi Digitali (AA. 2021/2022) d
 Creare versione aggiornata e dinamica del sito già esistente [arcangelodj.it](https://www.arcangelodj.it/)
 
 ### Funzionalità principali
-* Galleria di immagini e video nella home page del sito con contenuto personalizzabile da utente *__Admin__* 
-* Pagina *Eventi* con elenco di tutti gli eventi futuri e la possibilità di prenotare posti se correttamente loggati
-  * Utente __*Admin*__ può creare nuovi eventi o modificare quelli esistenti
-  * Ogni evento è associato ad una *Venue* che comprende il nome e link alla posizione su Google Maps(se specificata)
-    * Admin ha la possibilità di aggiungere nuove *Venue*
-* Pagina *Team* con l'elenco di tutti i membri del Team 
-  * Utente *__Admin__* può aggiungere membri o modificare quelli esistenti
+* Diverse pagine navigabili tramite navbar
+* Pagina __*Eventi*__ con visualizzazione degli eventi futuri
+  * Se utente registrato (Attendee) anche possibilità di iscrizione all'evento indicando un nome per la prenotazione e il numero di partecipanti
+  * Attendee può, nella sua area riservata, visualizzare e modificare/cancellare le sue prenotazioni
+  * Possibilità di filtrare per Venue o per Data
+* Pagina __*Team*__ con visualizzazione componenti del team
+* Pagina __*Gallery*__ con immagini e video 
+* Possibilità da parte di utenti di tipologia Team Member di aggiungere/modificare/cancellare:
+  * _Eventi_ -> Contenti un nome, descrizione, data e ora, luogo(Venue) e, se limitati, il numero di posti disponibili
+  * _Venue_ -> Luoghi dove si svolgeranno gli eventi contenenti: un nome, indirizzo testuale e, se fornito, link Google Maps
+  * _Membri del Team_ -> Con nome, ruolo e immagine
+  * _Gallery Items_
+* Scelta della lingua di visualizzazione (Italiano/Inglese)
 
 ### Schemi di Alto Livello
 Idea iniziale struttura pagine sito
