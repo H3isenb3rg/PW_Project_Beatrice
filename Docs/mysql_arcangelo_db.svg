@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="203 230 1005 558" width="802px" height="328px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <line x1="785" y1="464" x2="795" y2="464" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="902" y1="451" x2="912" y2="451" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="795" y1="464" x2="902" y2="451" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="792.5" y1="464" x2="788.96446609407" y2="467.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="792.5" y1="464" x2="788.96446609407" y2="460.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="907" y1="451" x2="903.46446609407" y2="454.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="907" y1="451" x2="903.46446609407" y2="447.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="458" y1="344" x2="448" y2="344" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="316" y1="275" x2="306" y2="275" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="448" y1="344" x2="316" y2="275" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="450.5" y1="344" x2="454.03553390593" y2="347.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="450.5" y1="344" x2="454.03553390593" y2="340.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="311" y1="275" x2="314.53553390593" y2="278.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="311" y1="275" x2="314.53553390593" y2="271.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="548" y1="364" x2="558" y2="364" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="687" y1="364" x2="697" y2="364" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="558" y1="364" x2="687" y2="364" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="555.5" y1="364" x2="551.96446609407" y2="367.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="555.5" y1="364" x2="551.96446609407" y2="360.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="692" y1="364" x2="688.46446609407" y2="367.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="692" y1="364" x2="688.46446609407" y2="360.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <rect width="88" height="20" x="697" y="334" style="fill:#007;stroke:black;"/>
+   <text width="88" height="20" x="702" y="348" style="fill:#fff;" font-family="Arial" font-size="16px"> event</text>
+   <rect width="88" height="20" x="697" y="354" style="fill:#aea;stroke:black;"/>
+   <text width="88" height="20" x="702" y="368" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="88" height="20" x="697" y="374" style="fill:none;stroke:black;"/>
+   <text width="88" height="20" x="702" y="388" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="88" height="20" x="697" y="394" style="fill:none;stroke:black;"/>
+   <text width="88" height="20" x="702" y="408" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="88" height="20" x="697" y="414" style="fill:none;stroke:black;"/>
+   <text width="88" height="20" x="702" y="428" style="fill:black;" font-family="Arial" font-size="16px">date</text>
+   <rect width="88" height="20" x="697" y="434" style="fill:none;stroke:black;"/>
+   <text width="88" height="20" x="702" y="448" style="fill:black;" font-family="Arial" font-size="16px">seats</text>
+   <rect width="88" height="20" x="697" y="454" style="fill:none;stroke:black;"/>
+   <text width="88" height="20" x="702" y="468" style="fill:black;" font-family="Arial" font-size="16px">venue_id</text>
+   <rect width="90" height="20" x="218" y="448" style="fill:#007;stroke:black;"/>
+   <text width="90" height="20" x="223" y="462" style="fill:#fff;" font-family="Arial" font-size="16px"> gallery</text>
+   <rect width="90" height="20" x="218" y="468" style="fill:#aea;stroke:black;"/>
+   <text width="90" height="20" x="223" y="482" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="90" height="20" x="218" y="488" style="fill:none;stroke:black;"/>
+   <text width="90" height="20" x="223" y="502" style="fill:black;" font-family="Arial" font-size="16px">link</text>
+   <rect width="90" height="20" x="218" y="508" style="fill:none;stroke:black;"/>
+   <text width="90" height="20" x="223" y="522" style="fill:black;" font-family="Arial" font-size="16px">home_page</text>
+   <rect width="90" height="20" x="458" y="254" style="fill:#007;stroke:black;"/>
+   <text width="90" height="20" x="463" y="268" style="fill:#fff;" font-family="Arial" font-size="16px"> reservation</text>
+   <rect width="90" height="20" x="458" y="274" style="fill:#aea;stroke:black;"/>
+   <text width="90" height="20" x="463" y="288" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="90" height="20" x="458" y="294" style="fill:none;stroke:black;"/>
+   <text width="90" height="20" x="463" y="308" style="fill:black;" font-family="Arial" font-size="16px">table_name</text>
+   <rect width="90" height="20" x="458" y="314" style="fill:none;stroke:black;"/>
+   <text width="90" height="20" x="463" y="328" style="fill:black;" font-family="Arial" font-size="16px">guests</text>
+   <rect width="90" height="20" x="458" y="334" style="fill:none;stroke:black;"/>
+   <text width="90" height="20" x="463" y="348" style="fill:black;" font-family="Arial" font-size="16px">user_id</text>
+   <rect width="90" height="20" x="458" y="354" style="fill:none;stroke:black;"/>
+   <text width="90" height="20" x="463" y="368" style="fill:black;" font-family="Arial" font-size="16px">event_id</text>
+   <rect width="53" height="20" x="453" y="443" style="fill:#007;stroke:black;"/>
+   <text width="53" height="20" x="458" y="457" style="fill:#fff;" font-family="Arial" font-size="16px"> team</text>
+   <rect width="53" height="20" x="453" y="463" style="fill:#aea;stroke:black;"/>
+   <text width="53" height="20" x="458" y="477" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="53" height="20" x="453" y="483" style="fill:none;stroke:black;"/>
+   <text width="53" height="20" x="458" y="497" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="53" height="20" x="453" y="503" style="fill:none;stroke:black;"/>
+   <text width="53" height="20" x="458" y="517" style="fill:black;" font-family="Arial" font-size="16px">role</text>
+   <rect width="53" height="20" x="453" y="523" style="fill:none;stroke:black;"/>
+   <text width="53" height="20" x="458" y="537" style="fill:black;" font-family="Arial" font-size="16px">image</text>
+   <rect width="81" height="20" x="225" y="245" style="fill:#007;stroke:black;"/>
+   <text width="81" height="20" x="230" y="259" style="fill:#fff;" font-family="Arial" font-size="16px"> user</text>
+   <rect width="81" height="20" x="225" y="265" style="fill:#aea;stroke:black;"/>
+   <text width="81" height="20" x="230" y="279" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="81" height="20" x="225" y="285" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="230" y="299" style="fill:black;" font-family="Arial" font-size="16px">username</text>
+   <rect width="81" height="20" x="225" y="305" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="230" y="319" style="fill:black;" font-family="Arial" font-size="16px">email</text>
+   <rect width="81" height="20" x="225" y="325" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="230" y="339" style="fill:black;" font-family="Arial" font-size="16px">pwd</text>
+   <rect width="81" height="20" x="225" y="345" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="230" y="359" style="fill:black;" font-family="Arial" font-size="16px">is_admin</text>
+   <rect width="78" height="20" x="912" y="421" style="fill:#007;stroke:black;"/>
+   <text width="78" height="20" x="917" y="435" style="fill:#fff;" font-family="Arial" font-size="16px"> venue</text>
+   <rect width="78" height="20" x="912" y="441" style="fill:#aea;stroke:black;"/>
+   <text width="78" height="20" x="917" y="455" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="78" height="20" x="912" y="461" style="fill:none;stroke:black;"/>
+   <text width="78" height="20" x="917" y="475" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="78" height="20" x="912" y="481" style="fill:none;stroke:black;"/>
+   <text width="78" height="20" x="917" y="495" style="fill:black;" font-family="Arial" font-size="16px">address</text>
+   <rect width="78" height="20" x="912" y="501" style="fill:none;stroke:black;"/>
+   <text width="78" height="20" x="917" y="515" style="fill:black;" font-family="Arial" font-size="16px">maps_link</text>
+</svg>
