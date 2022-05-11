@@ -1,0 +1,9 @@
+img.logo-navbar {
+    height: 5rem !important;
+}
+
+a.logo-navbar {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+}

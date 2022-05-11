@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get("/", [FrontController::class, "getHome"])->name("home");
+
+Route::group(["prefix" => "user"], function () {
+
+    Route::get("login", [AuthController::class, "authentication"])->name("user.login");
+    Route::get("logout", [AuthController::class, "logout"])->name("user.logout");
+
 });
+
+Route::resource("event", EventController::class);
