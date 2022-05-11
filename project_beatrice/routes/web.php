@@ -21,6 +21,8 @@ Route::get("/", [FrontController::class, "getHome"])->name("home");
 Route::group(["prefix" => "user"], function () {
 
     Route::get("login", [AuthController::class, "authentication"])->name("user.login");
+    Route::post("login", [AuthController::class, "login"])->name("user.login");
+    Route::post("resister", [AuthController::class, "registration"])->name("user.register");
     Route::get("logout", [AuthController::class, "logout"])->name("user.logout");
 
 });

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class AdjUser extends Model {
     protected $table = "user";
 
+    public $timestamps = false;
+
     public function reservations() {
         return $this->hasMany("App\Models\Reservation");
     }

@@ -8,7 +8,14 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li><a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-calendar"></span> Calendar</a></li>
-            <!-- TODO: Se loggato bottone per visualizzare le mie iscrizioni -->
+            @if ($logged)
+                <li class="divider"></li>
+                <li><a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-time"></span> My Reservations</a></li>
+                @if ($isAdmin)
+                <li class="divider"></li>
+                <li><a href="{{ route('event.create') }}"><span class="glyphicon glyphicon-plus-sign"></span> New Event</a></li>
+            @endif
+            @endif
         </ul>
     </li>
 @endsection
