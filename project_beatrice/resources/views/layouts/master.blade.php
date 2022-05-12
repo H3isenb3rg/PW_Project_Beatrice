@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="it">
 
 <head>
     <meta charset="utf-8">
@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand js-scroll-trigger logo-navbar" href="#page-top">
-                <img class="logo-navbar" src="{{ url('/') }}/img/static/LOGO-ADJ-BLACK.jpg" alt="ADJ logo">
+                <img class="logo-navbar" src="{{ url('/') }}/img/static/LOGO-ADJ-BLACK.jpg" alt="ADJ logo" title="ADJ">
             </a>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -45,14 +45,6 @@
         <ul class="breadcrumb pull-right">
             @yield('breadcrumb')
         </ul>
-    </div>
-
-    <div class="container">
-        <header class="header-sezione">
-            <h1>
-                @yield('title')
-            </h1>
-        </header>
     </div>
 
     @yield('corpo')
