@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +17,19 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get("/", [FrontController::class, "getHome"])->name("home");
+Route::get("/", [FrontController::class, "getHome"])->name("home")->middleware(["lang"]);
 
 Route::group(["prefix" => "user"], function () {
 
-    Route::get("login", [AuthController::class, "authentication"])->name("user.login");
+    Route::get("login", [AuthController::class, "authentication"])->name("user.login")->middleware(["lang"]);
     Route::post("login", [AuthController::class, "login"])->name("user.login");
     Route::post("resister", [AuthController::class, "registration"])->name("user.register");
     Route::get("logout", [AuthController::class, "logout"])->name("user.logout");
 
 });
 
+Route::get('/lang/{lang}', [LangController::class, "changeLanguage"])->name("setLang");
+
 Route::resource("event", EventController::class);
+
+

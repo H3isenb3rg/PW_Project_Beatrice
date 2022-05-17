@@ -35,6 +35,8 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
+                    <a href="{{ route("setLang", ["lang" => "en"]) }}"><img class="img img-rounded" width="30px" src="{{ url('/') }}/img/flags/en.png"></a>
+                    <a href="{{ route("setLang", ["lang" => "it"]) }}"><img class="img img-rounded" width="30px" src="{{ url('/') }}/img/flags/it.png"></a>
                     @yield('right_navbar')
                 </ul>
             </div>

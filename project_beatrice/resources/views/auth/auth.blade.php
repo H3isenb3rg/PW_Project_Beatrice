@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login or Register</title>
+    <title>{{ trans('labels.authTitle') }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
@@ -24,8 +24,10 @@
             <div class="col-md-6 col-md-offset-3">
                 <div>
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#login-form" data-toggle="tab">Login</a></li>
-                        <li><a href="#register-form" data-toggle="tab">Register</a></li>
+                        <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li class="active"><a href="#login-form"
+                                data-toggle="tab">{{ trans('labels.login') }}</a></li>
+                        <li><a href="#register-form" data-toggle="tab">{{ trans('labels.register') }}</a></li>
                     </ul>
                     <div class="tab-content">
 
@@ -42,20 +44,21 @@
                                 </div>
                                 <div class="form-group text-center">
                                     <input type="checkbox" name="remember">
-                                    <label for="remember"> Remember Me</label>
+                                    <label for="remember"> {{ trans('labels.rememberMe') }}</label>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <input type="submit" name="login-submit"
-                                                class="form-control btn btn-primary" value="Log In">
+                                                class="form-control btn btn-primary"
+                                                value="{{ trans('labels.login') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
 
                                     <div class="text-center">
-                                        <a href="#" class="forgot-password">Forgot Password?</a>
+                                        <a href="#" class="forgot-password">{{ trans('labels.forgotPwd') }}</a>
                                     </div>
 
                                 </div>
@@ -71,8 +74,8 @@
                                         value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="email" class="form-control" placeholder="Email Address"
-                                        value="">
+                                    <input type="text" name="email" class="form-control"
+                                        placeholder="{{ trans('labels.emailAddr') }}" value="">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control"
@@ -80,13 +83,14 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="confirm-password" class="form-control"
-                                        placeholder="Confirm Password">
+                                        placeholder="{{ trans('labels.confirmPwd') }}">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <input type="submit" name="register-submit"
-                                                class="form-control btn btn-primary" value="Register Now">
+                                                class="form-control btn btn-primary"
+                                                value="{{ trans('labels.registerNow') }}">
                                         </div>
                                     </div>
                                 </div>
