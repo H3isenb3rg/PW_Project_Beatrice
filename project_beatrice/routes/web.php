@@ -30,6 +30,11 @@ Route::group(["prefix" => "user"], function () {
 
 Route::get('/lang/{lang}', [LangController::class, "changeLanguage"])->name("setLang");
 
-Route::resource("event", EventController::class);
+Route::group(["prefix" => "event"], function () {
+
+    Route::get("create", [EventController::class, "goToCreate"])->name("event.create")->middleware(["lang"]);
+    Route::get("index", [EventController::class, "goToCurrentEvents"])->name("event.index")->middleware(["lang"]);
+
+});
 
 

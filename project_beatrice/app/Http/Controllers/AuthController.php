@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DataLayer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller {
     public function authentication() {
@@ -12,23 +13,21 @@ class AuthController extends Controller {
     }
 
     public function logout() {
-        session_start();
-        session_destroy();
+        Session::flush();
 
         return Redirect::to(route("home"));
     }
 
     public function login(Request $request) {
-        session_start();
         $dl = new DataLayer();
 
         $username = $request->input("username");
         $pwd = $request->input("password");
 
         if ($dl->validUser($username, $pwd)) {
-            $_SESSION['logged'] = true;
-            $_SESSION['loggedName'] = $username;
-            $_SESSION["is_admin"] = $dl->isAdmin($username);
+            Session::put("logged", true);
+            Session::put("loggedName", $username);
+            Session::put("is_admin", $dl->isAdmin($username));
 
             // Torniamo alla vista index
             return Redirect::to(route("home"));
