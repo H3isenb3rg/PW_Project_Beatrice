@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LangController;
+use App\Http\Controllers\VenueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Route::group(["prefix" => "event"], function () {
 // VENUE
 Route::group(["prefix" => "venue"], function () {
 
-    Route::get("create", [])->name("venue.create")->middleware(["lang"]);
+    Route::post("create", [VenueController::class, ])->name("venue.create")->middleware(["lang"]);
 
 });
 

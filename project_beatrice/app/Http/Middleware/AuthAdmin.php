@@ -2,8 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\DataLayer;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -17,8 +19,9 @@ class AuthAdmin
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next) {
-        
-        if(!Session::has("is_admin") || !Session::get("is_admin")) {
+        $dl = new DataLayer();
+
+        if(!$dl->isAdmin(Session::get("loggedName"))) {
             Session::put("error", $this->translate_error_message());
             return Redirect::to(route("user.login"));
         }

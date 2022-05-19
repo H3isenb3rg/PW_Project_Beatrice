@@ -39,6 +39,10 @@ class DataLayer extends Model {
     public function isAdmin($username) {
         $user = AdjUser::where("username", $username)->get(["is_admin"])[0];
 
-        return $user->is_admin;
+        if ($user->is_admin == "0") {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

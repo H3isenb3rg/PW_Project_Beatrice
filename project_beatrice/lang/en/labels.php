@@ -23,5 +23,6 @@ return [
     "name" => "Name",
     "address" => "Address",
     "city" => "City",
-    "confirm" => "Confirm"
+    "confirm" => "Confirm",
+    "mapsLink" => "Google Maps Link"
 ];

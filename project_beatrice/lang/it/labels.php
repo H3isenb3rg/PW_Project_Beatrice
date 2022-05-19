@@ -19,9 +19,10 @@ return [
     "confirmPwd" => "Conferma Password",
     "registerNow" => "Registrati Ora!",
     "emailAddr" => "Indirizzo Email",
-    "newVenueTitle" => "Crea un nuovo luogo",
+    "newVenueTitle" => "Crea un nuovo Luogo",
     "name" => "Nome",
     "address" => "Indirizzo",
     "city" => "Citt&agrave;",
-    "confirm" => "Conferma"
+    "confirm" => "Conferma",
+    "mapsLink" => "Link Google Maps"
 ];

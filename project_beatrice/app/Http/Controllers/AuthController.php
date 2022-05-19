@@ -13,7 +13,7 @@ class AuthController extends Controller {
 
         if (Session::has("error")) {
             $alert = $this->create_alert(Session::get("error"));
-            Session::flush();
+            Session::forget("error");
         }
 
         return view("auth.auth")->with("alert", $alert);
@@ -34,7 +34,6 @@ class AuthController extends Controller {
         if ($dl->validUser($username, $pwd)) {
             Session::put("logged", true);
             Session::put("loggedName", $username);
-            Session::put("is_admin", $dl->isAdmin($username));
 
             // Torniamo alla vista index
             return Redirect::to(route("home"));
@@ -55,7 +54,7 @@ class AuthController extends Controller {
      * Creates the Bootstrap alert with a custom message
      */
     private function create_alert($message) {
-        return '<div class="alert alert-danger alert-dismissible" role="alert">
+        return '<div class="alert alert-danger alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button> ' .
                         $message

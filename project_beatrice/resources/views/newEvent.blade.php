@@ -65,6 +65,10 @@
                                         placeholder="{{ trans('labels.address') }}">
                                 </div>
                                 <div class="form-group">
+                                    <input type="url" name="maps" class="form-control"
+                                        placeholder="{{ trans('labels.mapsLink') }}">
+                                </div>
+                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <input type="submit" name="login-submit" class="form-control btn btn-primary"
