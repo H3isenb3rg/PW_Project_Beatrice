@@ -23,6 +23,7 @@
         <div class="row" style="margin-top: 4em;">
             <div class="col-md-6 col-md-offset-3">
                 <div>
+                    {!! $alert !!}
                     <ul class="nav nav-tabs">
                         <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li class="active"><a href="#login-form"

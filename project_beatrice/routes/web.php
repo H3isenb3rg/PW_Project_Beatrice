@@ -18,7 +18,9 @@ use App\Http\Controllers\LangController;
 */
 
 Route::get("/", [FrontController::class, "getHome"])->name("home")->middleware(["lang"]);
+Route::get('/lang/{lang}', [LangController::class, "changeLanguage"])->name("setLang");
 
+// USER
 Route::group(["prefix" => "user"], function () {
 
     Route::get("login", [AuthController::class, "authentication"])->name("user.login")->middleware(["lang"]);
@@ -28,12 +30,18 @@ Route::group(["prefix" => "user"], function () {
 
 });
 
-Route::get('/lang/{lang}', [LangController::class, "changeLanguage"])->name("setLang");
-
+// EVENT
 Route::group(["prefix" => "event"], function () {
 
-    Route::get("create", [EventController::class, "goToCreate"])->name("event.create")->middleware(["lang"]);
+    Route::get("create", [EventController::class, "goToCreate"])->name("event.create")->middleware(["isLogged"])->middleware(["isAdmin"])->middleware(["lang"]);
     Route::get("index", [EventController::class, "goToCurrentEvents"])->name("event.index")->middleware(["lang"]);
+
+});
+
+// VENUE
+Route::group(["prefix" => "venue"], function () {
+
+    Route::get("create", [])->name("venue.create")->middleware(["lang"]);
 
 });
 

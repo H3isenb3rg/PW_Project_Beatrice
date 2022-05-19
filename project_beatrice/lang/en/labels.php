@@ -18,5 +18,10 @@ return [
     "forgotPwd" => "Forgot Password?",
     "confirmPwd" => "Confirm Password",
     "registerNow" => "Register Now!",
-    "emailAddr" => "Email Address"
+    "emailAddr" => "Email Address",
+    "newVenueTitle" => "Create new Venue",
+    "name" => "Name",
+    "address" => "Address",
+    "city" => "City",
+    "confirm" => "Confirm"
 ];

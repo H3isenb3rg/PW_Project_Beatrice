@@ -20,7 +20,7 @@ Creare versione aggiornata e dinamica del sito già esistente [arcangelodj.it](h
 * Pagina __*Gallery*__ con immagini e video 
 * Possibilità da parte di utenti di tipologia Team Member di aggiungere/modificare/cancellare:
   * _Eventi_ -> Contenti un nome, descrizione, data e ora, luogo(Venue) e, se limitati, il numero di posti disponibili
-  * _Venue_ -> Luoghi dove si svolgeranno gli eventi contenenti: un nome, indirizzo testuale e, se fornito, link Google Maps
+  * _Venue_ -> Luoghi dove si svolgeranno gli eventi contenenti: un nome, la città, indirizzo testuale e link Google Maps(non obbligatorio)
   * _Membri del Team_ -> Con nome, ruolo e immagine
   * _Gallery Items_
 * Scelta della lingua di visualizzazione (Italiano/Inglese)

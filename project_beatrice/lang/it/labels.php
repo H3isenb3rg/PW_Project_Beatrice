@@ -18,5 +18,10 @@ return [
     "forgotPwd" => "Hai dimenticato la password?",
     "confirmPwd" => "Conferma Password",
     "registerNow" => "Registrati Ora!",
-    "emailAddr" => "Indirizzo Email"
+    "emailAddr" => "Indirizzo Email",
+    "newVenueTitle" => "Crea un nuovo luogo",
+    "name" => "Nome",
+    "address" => "Indirizzo",
+    "city" => "Citt&agrave;",
+    "confirm" => "Conferma"
 ];
