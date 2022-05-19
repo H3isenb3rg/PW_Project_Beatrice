@@ -24,5 +24,8 @@ return [
     "address" => "Indirizzo",
     "city" => "Citt&agrave;",
     "confirm" => "Conferma",
-    "mapsLink" => "Link Google Maps"
+    "mapsLink" => "Link Google Maps",
+    "newEventTitle" => "Crea un nuovo Evento",
+    "description" => "Descrizione",
+    "availableSeats" => "Posti Disponibili"
 ];

@@ -28,22 +28,18 @@ Route::group(["prefix" => "user"], function () {
     Route::post("login", [AuthController::class, "login"])->name("user.login");
     Route::post("resister", [AuthController::class, "registration"])->name("user.register");
     Route::get("logout", [AuthController::class, "logout"])->name("user.logout");
-
 });
 
 // EVENT
 Route::group(["prefix" => "event"], function () {
 
     Route::get("create", [EventController::class, "goToCreate"])->name("event.create")->middleware(["isLogged"])->middleware(["isAdmin"])->middleware(["lang"]);
+    Route::post("create", [EventController::class, "create"])->name("event.create")->middleware(["isLogged"])->middleware(["isAdmin"]);
     Route::get("index", [EventController::class, "goToCurrentEvents"])->name("event.index")->middleware(["lang"]);
-
 });
 
 // VENUE
 Route::group(["prefix" => "venue"], function () {
 
-    Route::post("create", [VenueController::class, ])->name("venue.create")->middleware(["lang"]);
-
+    Route::post("create", [VenueController::class, "create"])->name("venue.create")->middleware(["isLogged"])->middleware(["isAdmin"]);
 });
-
-

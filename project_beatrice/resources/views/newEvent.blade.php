@@ -46,6 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
+                {!! $confirm !!}
                 <div class="jumbotron">
                     <div class="row">
                         <div class="col-sm-12">
@@ -79,6 +80,44 @@
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>{{ trans('labels.newEventTitle') }}</h1>
+                    <form id="venue-form" action="{{ route('event.create') }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control"
+                                placeholder="{{ trans('labels.name') }}">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" rows="3" class="form-control"
+                                placeholder="{{ trans('labels.description') }}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+                                <input type="datetime-local" name="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" min="0" max="999" step="1" name="seats" class="form-control"
+                                placeholder="{{ trans('labels.availableSeats') }}">
+                        </div>
+                        <p>-- Scegli venue Coming Soon --</p>
+                        <!-- Qui dropdown dinamica con venue -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <input type="submit" name="login-submit" class="form-control btn btn-primary"
+                                        value="{{ trans('labels.confirm') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

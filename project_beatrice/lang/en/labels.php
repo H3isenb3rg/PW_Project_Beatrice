@@ -24,5 +24,8 @@ return [
     "address" => "Address",
     "city" => "City",
     "confirm" => "Confirm",
-    "mapsLink" => "Google Maps Link"
+    "mapsLink" => "Google Maps Link",
+    "newEventTitle" => "Create new Event",
+    "description" => "Description",
+    "availableSeats" => "Available Seats"
 ];

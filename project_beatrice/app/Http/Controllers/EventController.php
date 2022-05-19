@@ -16,9 +16,18 @@ class EventController extends Controller
 
     public function goToCreate() {
         $dl = new DataLayer();
+
+        if (Session::has("confirm")) {
+            $confirm = Session::get("confirm");
+            Session::forget("confirm");
+        } else {
+            $confirm = "";
+        }
+
         return view('newEvent') ->with("logged", Session::get("logged"))
                                 ->with("loggedName", Session::get("loggedName"))
-                                ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
+                                ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
+                                ->with("confirm", $confirm);
     }
 
     public function create() {
