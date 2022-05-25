@@ -38,7 +38,7 @@ class AuthController extends Controller {
             // Torniamo alla vista index
             return Redirect::to(route("home"));
         } else {
-            return "ERROR";
+            return md5("matteo" . "pass");
         }
     }
 

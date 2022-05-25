@@ -27,12 +27,12 @@ class DataLayer extends Model {
     public function validUser($username, $password) {
         // Ovviamente mi aspetto che questo array abbia al più un elemento
         // Specificando nella get i campi avrò solamente quei campi negli oggetti restituiti
-        $users = AdjUser::where("username", $username)->get(["pwd", ]);
+        $users = AdjUser::where("username", $username)->get(["password", ]);
 
         if(count($users) == 0) {
             return false;
         } else {
-            return (md5($password) == $users[0]->pwd);
+            return (md5($password) == $users[0]->password);
         }
     }
 
@@ -44,5 +44,11 @@ class DataLayer extends Model {
         } else {
             return true;
         }
+    }
+
+    public function getUserID($username) {
+        $user = AdjUser::where("username", $username)->get(["id"])[0];
+
+        return $user->id;
     }
 }
