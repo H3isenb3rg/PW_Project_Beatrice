@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller {
     public function authentication() {
-        $alert = "";
-
+        
         if (Session::has("error")) {
-            $alert = $this->create_alert(Session::get("error"));
+            $alert = Session::get("error");
             Session::forget("error");
+            return view("auth.auth")->with("alert", $alert);
         }
 
-        return view("auth.auth")->with("alert", $alert);
+        return view("auth.auth");
     }
 
     public function logout() {
@@ -51,6 +51,7 @@ class AuthController extends Controller {
     }
 
     /**
+     * @deprecated
      * Creates the Bootstrap alert with a custom message
      */
     private function create_alert($message) {
