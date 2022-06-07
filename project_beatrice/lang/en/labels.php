@@ -32,5 +32,7 @@ return [
     "notAdmin" => "You are not an Admin!",
     "notLogged" => "You are not logged. Please log in",
     "userAlreadyPresent" => "Username or Email already used.",
-    "confirmNewVenue" => "Added new venue :name (:city)"
+    "confirmNewVenue" => "Added new venue :name (:city)",
+    "venueAlreadyExists" => "Venue :name is already in the Venues List",
+    "chooseVenue" => "Choose a Venue"
 ];

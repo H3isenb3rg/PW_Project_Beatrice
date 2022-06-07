@@ -49,8 +49,16 @@
                 @if (isset($confirm))
                     <div class="alert alert-success alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button> 
+                                aria-hidden="true">&times;</span></button>
                         {{ $confirm }}
+                    </div>
+                @endif
+
+                @if (isset($alert))
+                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        {!! $alert !!}
                     </div>
                 @endif
 
@@ -76,7 +84,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="city" class="form-control"
-                                                    placeholder="{{ trans('labels.city') }}">
+                                                    placeholder="{!! trans('labels.city') !!}">
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="address" class="form-control"
@@ -132,12 +140,31 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" min="0" max="999" step="1" name="seats"
-                                                    class="form-control"
-                                                    placeholder="{{ trans('labels.availableSeats') }}">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><span
+                                                            class="glyphicon glyphicon-user"></span></div>
+                                                    <input type="number" min="0" max="999" step="1" name="seats"
+                                                        class="form-control"
+                                                        placeholder="{{ trans('labels.availableSeats') }}">
+                                                </div>
                                             </div>
-                                            <p>-- Scegli venue Coming Soon --</p>
-                                            <!-- Qui dropdown dinamica con venue -->
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><span
+                                                            class="glyphicon glyphicon-map-marker"></span></div>
+                                                    <select class="form-control" name="author_id">
+                                                        <option value="" disabled selected>--
+                                                            {{ trans('labels.chooseVenue') }} --
+                                                        </option>
+                                                        @foreach ($venueList as $venue)
+                                                            <option value="{{ $venue->id }}">
+                                                                {{ ucwords($venue->name) }}
+                                                                ({{ ucwords($venue->city) }})
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">

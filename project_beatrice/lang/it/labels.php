@@ -32,5 +32,7 @@ return [
     "notAdmin" => "Non hai i permessi di Admin!",
     "notLogged" => "Accedere con la propria utenza",
     "userAlreadyPresent" => "Username o Email già in uso.",
-    "confirmNewVenue" => "Aggiunto nuovo luogo :name (:city)"
+    "confirmNewVenue" => "Aggiunto nuovo luogo :name (:city)",
+    "venueAlreadyExists" => ":name &egrave; gi&agrave; nella lista dei luoghi",
+    "chooseVenue" => "Scegli un Luogo"
 ];

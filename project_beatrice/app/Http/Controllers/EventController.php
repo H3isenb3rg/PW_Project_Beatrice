@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataLayer;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -19,7 +18,8 @@ class EventController extends Controller
 
         $current_view = view('newEvent')->with("logged", Session::get("logged"))
                                         ->with("loggedName", Session::get("loggedName"))
-                                        ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
+                                        ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
+                                        ->with("venueList", $dl->listVenues());
         
 
         if (Session::has("confirm")) {
@@ -27,11 +27,15 @@ class EventController extends Controller
             Session::forget("confirm");
         }
 
+        if (Session::has("alert")) {
+            $current_view->with("alert", Session::get("alert"));
+            Session::forget("alert");
+        }
+
         return $current_view;
     }
 
     public function create() {
-        // return view('book.editBookBootstrap')->with("logged", true)->with("loggedName", $_SESSION["loggedName"]);
         return Redirect::route("home");
     }
 }

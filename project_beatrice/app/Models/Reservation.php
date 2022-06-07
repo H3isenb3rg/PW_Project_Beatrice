@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model {
     protected $table = "reservation";
+    public $timestamps = false;
 
     public function user() {
         return $this->belongsTo("App\Models\AdjUser");
