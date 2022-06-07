@@ -6,17 +6,24 @@ use App\Models\DataLayer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Translation\Translator;
 
 class AuthController extends Controller {
     public function authentication() {
-        
+        $current_view = view("auth.auth");
+
         if (Session::has("error")) {
             $alert = Session::get("error");
             Session::forget("error");
-            return view("auth.auth")->with("alert", $alert);
+            $current_view->with("alert", __($alert));
         }
 
-        return view("auth.auth");
+        if (Session::has("inRegistration")) {
+            Session::forget("inRegistration");
+            $current_view->with("inRegistration", true);
+        }
+
+        return $current_view;
     }
 
     public function logout() {
@@ -38,14 +45,22 @@ class AuthController extends Controller {
             // Torniamo alla vista index
             return Redirect::to(route("home"));
         } else {
-            return md5("matteo" . "pass");
+            Session::put("error", "labels.wrongAuth");
+            return Redirect::to(route("user.login"));
         }
     }
 
     public function registration(Request $request) {
         $dl = new DataLayer();
+        $username = $request->input("username");
+        $email = $request->input("email");
 
-        $dl->addUser($request->input("username"), $request->input("password"), $request->input("email"));
+        if ($dl->checkUserExists($username, $email)) {
+            Session::put("error", "labels.userAlreadyPresent");
+            Session::put("inRegistration", true);
+        } else {
+            $dl->addUser($username, $request->input("password"), $email);
+        }
 
         return Redirect::to(route("user.login"));
     }

@@ -9,16 +9,48 @@ use Exception;
 
 class DataLayer extends Model {
     
+    /**
+     * 
+     */
     public function listReservations($user) {
         $reservations = Reservation::where("user_id", $user)->get();
     }
 
+    /**
+     * Checks if a user with the given username or email exists
+     */
+    public function checkUserExists($username, $email) {
+        $users = AdjUser::where("username", $username)->orWhere->where("email", $email)->get();
+
+        if (count($users)>0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Checks if a venue with the given name already exists
+     */
+    public function checkVenueExists($name) {
+        $venues = Venue::where("name", $name)->get();
+
+        if (count($venues)>0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Add a new user to the DB.  
+     */
     public function addUser($username, $password, $email) {
         $new_user = new AdjUser();
         
         $new_user->username = $username;
         $new_user->email = $email;
-        $new_user->pwd = md5($password);
+        $new_user->password = md5($password);
         $new_user->is_admin = false;
 
         $new_user->save();
@@ -46,6 +78,11 @@ class DataLayer extends Model {
         }
     }
 
+    /**
+     * Gets the ID of the user with given username.  
+     * 
+     * The user must exist
+     */
     public function getUserID($username) {
         $user = AdjUser::where("username", $username)->get(["id"])[0];
 

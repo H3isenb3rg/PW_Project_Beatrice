@@ -27,5 +27,10 @@ return [
     "mapsLink" => "Link Google Maps",
     "newEventTitle" => "Crea un nuovo Evento",
     "description" => "Descrizione",
-    "availableSeats" => "Posti Disponibili"
+    "availableSeats" => "Posti Disponibili",
+    "wrongAuth" => "Password o Username errati",
+    "notAdmin" => "Non hai i permessi di Admin!",
+    "notLogged" => "Accedere con la propria utenza",
+    "userAlreadyPresent" => "Username o Email già in uso.",
+    "confirmNewVenue" => "Aggiunto nuovo luogo :name (:city)"
 ];

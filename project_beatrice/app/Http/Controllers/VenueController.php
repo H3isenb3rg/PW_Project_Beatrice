@@ -8,14 +8,13 @@ use Illuminate\Support\Facades\Session;
 
 class VenueController extends Controller {
     
-    public function index()
-    {
+    public function index() {
         return Redirect::route("home");
     }
 
     public function create(Request $request) {
-        $name = $request->input("name");
-        $city = $request->input("city");
+        $name = strtolower($request->input("name"));
+        $city = strtolower($request->input("city"));
         $address = $request->input("address");
         $maps_link = $request->input("maps");
 
@@ -23,11 +22,9 @@ class VenueController extends Controller {
         // TODO
 
         // Build Confirmation of insert
-        $alert = $this->build_confirm_alert($name, $city, $address, $maps_link);
+        $alert = __('labels.confirmNewVenue', ['name' => ucwords($name), "city" => ucwords($city)]);;
         Session::put("confirm", $alert);
 
-        
-        // return view('book.editBookBootstrap')->with("logged", true)->with("loggedName", $_SESSION["loggedName"]);
         return Redirect::route("event.create");
     }
 

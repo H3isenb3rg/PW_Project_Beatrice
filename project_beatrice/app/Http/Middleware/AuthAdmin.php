@@ -22,18 +22,10 @@ class AuthAdmin
         $dl = new DataLayer();
 
         if(!$dl->isAdmin(Session::get("loggedName"))) {
-            Session::put("error", $this->translate_error_message());
-            return Redirect::to(route("user.login"));
+            Session::put("error", "labels.notAdmin");
+            return Redirect::to(route("home"));
         }
 
         return $next($request);
-    }
-
-    private function translate_error_message() {
-        if (Session::has("language") && Session::get("language") == "en") {
-            return "You are not an Admin!";
-        }
-
-        return "Non hai i permessi di Admin!";
     }
 }

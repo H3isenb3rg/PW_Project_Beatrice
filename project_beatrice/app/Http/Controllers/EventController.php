@@ -17,17 +17,17 @@ class EventController extends Controller
     public function goToCreate() {
         $dl = new DataLayer();
 
+        $current_view = view('newEvent')->with("logged", Session::get("logged"))
+                                        ->with("loggedName", Session::get("loggedName"))
+                                        ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
+        
+
         if (Session::has("confirm")) {
-            $confirm = Session::get("confirm");
+            $current_view->with("confirm", Session::get("confirm"));
             Session::forget("confirm");
-        } else {
-            $confirm = "";
         }
 
-        return view('newEvent') ->with("logged", Session::get("logged"))
-                                ->with("loggedName", Session::get("loggedName"))
-                                ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
-                                ->with("confirm", $confirm);
+        return $current_view;
     }
 
     public function create() {

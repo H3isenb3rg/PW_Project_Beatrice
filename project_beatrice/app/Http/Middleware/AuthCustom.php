@@ -19,18 +19,10 @@ class AuthCustom
     public function handle(Request $request, Closure $next) {
 
         if(!Session::has("logged")) {
-            Session::put("error", $this->translate_error_message());
-            return Redirect::to(route("user.login"));
+            Session::put("error", "labels.notLogged");
+            return Redirect::to(route("home"));
         }
 
         return $next($request);
-    }
-
-    private function translate_error_message() {
-        if (Session::has("language") && Session::get("language") == "en") {
-            return "Please log in";
-        }
-
-        return "Accedere con la propria utenza grazie";
     }
 }

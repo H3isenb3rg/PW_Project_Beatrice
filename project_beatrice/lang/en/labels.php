@@ -10,7 +10,7 @@ return [
     "logout" => "Logout",
     "login" => "Log In",
     "register" => "Sign In",
-    "jumbotronGallery1" => "Music, dance, entertainment & performances!!!",
+    "jumbotronGallery1" => "Music, dance, entertainment & live performances!!!",
     "jumbotronGallery2" => "Parties, dancing nights e shows...",
     "jumbotronGalleryButton" => "Our Gallery",
     "authTitle" => "Login or Register",
@@ -27,5 +27,10 @@ return [
     "mapsLink" => "Google Maps Link",
     "newEventTitle" => "Create new Event",
     "description" => "Description",
-    "availableSeats" => "Available Seats"
+    "availableSeats" => "Available Seats",
+    "wrongAuth" => "Wrong password or username",
+    "notAdmin" => "You are not an Admin!",
+    "notLogged" => "You are not logged. Please log in",
+    "userAlreadyPresent" => "Username or Email already used.",
+    "confirmNewVenue" => "Added new venue :name (:city)"
 ];

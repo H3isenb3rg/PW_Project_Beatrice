@@ -40,6 +40,5 @@ Route::group(["prefix" => "event"], function () {
 
 // VENUE
 Route::group(["prefix" => "venue"], function () {
-
-    Route::post("create", [VenueController::class, "create"])->name("venue.create")->middleware(["isLogged"])->middleware(["isAdmin"]);
+    Route::post("create", [VenueController::class, "create"])->name("venue.create")->middleware(["isLogged"])->middleware(["isAdmin"])->middleware(["lang"]);
 });

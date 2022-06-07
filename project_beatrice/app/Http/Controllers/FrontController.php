@@ -11,12 +11,22 @@ class FrontController extends Controller {
     public function getHome() {
         $dl = new DataLayer();
 
+        // Sets initial home view
         if(Session::has("logged")) {
-            return view('index')->with("logged", true)
+            $current_view =  view('index')->with("logged", true)
                                 ->with("loggedName", Session::get("loggedName"))
                                 ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
         } else {
-            return view('index')->with("logged", false); 
+            $current_view =  view('index')->with("logged", false); 
+        }
+        
+        // If present translates and adds the alert message
+        if (Session::has("error")) {
+            $alert = Session::get("error");
+            Session::forget("error");
+            return $current_view->with("alert", __($alert));
+        } else {
+            return $current_view;
         }
     }
     
