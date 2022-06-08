@@ -35,7 +35,6 @@ class VenueController extends Controller {
         
         Session::put("confirm", __('labels.confirmNewVenue', ['name' => ucwords($name), "city" => ucwords($city)]));
         return Redirect::route("event.create");
-        
     }
 
     private function build_confirm_alert($name, $city, $address, $maps_link) {

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataLayer;
+use Carbon\Carbon;
+use DateTime;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -35,7 +38,47 @@ class EventController extends Controller
         return $current_view;
     }
 
-    public function create() {
-        return Redirect::route("home");
+    public function create(Request $request) {
+        $dl = new DataLayer();
+        $name = strtolower($request->input("name"));
+        $description = $request->input("description");
+        $date = $request->input("date");
+        if (!$request->input("seats") == "") {
+            $seats = (int)$request->input("seats");
+        } else {
+            $seats = "";
+        }        
+        $venue = $request->input("venue_id");
+
+        // Check validity of fieds
+        if ($name == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.name')]));
+            return Redirect::route("event.create");
+        }
+        if ($description == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.description')]));
+            return Redirect::route("event.create");
+        }
+        if ($date == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.date')]));
+            return Redirect::route("event.create");
+        } else {
+            $date = Carbon::parse($date)->format("Y-m-d");
+        }
+        if ($venue == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.venue')]));
+            return Redirect::route("event.create");
+        }
+
+        // Insert in DB
+        if ($dl->checkEventExists($name, $date)) {
+            Session::put("alert", __('labels.eventAlreadyExists', ['name' => $name, "date" => $date]));
+            return Redirect::route("event.create");
+        }
+        $dl->addEvent($name, $description, $date, $seats, $venue);
+
+        $venue_name = $dl->getVenueName($venue);
+        Session::put("confirm", __('labels.confirmNewEvent', ['name' => ucwords($name), "venue" => ucwords($venue_name), "date" => $date]));
+        return Redirect::route("event.create");
     }
 }

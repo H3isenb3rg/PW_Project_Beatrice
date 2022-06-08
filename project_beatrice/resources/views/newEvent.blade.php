@@ -126,17 +126,17 @@
                                         <form id="venue-form" action="{{ route('event.create') }}" method="post">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control"
+                                                <input required type="text" name="name" class="form-control"
                                                     placeholder="{{ trans('labels.name') }}">
                                             </div>
                                             <div class="form-group">
-                                                <textarea name="description" rows="3" class="form-control" placeholder="{{ trans('labels.description') }}"></textarea>
+                                                <textarea required name="description" rows="3" class="form-control" placeholder="{{ trans('labels.description') }}"></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon"><span
                                                             class="glyphicon glyphicon-calendar"></span></div>
-                                                    <input type="datetime-local" name="date" class="form-control">
+                                                    <input required type="date" name="date" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -152,7 +152,7 @@
                                                 <div class="input-group">
                                                     <div class="input-group-addon"><span
                                                             class="glyphicon glyphicon-map-marker"></span></div>
-                                                    <select class="form-control" name="author_id">
+                                                    <select required class="form-control" name="venue_id">
                                                         <option value="" disabled selected>--
                                                             {{ trans('labels.chooseVenue') }} --
                                                         </option>

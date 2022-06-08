@@ -23,6 +23,7 @@ return [
     "name" => "Name",
     "address" => "Address",
     "city" => "City",
+    "date" => "Date",
     "confirm" => "Confirm",
     "mapsLink" => "Google Maps Link",
     "newEventTitle" => "Create new Event",
@@ -33,6 +34,10 @@ return [
     "notLogged" => "You are not logged. Please log in",
     "userAlreadyPresent" => "Username or Email already used.",
     "confirmNewVenue" => "Added new venue :name (:city)",
+    "confirmNewEvent" => "Created new event :name (:venue) on the :date",
     "venueAlreadyExists" => "Venue :name is already in the Venues List",
-    "chooseVenue" => "Choose a Venue"
+    "eventAlreadyExists" => "Event :name on :date is already in the Events List",
+    "chooseVenue" => "Choose a Venue",
+    "missingField" => "Error: Missing the required field :field",
+    "venue" => "Venue"
 ];
