@@ -19,6 +19,19 @@ class DataLayer extends Model
     }
 
     /**
+     * Gets from the database all events that are on the same day or after the given date
+     *
+     * @param string $date
+     * @return array
+     */
+    public function fetchFutureEvents(string $date) {
+        //$events = Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->get();
+        $events = Event::whereDate("event_date", ">=", $date)->get();
+
+        return $events;
+    }
+
+    /**
      * Returns the list of all the venues in the database
      *
      * @return array

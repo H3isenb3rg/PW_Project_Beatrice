@@ -21,9 +21,9 @@ class FrontController extends Controller {
         }
         
         // If present translates and adds the alert message
-        if (Session::has("error")) {
-            $alert = Session::get("error");
-            Session::forget("error");
+        if (Session::has("alert")) {
+            $alert = Session::get("alert");
+            Session::forget("alert");
             return $current_view->with("alert", __($alert));
         } else {
             return $current_view;

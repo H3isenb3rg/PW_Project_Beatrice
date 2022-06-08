@@ -12,18 +12,36 @@ use Illuminate\Support\Facades\Session;
 class EventController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
         return Redirect::route("home");
     }
 
-    public function goToCreate() {
+    public function goToCurrentEvents()
+    {
+        $dl = new DataLayer();
+        $events = $dl->fetchFutureEvents(date("Y-m-d"));
+
+        $current_view = view("eventsList")->with("eventsList", $events);
+
+        if (Session::has("logged")) {
+            $current_view = $current_view->with("logged", Session::get("logged"))->with("loggedName", Session::get("loggedName"))->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
+        } else {
+            $current_view = $current_view->with("logged", false);
+        }
+
+        return $current_view;
+    }
+
+    public function goToCreate()
+    {
         $dl = new DataLayer();
 
         $current_view = view('newEvent')->with("logged", Session::get("logged"))
-                                        ->with("loggedName", Session::get("loggedName"))
-                                        ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
-                                        ->with("venueList", $dl->listVenues());
-        
+            ->with("loggedName", Session::get("loggedName"))
+            ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
+            ->with("venueList", $dl->listVenues());
+
 
         if (Session::has("confirm")) {
             $current_view->with("confirm", Session::get("confirm"));
@@ -38,7 +56,8 @@ class EventController extends Controller
         return $current_view;
     }
 
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $dl = new DataLayer();
         $name = strtolower($request->input("name"));
         $description = $request->input("description");
@@ -47,7 +66,7 @@ class EventController extends Controller
             $seats = (int)$request->input("seats");
         } else {
             $seats = "";
-        }        
+        }
         $venue = $request->input("venue_id");
 
         // Check validity of fieds

@@ -36,6 +36,7 @@ Route::group(["prefix" => "event"], function () {
     Route::get("create", [EventController::class, "goToCreate"])->name("event.create")->middleware(["isLogged"])->middleware(["isAdmin"])->middleware(["lang"]);
     Route::post("create", [EventController::class, "create"])->name("event.create")->middleware(["isLogged"])->middleware(["isAdmin"]);
     Route::get("index", [EventController::class, "goToCurrentEvents"])->name("event.index")->middleware(["lang"]);
+    Route::get("info", [EventController::class, "goToCurrentEvents"])->name("event.info")->middleware(["lang"]);
 });
 
 // VENUE
