@@ -20,15 +20,21 @@ class DataLayer extends Model
 
     /**
      * Gets from the database all events that are on the same day or after the given date
-     *
-     * @param string $date
-     * @return array
+     * 
+     * @param int $number If set to greater than 0 retrieves only specified amount ov events otherwise everyone
+     * @param string $date Sets the minimal date to retrieve avents if not set uses today
+     * @return object
      */
-    public function fetchFutureEvents(string $date) {
-        //$events = Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->get();
-        $events = Event::whereDate("event_date", ">=", $date)->get();
+    public function fetchFutureEvents(int $number = 0, string $date = null) {
+        if (!isset($date)) {
+            $date = date("Y-m-d");
+        }
+        
+        if ($number>0) {
+            return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->take($number)->get();
+        }
 
-        return $events;
+        return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->get();
     }
 
     /**

@@ -20,7 +20,7 @@ class EventController extends Controller
     public function goToCurrentEvents()
     {
         $dl = new DataLayer();
-        $events = $dl->fetchFutureEvents(date("Y-m-d"));
+        $events = $dl->fetchFutureEvents();
 
         $current_view = view("eventsList")->with("eventsList", $events);
 

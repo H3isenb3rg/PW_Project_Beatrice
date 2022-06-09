@@ -24,10 +24,13 @@ class FrontController extends Controller {
         if (Session::has("alert")) {
             $alert = Session::get("alert");
             Session::forget("alert");
-            return $current_view->with("alert", __($alert));
-        } else {
-            return $current_view;
+            $current_view = $current_view->with("alert", __($alert));
         }
+
+        // Retrieve upcoming events
+        $upcoming_events = $dl->fetchFutureEvents(4);
+
+        return $current_view->with("eventsList", $upcoming_events);
     }
     
 }

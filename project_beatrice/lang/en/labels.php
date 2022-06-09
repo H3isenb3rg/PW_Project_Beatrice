@@ -39,5 +39,6 @@ return [
     "eventAlreadyExists" => "Event :name on :date is already in the Events List",
     "chooseVenue" => "Choose a Venue",
     "missingField" => "Error: Missing the required field :field",
-    "venue" => "Venue"
+    "venue" => "Venue",
+    "next_events" => "Upcoming Events"
 ];
