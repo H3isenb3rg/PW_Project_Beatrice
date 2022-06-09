@@ -44,46 +44,6 @@
 
 @section('corpo')
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <table id="example" class="table table-striped table-hover table-responsive" style="width:100%">
-                    <col width='20%'>
-                    <col width='30%'>
-                    <col width='40%'>
-                    <col width='10%'>
-                    <col width='0%' hidden>
-                    <thead>
-                        <tr>
-                            <th>{{ trans('labels.date') }}</th>
-                            <th>{{ trans('labels.name') }}</th>
-                            <th>{{ trans('labels.venue') }}</th>
-                            <th></th>
-                            <th hidden></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        @foreach ($eventsList as $event)
-                            <tr>
-                                <td> {{ $event->event_date }} </td>
-                                <td> {{ ucwords($event->name) }} </td>
-                                <td> {{ ucwords($event->venue->name) }} ({{ ucwords($event->venue->city) }}) </td>
-                                <td>
-                                    <a class="btn btn-primary" role="button" data-toggle="collapse" aria-expanded="false" href="#collapseDetails{{ $event->id }}" aria-controls="collapseDetails{{ $event->id }}">
-                                        <span class="glyphicon glyphicon-info-sign"></span>
-                                    </a>
-                                    <div class="collapse" id="collapseDetails{{ $event->id }}">
-                                        <div class="well">
-                                            {{ $event->description }}
-                                        </div>
-                                    </div>
-                                </td>
-                                <td hidden> {{ $event->description }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        @include("components.event.list", ["eventsList" => $eventsList])
     </div>
 @endsection

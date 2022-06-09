@@ -2,6 +2,7 @@
     "Monday": "Luned&igrave;",
     "Tuesday": "Marted&igrave;",
     "Wednesday": "Mercoled&igrave;",
+    "Thursday": "Gioved&igrave",
     "Friday": "Venerd&igrave;",
     "Saturday": "Sabato",
     "Sunday": "Domenica",
@@ -16,5 +17,8 @@
     "September": "Settembre",
     "October": "Ottobre",
     "November": "Novembre",
-    "December": "Dicembre"
+    "December": "Dicembre",
+    "Where": "Dove",
+    "Link to Maps not available": "Link a Maps non disponibile",
+    "Book": "Prenota"
 }

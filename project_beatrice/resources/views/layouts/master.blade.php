@@ -15,13 +15,6 @@
     <!-- JQuery e plugin Js -->
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" class="init">
-        $(document).ready(function () {
-            $("#example").DataTable();
-        });
-    </script>
 </head>
 
 <body>
