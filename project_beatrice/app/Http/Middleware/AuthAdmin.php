@@ -22,8 +22,8 @@ class AuthAdmin
         $dl = new DataLayer();
 
         if(!$dl->isAdmin(Session::get("loggedName"))) {
-            Session::put("error", "labels.notAdmin");
-            return Redirect::to(route("home"));
+            Session::put("alert", "labels.notAdmin");
+            return Redirect::to(route("user.login"));
         }
 
         return $next($request);

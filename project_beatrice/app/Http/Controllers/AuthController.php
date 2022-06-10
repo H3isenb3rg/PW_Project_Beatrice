@@ -12,9 +12,9 @@ class AuthController extends Controller {
     public function authentication() {
         $current_view = view("auth.auth");
 
-        if (Session::has("error")) {
-            $alert = Session::get("error");
-            Session::forget("error");
+        if (Session::has("alert")) {
+            $alert = Session::get("alert");
+            Session::forget("alert");
             $current_view->with("alert", __($alert));
         }
 
@@ -45,7 +45,7 @@ class AuthController extends Controller {
             // Torniamo alla vista index
             return Redirect::to(route("home"));
         } else {
-            Session::put("error", "labels.wrongAuth");
+            Session::put("alert", "labels.wrongAuth");
             return Redirect::to(route("user.login"));
         }
     }
@@ -56,7 +56,7 @@ class AuthController extends Controller {
         $email = $request->input("email");
 
         if ($dl->checkUserExists($username, $email)) {
-            Session::put("error", "labels.userAlreadyPresent");
+            Session::put("alert", "labels.userAlreadyPresent");
             Session::put("inRegistration", true);
         } else {
             $dl->addUser($username, $request->input("password"), $email);

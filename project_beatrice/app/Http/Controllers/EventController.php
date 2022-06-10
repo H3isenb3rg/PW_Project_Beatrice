@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\DataLayer;
 use Carbon\Carbon;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -33,14 +32,18 @@ class EventController extends Controller
         return $current_view;
     }
 
+    /**
+     * Gets the create event page
+     * 
+     * Accessible only by admins
+     *
+     * @return void
+     */
     public function goToCreate()
     {
         $dl = new DataLayer();
 
-        $current_view = view('newEvent')->with("logged", Session::get("logged"))
-            ->with("loggedName", Session::get("loggedName"))
-            ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
-            ->with("venueList", $dl->listVenues());
+        $current_view = view('newEvent')->with("loggedName", Session::get("loggedName"))->with("venueList", $dl->listVenues());
 
 
         if (Session::has("confirm")) {

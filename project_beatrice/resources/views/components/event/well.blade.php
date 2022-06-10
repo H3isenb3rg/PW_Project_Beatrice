@@ -33,7 +33,7 @@
                 <small>{{ ucwords($event->venue->address) }}</small>
             </dd>
             <dd>
-                <a class="btn btn-primary">{{ trans("Book") }}</a>
+                <a class="btn btn-primary" href="{{ route("reservation.goToCreate", ["id" => $event->id]) }}">{{ trans("Book") }}</a>
             </dd>
         </dl>
     </div>

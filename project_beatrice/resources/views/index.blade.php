@@ -46,8 +46,12 @@
             @include('components.alert', ['alert' => $alert])
         @endif
 
-        @include("components.home.gallery")
-        
-        @include("components.home.events", ["eventsList" => $eventsList])
+        @if (isset($confirm))
+            @include('components.confirm', ['confirm' => $confirm])
+        @endif
+
+        @include('components.home.gallery')
+
+        @include('components.home.events', ['eventsList' => $eventsList])
     </div>
 @endsection

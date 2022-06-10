@@ -19,8 +19,8 @@ class AuthCustom
     public function handle(Request $request, Closure $next) {
 
         if(!Session::has("logged")) {
-            Session::put("error", "labels.notLogged");
-            return Redirect::to(route("home"));
+            Session::put("alert", "labels.notLogged");
+            return Redirect::to(route("user.login"));
         }
 
         return $next($request);

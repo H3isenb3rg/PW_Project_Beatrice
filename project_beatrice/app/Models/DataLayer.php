@@ -19,6 +19,27 @@ class DataLayer extends Model
     }
 
     /**
+     * Creates a new reservation for the given event
+     *
+     * @param string $user_id
+     * @param string $table_name
+     * @param string $event_id
+     * @param integer $guests
+     * @return void
+     */
+    public function newReservation(string $user_id, string $table_name, string $event_id, int $guests)
+    {
+        $reservation = new Reservation();
+
+        $reservation->name = $table_name;
+        $reservation->guests = $guests;
+        $reservation->user_id = $user_id;
+        $reservation->event_id = $event_id;
+
+        $reservation->save();
+    }
+
+    /**
      * Gets from the database all events that are on the same day or after the given date
      * 
      * @param int $number If set to greater than 0 retrieves only specified amount ov events otherwise everyone
