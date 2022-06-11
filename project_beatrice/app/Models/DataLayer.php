@@ -19,6 +19,13 @@ class DataLayer extends Model
     }
 
     /**
+     * Returns every venue insiede the DB
+     */
+    public function allVenues() {
+        return Venue::all();
+    }
+
+    /**
      * Creates a new reservation for the given event
      *
      * @param string $user_id

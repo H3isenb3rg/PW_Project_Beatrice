@@ -44,8 +44,8 @@ return new class extends Migration
         Schema::create('event', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->multiLineString("description");
-            $table->dateTime("date");
+            $table->text("description");
+            $table->date("event_date");
             $table->integer("seats")->nullable();
             $table->foreignId("venue_id");
         });
