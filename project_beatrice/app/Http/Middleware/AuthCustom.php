@@ -20,6 +20,7 @@ class AuthCustom
 
         if(!Session::has("logged")) {
             Session::put("alert", "labels.notLogged");
+            Session::put("fromPage", $request->fullUrl());
             return Redirect::to(route("user.login"));
         }
 

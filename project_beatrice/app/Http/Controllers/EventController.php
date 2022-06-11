@@ -47,13 +47,11 @@ class EventController extends Controller
 
 
         if (Session::has("confirm")) {
-            $current_view->with("confirm", Session::get("confirm"));
-            Session::forget("confirm");
+            $current_view->with("confirm", Session::pull("confirm"));
         }
 
         if (Session::has("alert")) {
-            $current_view->with("alert", Session::get("alert"));
-            Session::forget("alert");
+            $current_view->with("alert", Session::pull("alert"));
         }
 
         return $current_view;

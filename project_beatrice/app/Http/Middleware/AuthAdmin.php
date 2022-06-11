@@ -23,7 +23,7 @@ class AuthAdmin
 
         if(!$dl->isAdmin(Session::get("loggedName"))) {
             Session::put("alert", "labels.notAdmin");
-            return Redirect::to(route("user.login"));
+            return Redirect::to(route("home"));
         }
 
         return $next($request);

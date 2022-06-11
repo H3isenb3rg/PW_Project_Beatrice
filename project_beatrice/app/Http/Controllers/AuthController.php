@@ -13,9 +13,7 @@ class AuthController extends Controller {
         $current_view = view("auth.auth");
 
         if (Session::has("alert")) {
-            $alert = Session::get("alert");
-            Session::forget("alert");
-            $current_view->with("alert", __($alert));
+            $current_view->with("alert", __(Session::pull("alert")));
         }
 
         if (Session::has("inRegistration")) {
@@ -41,6 +39,10 @@ class AuthController extends Controller {
         if ($dl->validUser($username, $pwd)) {
             Session::put("logged", true);
             Session::put("loggedName", $username);
+
+            if (Session::has("fromPage")) {
+                return Redirect::to(Session::pull("fromPage"));
+            }
 
             // Torniamo alla vista index
             return Redirect::to(route("home"));
