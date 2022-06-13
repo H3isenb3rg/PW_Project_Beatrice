@@ -43,7 +43,7 @@ class EventController extends Controller
     {
         $dl = new DataLayer();
 
-        $current_view = view('newEvent')->with("loggedName", Session::get("loggedName"))->with("venueList", $dl->listVenues());
+        $current_view = view('newEvent')->with("lang", Session::get("language"))->with("loggedName", Session::get("loggedName"))->with("venueList", $dl->listVenues());
 
 
         if (Session::has("confirm")) {
@@ -100,5 +100,23 @@ class EventController extends Controller
         $venue_name = $dl->getVenueName($venue);
         Session::put("confirm", __('labels.confirmNewEvent', ['name' => ucwords($name), "venue" => ucwords($venue_name), "date" => $date]));
         return Redirect::route("event.create");
+    }
+
+    public function ajaxNewEvent(Request $request) {
+        $dl = new DataLayer();
+
+        if(is_null($dl->getVenueByID($request->input("venue")))) {
+            $response = array("venue_valid" => false);
+        } else {
+            $response = array("venue_valid" => true);
+        }
+        
+        if($dl->checkEventExists($request->input("event_name"), $request->input("event_date"))) {
+            $response["unique"] = false;
+        } else {
+            $response["unique"] = true;
+        }
+
+        return response()->json($response);
     }
 }

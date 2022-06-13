@@ -18,9 +18,11 @@ class Language
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next) {
-        if (Session::has("language")) {
-            App::setlocale(Session::get("language"));
+        if (!Session::has("language")) {
+            Session::put("language", "it");    
         }
+        
+        App::setlocale(Session::get("language"));
 
         return $next($request);
     }

@@ -31,6 +31,15 @@ class DataLayer extends Model
     }
 
     /**
+     * Gets the venue with the given ID
+     *
+     * @param string $id
+     */
+    public function getVenueByID(string $id) {
+        return Venue::where("id", $id)->first();
+    }
+
+    /**
      * Checks if an event with the given ID exists
      *
      * @param string $id
@@ -38,13 +47,6 @@ class DataLayer extends Model
      */
     public function hasEventWithID(string $id) {
         
-    }
-
-    /**
-     * Returns every venue insiede the DB
-     */
-    public function allVenues() {
-        return Venue::all();
     }
 
     /**

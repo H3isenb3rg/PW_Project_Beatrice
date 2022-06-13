@@ -16,6 +16,8 @@
     <!-- JQuery e plugin Js -->
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
+
+    @yield('scripts')
 </head>
 
 <body>

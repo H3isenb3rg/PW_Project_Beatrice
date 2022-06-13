@@ -13,33 +13,36 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-12">
-                    <form id="event-form" action="{{ route('event.create') }}" method="post">
+                    <form id="event-form" name="event-form" action="{{ route('event.create') }}" method="post" onload="set_current_date">
                         @csrf
-                        <div class="form-group">
-                            <input required type="text" name="name" class="form-control"
+                        <div id="event-name-div" class="form-group">
+                            <input required type="text" name="name" class="form-control" id="event-name"
                                 placeholder="{{ trans('labels.name') }}">
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
-                            <textarea required name="description" rows="3" class="form-control" placeholder="{{ trans('labels.description') }}"></textarea>
+                        <div id="event-description-div" class="form-group">
+                            <textarea required id="event-description" name="description" rows="3" class="form-control" placeholder="{{ trans('labels.description') }}"></textarea>
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
+                        <div id="event-date-div" class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon">@include("icons.calendarPick")</div>
-                                <input required type="date" name="date" class="form-control">
+                                <div class="input-group-addon">@include('icons.calendarPick')</div>
+                                <input required id="event-date" type="date" name="date" class="form-control">
                             </div>
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
+                        <div id="event-guests-div" class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon">@include("icons.people")</div>
-                                <input type="number" min="0" max="999" step="1" name="seats" class="form-control"
+                                <div class="input-group-addon">@include('icons.people')</div>
+                                <input type="number" min="0" max="999" id="event-guests" step="1" name="seats" class="form-control"
                                     placeholder="{{ trans('labels.availableSeats') }}">
                             </div>
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
+                        <div id="event-venue-div" class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon">@include("icons.location")
-                                </div>
-                                <select required class="form-control" name="venue_id">
+                                <div class="input-group-addon">@include('icons.location')</div>
+                                <select required id="event-venue" class="form-control" name="venue_id">
                                     <option value="" disabled selected>--
                                         {{ trans('labels.chooseVenue') }} --
                                     </option>
@@ -51,19 +54,26 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <label for="mySubmit_event" class="btn btn-primary btn-large btn-block">@include("icons.confirm") {{ trans("Confirm") }}</label>
-                                    <input id="mySubmit_event" type="submit" value="{{ trans('labels.confirm') }}" class="hidden"/>
+                                    <label for="mySubmit_event"
+                                        class="btn btn-primary btn-large btn-block">@include('icons.confirm')
+                                        {{ trans('Confirm') }}</label>
+                                    <input id="mySubmit_event" type="submit" value="{{ trans('labels.confirm') }}"
+                                        class="hidden"
+                                        onclick="event.preventDefault(); checkEvent('{{ $lang }}')" />
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <a href="{{ route('home') }}" class="btn btn-danger btn-block">@include("icons.close") {{ trans("Cancel") }}</a>
+                                    <a href="{{ route('home') }}"
+                                        class="btn btn-danger btn-block">@include('icons.close')
+                                        {{ trans('Cancel') }}</a>
                                 </div>
                             </div>
                         </div>

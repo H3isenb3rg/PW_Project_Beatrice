@@ -2,6 +2,11 @@
 
 @section('title', 'Arcangelo DJ')
 
+@section('scripts')
+    <script src="{{ url('/') }}/js/form_check/newEvent.js"></script>
+    <script src="{{ url('/') }}/js/form_check/newVenue.js"></script>
+@endsection
+
 @section('left_navbar')
     <li class=><a href="{{ route('home') }}">@include("icons.home")</a></li>
     <li class="dropdown active">
