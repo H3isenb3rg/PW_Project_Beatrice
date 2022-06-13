@@ -10,18 +10,17 @@
                 <div class="col-sm-12">
                     <ul class="nav nav-pills nav-justified">
                         <li role="presentation">
-                            <a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-calendar"></span>
+                            <a href="{{ route('event.index') }}">@include("icons.calendar")
                                 {{ trans('labels.calendar') }}</a>
                         </li>
                         @if ($logged)
                             <li role="presentation">
-                                <a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-time"></span>
+                                <a href="{{ route('event.index') }}">@include('icons.reservation')
                                     {{ trans('labels.myReservations') }}</a>
                             </li>
                             @if ($isAdmin)
                                 <li role="presentation">
-                                    <a href="{{ route('event.create') }}"><span
-                                            class="glyphicon glyphicon-plus-sign"></span>
+                                    <a href="{{ route('event.create') }}">@include('icons.newEvent')
                                         {{ trans('labels.newEvent') }}</a>
                                 </li>
                             @endif

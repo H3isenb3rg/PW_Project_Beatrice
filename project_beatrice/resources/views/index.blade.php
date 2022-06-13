@@ -3,22 +3,20 @@
 @section('title', 'Arcangelo DJ')
 
 @section('left_navbar')
-    <li class='active'><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+    <li class='active'><a href="{{ route('home') }}">@include("icons.home")</a></li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('labels.events') }} <b
                 class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-calendar"></span>
-                    {{ trans('labels.calendar') }}</a></li>
+            <li><a href="{{ route('event.index') }}">@include("icons.calendar") {{ trans('labels.calendar') }}</a></li>
             @if ($logged)
                 <li class="divider"></li>
-                <li><a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-time"></span>
+                <li><a href="{{ route('event.index') }}">@include("icons.reservation")
                         {{ trans('labels.myReservations') }}</a>
                 </li>
                 @if ($isAdmin)
                     <li class="divider"></li>
-                    <li><a href="{{ route('event.create') }}"><span class="glyphicon glyphicon-plus-sign"></span>
-                            {{ trans('labels.newEvent') }}</a></li>
+                    <li><a href="{{ route('event.create') }}">@include("icons.newEvent") {{ trans('labels.newEvent') }}</a></li>
                 @endif
             @endif
         </ul>
@@ -31,13 +29,13 @@
         <li><a href="{{ route('user.logout') }}">{{ trans('labels.logout') }} <span
                     class="glyphicon glyphicon-log-out"></span></a></li>
     @else
-        <li><a href="{{ route('user.login') }}"><span class="glyphicon glyphicon-user"></span>
+        <li><a href="{{ route('user.login') }}"><span class="bi bi-person-circle"></span>
                 {{ trans('labels.login') }}</a></li>
     @endif
 @endsection
 
 @section('breadcrumb')
-    <li><a class="active"><span class="glyphicon glyphicon-home"></span></a></li>
+    <li><a class="active"><span class="bi bi-house-fill"></span></a></li>
 @endsection
 
 @section('corpo')

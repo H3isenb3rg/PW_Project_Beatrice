@@ -1,5 +1,6 @@
 <div class="well" style="padding-top: 0">
-    <dl style="margin-bottom: 0">
+    <dl style="margin-bottom: 0" role="button" data-toggle="collapse" href="#details{{ $event->id }}"
+        aria-controls="details{{ $event->id }}" title="More Info">
         <dt class="h2">
             {!! trans(date_format(date_create($event->event_date), 'l')) !!}
             {{ date_format(date_create($event->event_date), 'd') }}
@@ -10,11 +11,10 @@
             </small>
         </dt>
         <dd class="h3" style="border-bottom: 2px solid grey">{{ ucwords($event->name) }}</dd>
-        <dd class="h4">{{ ucwords($event->description) }}</dd>
         <dd>
             <a class="btn btn-default" role="button" data-toggle="collapse" href="#details{{ $event->id }}"
                 aria-controls="details{{ $event->id }}" title="More Info">
-                <span class="glyphicon glyphicon-chevron-down"></span>
+                <span class="bi bi-arrow-bar-down"></span>
             </a>
         </dd>
     </dl>
@@ -23,8 +23,9 @@
             <dt class="h3">{{ ucwords($event->venue->name) }}</dt>
             <dd class="h4">
                 @if (isset($event->venue->maps_link))
-                    <a target="_blank" href="{{ $event->venue->maps_link }}" class=""><span
-                            class="glyphicon glyphicon-map-marker"></span></a>
+                    <a target="_blank" href="{{ $event->venue->maps_link }}" class="btn">
+                        @include("icons.location")    
+                    </a>
                 @else
                     <span title="{{ trans('Link to Maps not available') }}"
                         class="glyphicon glyphicon-map-marker"></span>
@@ -32,6 +33,7 @@
                 {{ ucwords($event->venue->city) }}
                 <small>{{ ucwords($event->venue->address) }}</small>
             </dd>
+            <dd class="h4">{{ ucwords($event->description) }}</dd>
             <dd>
                 <a class="btn btn-primary" href="{{ route("reservation.goToCreate", ["id" => $event->id]) }}">{{ trans("Book") }}</a>
             </dd>

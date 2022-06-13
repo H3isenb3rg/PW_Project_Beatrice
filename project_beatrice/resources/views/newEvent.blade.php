@@ -3,12 +3,12 @@
 @section('title', 'Arcangelo DJ')
 
 @section('left_navbar')
-    <li class=><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+    <li class=><a href="{{ route('home') }}"><span class="bi bi-house-fill"></span></a></li>
     <li class="dropdown active">
         <a href="#" class="dropdown-toggle active" data-toggle="dropdown">{{ trans('labels.events') }} <b
                 class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-calendar"></span>
+            <li><a href="{{ route('event.index') }}"><span class="bi bi-calendar3"></span>
                     {{ trans('labels.calendar') }}</a></li>
             <li class="divider"></li>
             <li><a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-time"></span>

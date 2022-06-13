@@ -13,7 +13,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-12">
-                    <form id="venue-form" action="{{ route('event.create') }}" method="post">
+                    <form id="event-form" action="{{ route('event.create') }}" method="post">
                         @csrf
                         <div class="form-group">
                             <input required type="text" name="name" class="form-control"
@@ -55,9 +55,9 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span
+                                    <label for="mySubmit_event" class="btn btn-primary btn-large btn-block"><span
                                             class="glyphicon glyphicon-floppy-save"></span> {{ trans("Confirm") }}</label>
-                                    <input id="mySubmit" type="submit" value="{{ trans('labels.confirm') }}" class="hidden"/>
+                                    <input id="mySubmit_event" type="submit" value="{{ trans('labels.confirm') }}" class="hidden"/>
                                 </div>
                             </div>
                         </div>

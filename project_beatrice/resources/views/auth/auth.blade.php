@@ -11,6 +11,7 @@
     <!-- Fogli di stile -->
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <!-- JQuery e plugin Js -->
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -28,7 +29,7 @@
                     @endif
 
                     <ul class="nav nav-tabs">
-                        <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a href="{{ route('home') }}"><span style="font-size: 1em;" class="bi bi-house-fill"></span></a></li>
                         @if (isset($inRegistration))
                             <li><a href="#login-form" data-toggle="tab">{{ trans('labels.login') }}</a></li>
                             <li class="active"><a href="#register-form"

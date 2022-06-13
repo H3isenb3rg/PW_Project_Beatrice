@@ -3,13 +3,13 @@
 @section('title', 'Arcangelo DJ')
 
 @section('left_navbar')
-    <li class=><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+    <li class=><a href="{{ route('home') }}"><span class="bi bi-house-fill"></span></a></li>
     <li class="dropdown active">
         <a href="#" class="dropdown-toggle active" data-toggle="dropdown">{{ trans('labels.events') }} <b
                 class="caret"></b></a>
         <ul class="dropdown-menu">
             <li class="active"><a href="{{ route('event.index') }}"><span
-                        class="glyphicon glyphicon-calendar"></span>
+                        class="bi bi-calendar3"></span>
                     {{ trans('labels.calendar') }}</a></li>
             @if ($logged)
                 <li class="divider"></li>
@@ -32,14 +32,14 @@
         <li><a href="{{ route('user.logout') }}">{{ trans('labels.logout') }} <span
                     class="glyphicon glyphicon-log-out"></span></a></li>
     @else
-        <li><a href="{{ route('user.login') }}"><span class="glyphicon glyphicon-user"></span>
+        <li><a href="{{ route('user.login') }}"><span class="bi bi-person-circle"></span>
                 {{ trans('labels.login') }}</a></li>
     @endif
 @endsection
 
 @section('breadcrumb')
-    <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
-    <li class="active"><span class="glyphicon glyphicon-calendar"></span>{{ trans('labels.calendar') }}</li>
+    <li><a href="{{ route('home') }}"><span class="bi bi-house-fill"></span></a></li>
+    <li class="active"><span class="bi bi-calendar3"></span>{{ trans('labels.calendar') }}</li>
 @endsection
 
 @section('corpo')

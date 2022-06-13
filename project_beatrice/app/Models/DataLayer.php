@@ -5,17 +5,39 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\AdjUser;
 use App\Models\Reservation;
-use Exception;
 
 class DataLayer extends Model
 {
 
     /**
-     * 
+     * Gets every reservation of the user with the given ID
+     *
+     * @param mixed $user
+     * @return void
      */
     public function listReservations($user)
     {
-        $reservations = Reservation::where("user_id", $user)->get();
+        return Reservation::where("user_id", $user)->get();
+    }
+
+    /**
+     * Gets the event with the given ID
+     *
+     * @param string $id
+     * @return Event
+     */
+    public function getEventByID(string $id) {
+        return Event::where("id", $id)->first();
+    }
+
+    /**
+     * Checks if an event with the given ID exists
+     *
+     * @param string $id
+     * @return boolean
+     */
+    public function hasEventWithID(string $id) {
+        
     }
 
     /**
