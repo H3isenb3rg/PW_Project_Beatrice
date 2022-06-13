@@ -14,7 +14,7 @@
         <dd>
             <a class="btn btn-default" role="button" data-toggle="collapse" href="#details{{ $event->id }}"
                 aria-controls="details{{ $event->id }}" title="More Info">
-                <span class="bi bi-arrow-bar-down"></span>
+                @include("icons.collapse")
             </a>
         </dd>
     </dl>
@@ -27,8 +27,9 @@
                         @include("icons.location")    
                     </a>
                 @else
-                    <span title="{{ trans('Link to Maps not available') }}"
-                        class="glyphicon glyphicon-map-marker"></span>
+                    <span title="{{ trans('Link to Maps not available') }}">
+                        @include("icons.location")
+                    </span>
                 @endif
                 {{ ucwords($event->venue->city) }}
                 <small>{{ ucwords($event->venue->address) }}</small>

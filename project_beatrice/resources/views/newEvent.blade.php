@@ -3,33 +3,30 @@
 @section('title', 'Arcangelo DJ')
 
 @section('left_navbar')
-    <li class=><a href="{{ route('home') }}"><span class="bi bi-house-fill"></span></a></li>
+    <li class=><a href="{{ route('home') }}">@include("icons.home")</a></li>
     <li class="dropdown active">
         <a href="#" class="dropdown-toggle active" data-toggle="dropdown">{{ trans('labels.events') }} <b
                 class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="{{ route('event.index') }}"><span class="bi bi-calendar3"></span>
-                    {{ trans('labels.calendar') }}</a></li>
+            <li><a href="{{ route('event.index') }}">@include("icons.calendar") {{ trans('labels.calendar') }}</a></li>
             <li class="divider"></li>
-            <li><a href="{{ route('event.index') }}"><span class="glyphicon glyphicon-time"></span>
+            <li><a href="{{ route('event.index') }}">@include("icons.reservation")
                     {{ trans('labels.myReservations') }}</a>
             </li>
             <li class="divider"></li>
-            <li class="active"><a href="{{ route('event.create') }}"><span
-                        class="glyphicon glyphicon-plus-sign"></span> {{ trans('labels.newEvent') }}</a></li>
+            <li class="active"><a href="{{ route('event.create') }}">@include("icons.newEvent") {{ trans('labels.newEvent') }}</a></li>
         </ul>
     </li>
 @endsection
 
 @section('right_navbar')
     <li><a><i>{{ trans('labels.welcome') }} {{ $loggedName }}</i></a></li>
-    <li><a href="{{ route('user.logout') }}">{{ trans('labels.logout') }} <span
-                class="glyphicon glyphicon-log-out"></span></a></li>
+    <li><a href="{{ route('user.logout') }}">{{ trans('labels.logout') }} @include("icons.logout")</a></li>
 @endsection
 
 @section('breadcrumb')
-    <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
-    <li class="active"><span class="glyphicon glyphicon-plus-sign"></span> {{ trans('labels.newEvent') }}</li>
+    <li><a href="{{ route('home') }}">@include("icons.home")</a></li>
+    <li class="active">@include("icons.newEvent") {{ trans('labels.newEvent') }}</li>
 @endsection
 
 @section('corpo')

@@ -33,8 +33,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <label for="mySubmit" class="btn btn-primary btn-large btn-block"><span
-                                            class="glyphicon glyphicon-floppy-save"></span> {{ trans("Confirm") }}</label>
+                                    <label for="mySubmit" class="btn btn-primary btn-large btn-block">@include("icons.confirm") {{ trans("Confirm") }}</label>
                                     <input id="mySubmit" type="submit" value="{{ trans('labels.confirm') }}" class="hidden"/>
                                 </div>
                             </div>
@@ -42,8 +41,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <a href="{{ route('home') }}" class="btn btn-danger btn-block"><span
-                                        class="glyphicon glyphicon-log-out"></span> {{ trans("Cancel") }}</a>
+                                    <a href="{{ route('home') }}" class="btn btn-danger btn-block">@include("icons.close") {{ trans("Cancel") }}</a>
                                 </div>
                             </div>
                         </div>

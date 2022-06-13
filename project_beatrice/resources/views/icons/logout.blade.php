@@ -1,0 +1,1 @@
+<span class="bi bi-box-arrow-right"></span>

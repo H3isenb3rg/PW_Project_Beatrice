@@ -29,7 +29,7 @@
                     @endif
 
                     <ul class="nav nav-tabs">
-                        <li><a href="{{ route('home') }}"><span style="font-size: 1em;" class="bi bi-house-fill"></span></a></li>
+                        <li><a href="{{ route('home') }}">@include("icons.home")</a></li>
                         @if (isset($inRegistration))
                             <li><a href="#login-form" data-toggle="tab">{{ trans('labels.login') }}</a></li>
                             <li class="active"><a href="#register-form"

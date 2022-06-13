@@ -3,20 +3,22 @@
 @section('title', 'Arcangelo DJ')
 
 @section('left_navbar')
-    <li class='active'><a href="{{ route('home') }}">@include("icons.home")</a></li>
+    <li class='active'><a href="{{ route('home') }}">@include('icons.home')</a></li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('labels.events') }} <b
                 class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="{{ route('event.index') }}">@include("icons.calendar") {{ trans('labels.calendar') }}</a></li>
+            <li><a href="{{ route('event.index') }}">@include('icons.calendar') {{ trans('labels.calendar') }}</a>
+            </li>
             @if ($logged)
                 <li class="divider"></li>
-                <li><a href="{{ route('event.index') }}">@include("icons.reservation")
+                <li><a href="{{ route('event.index') }}">@include('icons.reservation')
                         {{ trans('labels.myReservations') }}</a>
                 </li>
                 @if ($isAdmin)
                     <li class="divider"></li>
-                    <li><a href="{{ route('event.create') }}">@include("icons.newEvent") {{ trans('labels.newEvent') }}</a></li>
+                    <li><a href="{{ route('event.create') }}">@include('icons.newEvent')
+                            {{ trans('labels.newEvent') }}</a></li>
                 @endif
             @endif
         </ul>
@@ -26,16 +28,15 @@
 @section('right_navbar')
     @if ($logged)
         <li><a><i>{{ trans('labels.welcome') }} {{ $loggedName }}</i></a></li>
-        <li><a href="{{ route('user.logout') }}">{{ trans('labels.logout') }} <span
-                    class="glyphicon glyphicon-log-out"></span></a></li>
+        <li><a href="{{ route('user.logout') }}">{{ trans('labels.logout') }} @include('icons.logout')</a></li>
     @else
-        <li><a href="{{ route('user.login') }}"><span class="bi bi-person-circle"></span>
+        <li><a href="{{ route('user.login') }}">@include('icons.user')
                 {{ trans('labels.login') }}</a></li>
     @endif
 @endsection
 
 @section('breadcrumb')
-    <li><a class="active"><span class="bi bi-house-fill"></span></a></li>
+    <li><a class="active">@include("icons.home")</a></li>
 @endsection
 
 @section('corpo')

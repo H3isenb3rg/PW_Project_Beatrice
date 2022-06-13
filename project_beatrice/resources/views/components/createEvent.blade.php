@@ -24,20 +24,20 @@
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+                                <div class="input-group-addon">@include("icons.calendarPick")</div>
                                 <input required type="date" name="date" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <div class="input-group-addon">@include("icons.people")</div>
                                 <input type="number" min="0" max="999" step="1" name="seats" class="form-control"
                                     placeholder="{{ trans('labels.availableSeats') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span>
+                                <div class="input-group-addon">@include("icons.location")
                                 </div>
                                 <select required class="form-control" name="venue_id">
                                     <option value="" disabled selected>--
@@ -55,8 +55,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <label for="mySubmit_event" class="btn btn-primary btn-large btn-block"><span
-                                            class="glyphicon glyphicon-floppy-save"></span> {{ trans("Confirm") }}</label>
+                                    <label for="mySubmit_event" class="btn btn-primary btn-large btn-block">@include("icons.confirm") {{ trans("Confirm") }}</label>
                                     <input id="mySubmit_event" type="submit" value="{{ trans('labels.confirm') }}" class="hidden"/>
                                 </div>
                             </div>
@@ -64,8 +63,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <a href="{{ route('home') }}" class="btn btn-danger btn-block"><span
-                                        class="glyphicon glyphicon-log-out"></span> {{ trans("Cancel") }}</a>
+                                    <a href="{{ route('home') }}" class="btn btn-danger btn-block">@include("icons.close") {{ trans("Cancel") }}</a>
                                 </div>
                             </div>
                         </div>
