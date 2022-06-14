@@ -40,5 +40,7 @@ return [
     "chooseVenue" => "Choose a Venue",
     "missingField" => "Error: Missing the required field :field",
     "venue" => "Venue",
-    "next_events" => "Upcoming Events"
+    "next_events" => "Upcoming Events",
+    "max_seats_reached" => "There aren't enough available seats (:seats seats available)",
+    "confirmReservation" => "Reservation for :guests under the name ':name' for the event ':event_name' on :date done!"
 ];

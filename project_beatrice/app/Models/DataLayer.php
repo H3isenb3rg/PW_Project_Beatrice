@@ -21,6 +21,38 @@ class DataLayer extends Model
     }
 
     /**
+     * Returns the numbers of guests currently booked
+     *
+     * @param string $event the id of the event
+     * @return int
+     */
+    public function countBooked(string $event) {
+        $event = Event::where("id", $event)->first();
+
+        return (int)($event->loadSum("reservations", "guests")["reservations_sum_guests"]);
+    }
+
+    /**
+     * Creates a new Reservation for the given user in the given event
+     *
+     * @param string $name The table name of the reservation
+     * @param integer $guests The number of guests included in the reservation
+     * @param string $user The ID of the owner of the reservation
+     * @param string $event The event for which the reservation is made
+     * @return void
+     */
+    public function addReservation(string $name, int $guests, string $user, string $event) {
+        $new_reservation = new Reservation();
+
+        $new_reservation->name = $name;
+        $new_reservation->guests = $guests;
+        $new_reservation->user_id = $user;
+        $new_reservation->event_id = $event;
+
+        $new_reservation->save();
+    }
+
+    /**
      * Gets the event with the given ID
      *
      * @param string $id
@@ -37,16 +69,6 @@ class DataLayer extends Model
      */
     public function getVenueByID(string $id) {
         return Venue::where("id", $id)->first();
-    }
-
-    /**
-     * Checks if an event with the given ID exists
-     *
-     * @param string $id
-     * @return boolean
-     */
-    public function hasEventWithID(string $id) {
-        
     }
 
     /**

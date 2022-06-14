@@ -40,5 +40,7 @@ return [
     "chooseVenue" => "Scegli un Luogo",
     "missingField" => "Errore: Compilare il campo obbligatorio :field",
     "venue" => "Luogo",
-    "next_events" => "Prossimi Eventi"
+    "next_events" => "Prossimi Eventi",
+    "max_seats_reached" => "Posti disponibili non sufficienti (:seats posti rimasti)",
+    "confirmReservation" => "Prenotazione per :guests a nome ':name' all'evento ':event_name' del :date confermata!"
 ];

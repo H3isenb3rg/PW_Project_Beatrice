@@ -48,6 +48,6 @@ Route::get("ajaxNewVenue", [VenueController::class, "ajaxNewVenue"])->name("ajax
 
 // RESERVATION
 Route::middleware(['isLogged'])->group(function () {
-    Route::resource("reservation", ReservationController::class);
+    Route::resource("reservation", ReservationController::class)->middleware(["lang"]);
     Route::get("reservation/{id}/book", [ReservationController::class, "goToCreate"])->name("reservation.goToCreate")->middleware(["lang"]);
 });

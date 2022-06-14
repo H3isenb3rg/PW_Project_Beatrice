@@ -25,6 +25,11 @@ class FrontController extends Controller {
             $current_view = $current_view->with("alert", __(Session::pull("alert")));
         }
 
+        // If present translates and adds the reservation confirm message
+        if (Session::has("confirmReservation")) {
+            $current_view = $current_view->with("confirm", Session::pull("confirmReservation"));
+        }
+
         // Retrieve upcoming events
         $upcoming_events = $dl->fetchFutureEvents(4);
 
