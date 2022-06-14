@@ -1,1 +1,1 @@
-<span class="bi bi-arrow-bar-down"></span>
+<span class="bi bi-caret-down-fill"></span>

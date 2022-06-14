@@ -10,7 +10,7 @@
                 <div class="col-sm-12">
                     <ul class="nav nav-pills nav-justified">
                         <li role="presentation">
-                            <a href="{{ route('event.index') }}">@include("icons.calendar")
+                            <a href="{{ route('event.index') }}">@include('icons.calendar')
                                 {{ trans('labels.calendar') }}</a>
                         </li>
                         @if ($logged)
@@ -30,9 +30,11 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    @foreach ($eventsList as $event)
-                        @include('components.event.well', ['event' => $event])
-                    @endforeach
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        @foreach ($eventsList as $event)
+                            @include('components.event.well', ['event' => $event])
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
