@@ -35,7 +35,7 @@ return [
     "userAlreadyPresent" => "Username o Email già in uso.",
     "confirmNewVenue" => "Aggiunto nuovo luogo :name (:city)",
     "confirmNewEvent" => "Creato evento :name (:venue) del :date",
-    "venueAlreadyExists" => ":name &egrave; gi&agrave; nella lista dei luoghi",
+    "venueAlreadyExists" => ":name(:city) &egrave; gi&agrave; nella lista dei luoghi",
     "eventAlreadyExists" => "Evento :name del :date è gi&agrave; presente nella lista degli eventi",
     "chooseVenue" => "Scegli un Luogo",
     "missingField" => "Errore: Compilare il campo obbligatorio :field",

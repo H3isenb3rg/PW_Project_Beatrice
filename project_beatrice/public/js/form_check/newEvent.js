@@ -46,7 +46,6 @@ $(document).ready(function() {
     }
 
     today = yyyy + '-' + mm + '-' + dd;
-    console.log(today);
     $("#event-date").attr("min", today);
 });
 

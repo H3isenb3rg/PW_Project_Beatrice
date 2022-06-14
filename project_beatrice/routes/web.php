@@ -44,6 +44,7 @@ Route::get("ajaxNewEvent", [EventController::class, "ajaxNewEvent"])->name("ajax
 Route::group(["prefix" => "venue"], function () {
     Route::post("create", [VenueController::class, "create"])->name("venue.create")->middleware(["isLogged"])->middleware(["isAdmin"])->middleware(["lang"]);
 });
+Route::get("ajaxNewVenue", [VenueController::class, "ajaxNewVenue"])->name("ajaxNewVenue")->middleware(["isLogged"])->middleware(["isAdmin"]);
 
 // RESERVATION
 Route::middleware(['isLogged'])->group(function () {

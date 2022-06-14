@@ -26,8 +26,8 @@ class VenueController extends Controller {
         }
 
         // Insert in DB
-        if ($dl->checkVenueExists($name)) {
-            Session::put("alert", __('labels.venueAlreadyExists', ['name' => ucwords($name)]));
+        if ($dl->checkVenueExists($name, $city)) {
+            Session::put("alert", __('labels.venueAlreadyExists', ['name' => ucwords($name), "city" => ucwords($city)]));
             return Redirect::route("event.create");
         }
         $dl->addVenue($name, $city, $address, $maps_link);
@@ -37,6 +37,19 @@ class VenueController extends Controller {
         return Redirect::route("event.create");
     }
 
+    public function ajaxNewVenue(Request $request) {
+        $dl = new DataLayer();
+        $name = $request->input("name");
+        $city = $request->input("city");
+
+        return response()->json(["found" => $dl->checkVenueExists($name, $city)]);
+    }
+
+    /**
+     * Old build alert function
+     *
+     * @deprecated
+     */
     private function build_confirm_alert($name, $city, $address, $maps_link) {
         return '<div class="alert alert-success alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span

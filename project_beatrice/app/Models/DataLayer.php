@@ -118,14 +118,15 @@ class DataLayer extends Model
     }
 
     /**
-     * Checks if a venue with the given name already exists
+     * Checks if a venue with the given name already exists in the same city
      *
      * @param string $name The name of the venue to find
+     * @param string $city Tha city of the venue to find
      * @return boolean
      */
-    public function checkVenueExists($name)
+    public function checkVenueExists($name, $city)
     {
-        $venue = Venue::where("name", $name)->first();
+        $venue = Venue::where("name", $name)->where("city", $city)->first();
 
         if (is_null($venue)) {
             return false;

@@ -13,35 +13,44 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-12">
-                    <form id="venue-form" action="{{ route('venue.create') }}" method="post">
+                    <form name="venue-form" id="venue-form" action="{{ route('venue.create') }}" method="post">
                         @csrf
-                        <div class="form-group">
-                            <input type="text" name="name" class="form-control"
+                        <div id="venue-name-div" class="form-group">
+                            <input id="venue-name" type="text" name="name" class="form-control"
                                 placeholder="{{ trans('labels.name') }}">
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="city" class="form-control" placeholder="{!! trans('labels.city') !!}">
+                        <div id="venue-city-div" class="form-group">
+                            <input id="venue-city" type="text" name="city" class="form-control" placeholder="{!! trans('labels.city') !!}">
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="address" class="form-control"
+                        <div id="venue-address-div" class="form-group">
+                            <input id="venue-address" type="text" name="address" class="form-control"
                                 placeholder="{{ trans('labels.address') }}">
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
-                            <input type="url" name="maps" class="form-control"
+                        <div id="venue-maps-div" class="form-group">
+                            <input id="venue-maps" type="url" name="maps" class="form-control"
                                 placeholder="{{ trans('labels.mapsLink') }}">
+                            <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <label for="mySubmit" class="btn btn-primary btn-large btn-block">@include("icons.confirm") {{ trans("Confirm") }}</label>
-                                    <input id="mySubmit" type="submit" value="{{ trans('labels.confirm') }}" class="hidden"/>
+                                    <label for="mySubmit"
+                                        class="btn btn-primary btn-large btn-block">@include('icons.confirm')
+                                        {{ trans('Confirm') }}</label>
+                                    <input id="mySubmit" type="submit" value="{{ trans('labels.confirm') }}"
+                                        class="hidden" onclick="event.preventDefault(); checkVenue('{{ $lang }}');"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <a href="{{ route('home') }}" class="btn btn-danger btn-block">@include("icons.close") {{ trans("Cancel") }}</a>
+                                    <a href="{{ route('home') }}"
+                                        class="btn btn-danger btn-block">@include('icons.close')
+                                        {{ trans('Cancel') }}</a>
                                 </div>
                             </div>
                         </div>
