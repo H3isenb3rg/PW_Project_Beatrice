@@ -1,4 +1,4 @@
-<div class="well panel" style="padding-top: 0">
+<div class="well panel" style="padding-top: 0; padding-bottom: 0;" >
     <dl class="panel-heading" role="tab" id="heading{{ $event->id }}" style="margin-bottom: 0">
         <dt class="h2">
             {!! trans(date_format(date_create($event->event_date), 'l')) !!}
@@ -9,18 +9,18 @@
                 ({{ ucwords($event->venue->city) }})
             </small>
         </dt>
-        <dd style="border-bottom: 2px solid grey">
+        <dd>
             <a class="h3" role="button" data-toggle="collapse" data-parent="#accordion"
                 href="#collapse{{ $event->id }}" aria-expanded="true" aria-controls="collapse{{ $event->id }}"
                 title="More Info">
+                @include('icons.collapse', ["id" => $event->id]) 
                 {{ ucwords($event->name) }}
-                @include('icons.collapse')
             </a>
         </dd>
     </dl>
     <div id="collapse{{ $event->id }}" class="panel-collapse collapse" role="tabpanel"
         aria-labelledby="heading{{ $event->id }}" style="padding-top: 1%">
-        <div class="panel-body" style="padding-top: 0">
+        <div class="panel-body" style="padding-top: 0; padding-bottom: 0;">
             <dl>
                 <dt class="h3">{{ ucwords($event->venue->name) }}</dt>
                 <dd class="h4">

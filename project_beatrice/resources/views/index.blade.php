@@ -3,7 +3,7 @@
 @section('title', 'Arcangelo DJ')
 
 @section('scripts')
-    <script src="{{ url('/') }}/js/home/events.js"></script>
+    <script src="{{ url('/') }}/js/event_well.js"></script>
 @endsection
 
 @section('left_navbar')

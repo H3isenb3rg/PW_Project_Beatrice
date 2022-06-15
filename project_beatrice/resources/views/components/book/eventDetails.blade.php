@@ -2,7 +2,7 @@
         ({{ ucwords($event->venue->city) }})</small></h2>
 <dl>
     <dt class="h4">{{ ucwords($event->venue->name) }}</dt>
-    <dd class="h5">
+    <dd class="h4">
         @if (isset($event->venue->maps_link))
             <a target="_blank" href="{{ $event->venue->maps_link }}"
                 class="">@include('icons.location')</a>
