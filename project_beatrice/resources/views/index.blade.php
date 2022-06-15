@@ -55,6 +55,10 @@
 
         @include('components.home.gallery')
 
-        @include('components.home.events', ['eventsList' => $eventsList])
+        @if (isset($isAdmin))
+            @include('components.home.events', ['eventsList' => $eventsList, "isAdmin" => $isAdmin])
+        @else
+            @include('components.home.events', ['eventsList' => $eventsList, "isAdmin" => false])
+        @endif
     </div>
 @endsection

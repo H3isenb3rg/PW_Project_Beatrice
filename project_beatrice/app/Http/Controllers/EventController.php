@@ -16,6 +16,24 @@ class EventController extends Controller
         return Redirect::route("home");
     }
 
+    public function goToDetails(Request $request, $id) {
+        $dl = new DataLayer();
+        $venueList = $dl->listVenues();
+        $event = $dl->getEventByID($id);
+
+        $current_view = view("components.book.bookEvent")->with("event", $event)
+            ->with("loggedName", Session::get("loggedName"))
+            ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
+            ->with("editEvent", true)
+            ->with("venueList", $venueList);
+
+        if (Session::has("alert")) {
+            $current_view = $current_view->with("alert", Session::pull("alert"));
+        }
+
+        return $current_view;
+    }
+
     public function goToCurrentEvents()
     {
         $dl = new DataLayer();

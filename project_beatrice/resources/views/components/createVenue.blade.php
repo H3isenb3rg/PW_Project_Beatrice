@@ -35,22 +35,20 @@
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    <label for="mySubmit"
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-5" style="padding-top: 1%">
+                                        <label for="mySubmit"
                                         class="btn btn-primary btn-large btn-block">@include('icons.confirm')
-                                        {{ trans('Confirm') }}</label>
+                                        {{ trans("Create Venue") }}</label>
                                     <input id="mySubmit" type="submit" value="{{ trans('labels.confirm') }}"
                                         class="hidden" onclick="event.preventDefault(); checkVenue('{{ $lang }}');"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    <a href="{{ route('home') }}"
+                                    </div>
+                                    <div class="col-sm-5" style="padding-top: 1%">
+                                        <a href="{{ route('home') }}"
                                         class="btn btn-danger btn-block">@include('icons.close')
                                         {{ trans('Cancel') }}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

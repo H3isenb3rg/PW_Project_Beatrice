@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12">
-        <div class="jumbotron" style="padding-top: 0">
+        <div class="jumbotron">
             <div class="row">
                 <div class="col-sm-12">
                     <h1>{{ trans('labels.next_events') }}</h1>

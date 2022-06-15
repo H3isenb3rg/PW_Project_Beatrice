@@ -38,8 +38,11 @@
                 </dd>
                 <dd class="h4">{{ ucwords($event->description) }}</dd>
                 <dd>
-                    <a class="btn btn-primary"
-                        href="{{ route('reservation.goToCreate', ['id' => $event->id]) }}">{{ trans('Book') }}</a>
+                    @if ($isAdmin)
+                        <a class="btn btn-primary" href="{{ route('event.goToDetails', ['id' => $event->id]) }}">{{ trans("Event Page") }}</a>
+                    @else
+                        <a class="btn btn-primary" href="{{ route('event.goToBook', ['id' => $event->id]) }}">{{ trans('Book') }}</a>
+                    @endif
                 </dd>
             </dl>
         </div>

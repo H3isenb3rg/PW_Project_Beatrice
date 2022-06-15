@@ -25,5 +25,9 @@
     "Table Name": "Nome del Tavolo",
     "Guests Number": "Numero di persone",
     "Confirm": "Conferma",
-    "Cancel": "Annulla"
+    "Confirm Edit": "Conferma Modifiche",
+    "Cancel": "Annulla",
+    "Event Page": "Pagina dell'evento",
+    "Create Event": "Crea Evento",
+    "Create Venue": "Crea Luogo"
 }

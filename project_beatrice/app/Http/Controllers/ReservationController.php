@@ -25,7 +25,7 @@ class ReservationController extends Controller
             return Redirect::to(route("home"));
         }
 
-        $current_view = view("bookEvent")->with("event", $event)
+        $current_view = view("components.book.bookEvent")->with("event", $event)
             ->with("loggedName", Session::get("loggedName"))
             ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
 
