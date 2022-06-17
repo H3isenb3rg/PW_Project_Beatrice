@@ -29,5 +29,10 @@
     "Cancel": "Annulla",
     "Event Page": "Pagina dell'evento",
     "Create Event": "Crea Evento",
-    "Create Venue": "Crea Luogo"
+    "Create Venue": "Crea Luogo",
+    "Error while updating event": "Errore durante la modifica dell'evento",
+    "New Event date can't be before today": "La data dell'evento non può essere un giorno precedente ad oggi",
+    "There are only :seats seats available": "Ci sono solamente :seats posti disponibili",
+    "There are already :seats guests booked. Can't lower total seats to :new_seats": "Ci sono gi&agrave; :seats tavoli prenotati. Impossibile abbassare il numero di tavoli disponibili a :new_seats",
+    "Successfully updated the event": "Evento aggiornato con successo"
 }

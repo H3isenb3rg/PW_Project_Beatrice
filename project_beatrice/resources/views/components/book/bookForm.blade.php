@@ -5,7 +5,7 @@
         <div class="col-sm-8">
             <div class="input-group">
                 <div class="input-group-addon">@include('icons.bookmark')</div>
-                <input required class="form-control" type="text" id="name" name="name"
+                <input required class="form-control" type="text" id="name" name="table_name"
                     placeholder="{{ trans('Table Name') }}">
                 <span class="help-block"></span>
             </div>

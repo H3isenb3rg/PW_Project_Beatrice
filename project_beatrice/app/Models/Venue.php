@@ -11,6 +11,13 @@ class Venue extends Model {
     protected $table = "venue";
     public $timestamps = false;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'city', 'address', 'maps_link'];
+
     public function events() {
         return $this->hasMany("App\Models\Event");
     }

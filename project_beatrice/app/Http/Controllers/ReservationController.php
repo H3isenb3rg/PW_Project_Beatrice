@@ -25,7 +25,7 @@ class ReservationController extends Controller
             return Redirect::to(route("home"));
         }
 
-        $current_view = view("components.book.bookEvent")->with("event", $event)
+        $current_view = view("components.book.eventPage")->with("event", $event)
             ->with("loggedName", Session::get("loggedName"))
             ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
 
@@ -40,7 +40,7 @@ class ReservationController extends Controller
     {
         $dl = new Datalayer();
 
-        $table_name = $request->input("name");
+        $table_name = $request->input("table_name");
         $guests = (int)$request->input("guests");
         $event = $request->input("event_id");
         $user = $dl->getUserID(Session::get("loggedName"));

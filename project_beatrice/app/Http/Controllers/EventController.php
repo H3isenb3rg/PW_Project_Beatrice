@@ -16,12 +16,84 @@ class EventController extends Controller
         return Redirect::route("home");
     }
 
-    public function goToDetails(Request $request, $id) {
+    public function edit(Request $request)
+    {
+        $dl = new DataLayer();
+        $id = $request->input("event_id");
+        if (!$dl->checkEventID($id)) {
+            Session::put("alert", __("Error while updating event"));
+            return Redirect::to(route("home"));
+        }
+
+        $venue_id = $request->input("venue_id");
+        $seats = $request->input("seats");
+        $date = $request->input("date");
+        $desc = $request->input("description");
+        $name = $request->input("name");
+
+        // Fields Checks
+        $curr_redirect = Redirect::to(route("event.goToDetails", ["id" => $id]));
+        if ($name == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.name')]));
+            return $curr_redirect;
+        }
+        if ($desc == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.description')]));
+            return $curr_redirect;
+        }
+        if ($date == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.date')]));
+            return $curr_redirect;
+        } else {
+            $date = Carbon::parse($date)->format("Y-m-d");
+            $today = date("Y-m-d");
+            if ($date < $today) {
+                Session::put("alert", __("New Event date can't be before today"));
+                return $curr_redirect;
+            }
+        }
+        if ($venue_id == "") {
+            Session::put("alert", __('labels.missingField', ['field' => __('labels.venue')]));
+            return $curr_redirect;
+        }
+        if (!isset($dl->getVenueByID($venue_id)->id)) {
+            Session::put("alert", __("Error while updating event"));
+            return Redirect::to(route("home"));
+        }
+        if ($dl->checkEventExists($name, $date)) {
+            if ($dl->getEventByNameDate($name, $date)->id != $id) {
+                Session::put("alert", __("labels.eventAlreadyExists", ["name" => ucwords($name), "date" => $date]));
+                return $curr_redirect;
+            }
+        }
+        $booked_seats = $dl->countBooked($id);
+        if ($seats == "") {
+            $seats = 0;
+        }else if ($seats>0 && $booked_seats > (int)$seats) {
+            Session::put("alert", __("There are already :seats guests booked. Can't lower total seats to :new_seats", ["seats" => $booked_seats, "new_seats" => $seats]));
+            return $curr_redirect;
+        }
+
+        $dl->update_event(
+            $id,
+            $name,
+            $desc,
+            $date,
+            $seats,
+            $venue_id
+        );
+
+        Session::put("confirm", __("Successfully updated the Event"));
+        return $curr_redirect;
+    }
+
+    public function goToDetails(Request $request, $id)
+    {
         $dl = new DataLayer();
         $venueList = $dl->listVenues();
         $event = $dl->getEventByID($id);
 
-        $current_view = view("components.book.bookEvent")->with("event", $event)
+        $current_view = view("components.book.eventPage")->with("event", $event)
             ->with("loggedName", Session::get("loggedName"))
             ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
             ->with("editEvent", true)
@@ -29,6 +101,9 @@ class EventController extends Controller
 
         if (Session::has("alert")) {
             $current_view = $current_view->with("alert", Session::pull("alert"));
+        }
+        if (Session::has("confirm")) {
+            $current_view = $current_view->with("confirm", Session::pull("confirm"));
         }
 
         return $current_view;
@@ -102,6 +177,11 @@ class EventController extends Controller
             return Redirect::route("event.create");
         } else {
             $date = Carbon::parse($date)->format("Y-m-d");
+            $today = date("Y-m-d");
+            if ($date < $today) {
+                Session::put("alert", __("New Event date can't be before today"));
+                return Redirect::route("event.create");
+            }
         }
         if ($venue == "") {
             Session::put("alert", __('labels.missingField', ['field' => __('labels.venue')]));
@@ -120,16 +200,17 @@ class EventController extends Controller
         return Redirect::route("event.create");
     }
 
-    public function ajaxNewEvent(Request $request) {
+    public function ajaxNewEvent(Request $request)
+    {
         $dl = new DataLayer();
 
-        if(is_null($dl->getVenueByID($request->input("venue")))) {
+        if (is_null($dl->getVenueByID($request->input("venue")))) {
             $response = array("venue_valid" => false);
         } else {
             $response = array("venue_valid" => true);
         }
-        
-        if($dl->checkEventExists($request->input("event_name"), $request->input("event_date"))) {
+
+        if ($dl->checkEventExists($request->input("event_name"), $request->input("event_date"))) {
             $response["unique"] = false;
         } else {
             $response["unique"] = true;

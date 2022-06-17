@@ -36,7 +36,7 @@ return [
     "confirmNewVenue" => "Aggiunto nuovo luogo :name (:city)",
     "confirmNewEvent" => "Creato evento :name (:venue) del :date",
     "venueAlreadyExists" => ":name(:city) &egrave; gi&agrave; nella lista dei luoghi",
-    "eventAlreadyExists" => "Evento :name del :date è gi&agrave; presente nella lista degli eventi",
+    "eventAlreadyExists" => "Evento :name del :date &egrave; gi&agrave; presente nella lista degli eventi",
     "chooseVenue" => "Scegli un Luogo",
     "missingField" => "Errore: Compilare il campo obbligatorio :field",
     "venue" => "Luogo",

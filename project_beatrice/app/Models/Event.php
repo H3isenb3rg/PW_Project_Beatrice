@@ -11,6 +11,13 @@ class Event extends Model {
     protected $table = "event";
     public $timestamps = false;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'description', 'event_date', 'seats', 'venue_id'];
+
     public function reservations() {
         return $this->hasMany("App\Models\Reservation");
     }

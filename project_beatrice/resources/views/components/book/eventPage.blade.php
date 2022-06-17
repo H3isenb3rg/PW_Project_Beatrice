@@ -45,6 +45,9 @@
                 @if (isset($alert))
                     @include('components.alert', ['alert' => $alert])
                 @endif
+                @if (isset($confirm))
+                    @include('components.confirm', ['confirm' => $confirm])
+                @endif
 
                 <div class="jumbotron">
                     @include('components.book.eventDetails', ['event' => $event])

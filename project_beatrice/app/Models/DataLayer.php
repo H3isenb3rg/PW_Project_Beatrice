@@ -26,10 +26,9 @@ class DataLayer extends Model
      * @param string $event the id of the event
      * @return int
      */
-    public function countBooked(string $event) {
-        $event = Event::where("id", $event)->first();
-
-        return (int)($event->loadSum("reservations", "guests")["reservations_sum_guests"]);
+    public function countBooked(string $event)
+    {
+        return Reservation::where("event_id", $event)->sum("guests");
     }
 
     /**
@@ -41,7 +40,8 @@ class DataLayer extends Model
      * @param string $event The event for which the reservation is made
      * @return void
      */
-    public function addReservation(string $name, int $guests, string $user, string $event) {
+    public function addReservation(string $name, int $guests, string $user, string $event)
+    {
         $new_reservation = new Reservation();
 
         $new_reservation->name = $name;
@@ -58,8 +58,20 @@ class DataLayer extends Model
      * @param string $id
      * @return Event
      */
-    public function getEventByID(string $id) {
+    public function getEventByID(string $id)
+    {
         return Event::where("id", $id)->first();
+    }
+
+    /**
+     * Checks if an event with the given ID exists.
+     *
+     * @param string $id
+     * @return boolean
+     */
+    public function checkEventID(string $id)
+    {
+        return Event::where("id", $id)->exists();
     }
 
     /**
@@ -67,8 +79,20 @@ class DataLayer extends Model
      *
      * @param string $id
      */
-    public function getVenueByID(string $id) {
+    public function getVenueByID(string $id)
+    {
         return Venue::where("id", $id)->first();
+    }
+
+    /**
+     * Checks if a Venue with the given ID exists
+     *
+     * @param string $id
+     * @return void
+     */
+    public function checkVenueID(string $id)
+    {
+        return Venue::where("id", $id)->exists();
     }
 
     /**
@@ -99,12 +123,13 @@ class DataLayer extends Model
      * @param string $date Sets the minimal date to retrieve avents if not set uses today
      * @return object
      */
-    public function fetchFutureEvents(int $number = 0, string $date = null) {
+    public function fetchFutureEvents(int $number = 0, string $date = null)
+    {
         if (!isset($date)) {
             $date = date("Y-m-d");
         }
-        
-        if ($number>0) {
+
+        if ($number > 0) {
             return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->take($number)->get();
         }
 
@@ -130,13 +155,7 @@ class DataLayer extends Model
      */
     public function checkUserExists($username, $email)
     {
-        $users = AdjUser::where("username", $username)->orWhere->where("email", $email)->get();
-
-        if (count($users) > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return AdjUser::where("username", $username)->orWhere->where("email", $email)->exists();
     }
 
     /**
@@ -148,13 +167,7 @@ class DataLayer extends Model
      */
     public function checkVenueExists($name, $city)
     {
-        $venue = Venue::where("name", $name)->where("city", $city)->first();
-
-        if (is_null($venue)) {
-            return false;
-        } else {
-            return true;
-        }
+        return Venue::where("name", $name)->where("city", $city)->exists();
     }
 
     /**
@@ -164,14 +177,47 @@ class DataLayer extends Model
      * @param string $date
      * @return boolean
      */
-    public function checkEventExists(string $name, string $date) {
-        $event = Event::where("name", $name)->where("event_date", $date)->first();
+    public function checkEventExists(string $name, string $date)
+    {
+        return Event::where("name", $name)->where("event_date", $date)->exists();
+    }
 
-        if (is_null($event)) {
-            return false;
-        } else {
-            return true;
+    /**
+     * Returns the event with the given name in the given date
+     *
+     * @param string $name
+     * @param string $date
+     * @return Event
+     */
+    public function getEventByNameDate(string $name, string $date) {
+        return Event::where("name", $name)->where("event_date", $date)->first();
+    }
+
+    /**
+     * Updates the event with given id with the specified information
+     *
+     * @param string $id
+     * @param string $name
+     * @param string $desc
+     * @param string $date
+     * @param int $seats
+     * @param string $venue_id
+     * @return void
+     */
+    public function update_event(string $id, string $name, string $desc, string $date, int $seats, string $venue_id)
+    {
+        // Remove seats limitations
+        if ($seats==0) {
+            $seats = null;
         }
+
+        Event::find($id)->update([
+            "name" => $name,
+            "description" => $desc,
+            "event_date" => $date,
+            "seats" => $seats,
+            "venue_id" => $venue_id
+        ]);
     }
 
     /**
@@ -215,11 +261,11 @@ class DataLayer extends Model
         $new_event->description = $description;
         $new_event->event_date = $date;
         $new_event->venue_id = $venue_id;
-        if (!$seats=="") {
+        if (!$seats == "") {
             $new_event->seats = $seats;
         }
-        
-        $new_event->save();        
+
+        $new_event->save();
     }
 
     /**
@@ -270,13 +316,7 @@ class DataLayer extends Model
      */
     public function isAdmin($username)
     {
-        $user = AdjUser::where("username", $username)->get(["is_admin"])[0];
-
-        if ($user->is_admin == "0") {
-            return false;
-        } else {
-            return true;
-        }
+        return AdjUser::where("username", $username)->where("is_admin", "1")->exists();
     }
 
     /**
@@ -288,7 +328,7 @@ class DataLayer extends Model
      */
     public function getUserID($username)
     {
-        $user = AdjUser::where("username", $username)->get(["id"])[0];
+        $user = AdjUser::where("username", $username)->first();
 
         return $user->id;
     }
@@ -299,7 +339,8 @@ class DataLayer extends Model
      * @param string $id
      * @return string
      */
-    public function getVenueName($id) {
+    public function getVenueName($id)
+    {
         $venue = Venue::where("id", $id)->first();
 
         return $venue->name;
