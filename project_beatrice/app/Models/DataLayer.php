@@ -8,18 +8,6 @@ use App\Models\Reservation;
 
 class DataLayer extends Model
 {
-
-    /**
-     * Gets every reservation of the user with the given ID
-     *
-     * @param mixed $user
-     * @return void
-     */
-    public function listReservations($user)
-    {
-        return Reservation::where("user_id", $user)->get();
-    }
-
     /**
      * Returns the numbers of guests currently booked
      *
@@ -134,6 +122,34 @@ class DataLayer extends Model
         }
 
         return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->get();
+    }
+    
+    /**
+     * Returns the list of reservation of the given user
+     *
+     * @param string $user The ID of the user
+     * @param integer $number The number of reservation to retrieve (0 = all)
+     * @param string|null $date The min date of the reservation (If null then today)
+     * @return void
+     */
+    public function fetchFutureReservations(string $user, int $number = 0, string $date = null)
+    {
+        if (!isset($date)) {
+            $date = date("Y-m-d");
+        }
+
+        $query = Reservation::select("reservation.*")->where("user_id", $user)
+                        ->join('event', function($join) use ($date) {
+                            $join->on('reservation.event_id', "=", "event.id")
+                                 ->whereDate("event.event_date", ">=", $date);
+                        })
+                        ->orderBy("event_date");
+
+        if ($number > 0) {
+            return $query->take($number)->get();
+        }
+
+        return $query->get();
     }
 
     /**

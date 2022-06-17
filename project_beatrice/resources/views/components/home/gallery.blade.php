@@ -3,7 +3,7 @@
         <div class="jumbotron">
             <div class="row">
                 <div class="col-sm-6">
-                    <h1>Arcangelo DJ</h1>
+                    <h2>Arcangelo DJ</h1>
                     <p>{{ trans('labels.jumbotronGallery1') }}</p>
                     <p>{{ trans('labels.jumbotronGallery2') }}</p>
                     <p><a class="btn btn-primary btn-lg" href="#"

@@ -92,8 +92,9 @@ class EventController extends Controller
         $dl = new DataLayer();
         $venueList = $dl->listVenues();
         $event = $dl->getEventByID($id);
+        $event->setAttribute("available_seats", $event->seats - $dl->countBooked($id));
 
-        $current_view = view("components.book.eventPage")->with("event", $event)
+        $current_view = view("eventPage")->with("event", $event)
             ->with("loggedName", Session::get("loggedName"))
             ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
             ->with("editEvent", true)

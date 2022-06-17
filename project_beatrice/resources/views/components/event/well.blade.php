@@ -22,7 +22,7 @@
         aria-labelledby="heading{{ $event->id }}" style="padding-top: 1%">
         <div class="panel-body" style="padding-top: 0; padding-bottom: 0;">
             <dl>
-                <dt class="h3">{{ ucwords($event->venue->name) }}</dt>
+                <dt class="h3">{{ ucwords($event->venue->name) }} <small>({{ ucwords($event->venue->city) }})</small></dt>
                 <dd class="h4">
                     @if (isset($event->venue->maps_link))
                         <a target="_blank" href="{{ $event->venue->maps_link }}" class="btn">
@@ -33,8 +33,7 @@
                             @include('icons.location')
                         </span>
                     @endif
-                    {{ ucwords($event->venue->city) }}
-                    <small>{{ ucwords($event->venue->address) }}</small>
+                    {{ ucwords($event->venue->address) }}
                 </dd>
                 <dd class="h4">{{ ucwords($event->description) }}</dd>
                 <dd>

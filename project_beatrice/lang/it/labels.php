@@ -42,5 +42,6 @@ return [
     "venue" => "Luogo",
     "next_events" => "Prossimi Eventi",
     "max_seats_reached" => "Posti disponibili non sufficienti (:seats posti rimasti)",
-    "confirmReservation" => "Prenotazione per :guests a nome ':name' all'evento ':event_name' del :date confermata!"
+    "confirmReservation" => "Prenotazione per :guests a nome ':name' all'evento ':event_name' del :date confermata!",
+    "next_reservations" => "Prossime Prenotazioni"
 ];

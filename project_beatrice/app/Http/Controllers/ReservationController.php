@@ -20,12 +20,13 @@ class ReservationController extends Controller
     {
         $dl = new DataLayer();
         $event = $dl->getEventByID($id);
+        $event->setAttribute("available_seats", $event->seats - $dl->countBooked($id));
 
         if (is_null($event)) {
             return Redirect::to(route("home"));
         }
 
-        $current_view = view("components.book.eventPage")->with("event", $event)
+        $current_view = view("eventPage")->with("event", $event)
             ->with("loggedName", Session::get("loggedName"))
             ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
 
@@ -52,7 +53,7 @@ class ReservationController extends Controller
 
             if ($total_seats > 0 && $available_seats < $guests) {
                 Session::put("alert", __("labels.max_seats_reached", ["seats" => $total_seats]));
-                return redirect()->route("reservation.goToCreate", ["id" => $event_obj->id]);
+                return redirect()->back();
             }
 
 
@@ -67,5 +68,25 @@ class ReservationController extends Controller
 
 
         return Redirect::to(route("home"));
+    }
+
+    public function index() {
+        $dl = new DataLayer();
+        $user_id = $dl->getUserID(Session::get("loggedName"));
+
+        $userReservations = $dl->fetchFutureReservations($user_id);
+
+        $current_view = view("reservationsList")->with("reservationsList", $userReservations)
+                                                ->with("loggedName", Session::get("loggedName"))
+                                                ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
+        
+        if(Session::has("alert")) {
+            $current_view = $current_view->with("alert", Session::pull("alert"));
+        }
+        if(Session::has("confirm")) {
+            $current_view = $current_view->with("confirm", Session::pull("confirm"));
+        }
+
+        return $current_view;
     }
 }

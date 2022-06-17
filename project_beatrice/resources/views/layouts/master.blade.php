@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <nav class="navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -29,7 +29,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand js-scroll-trigger logo-navbar" href="#page-top">
-                <img class="logo-navbar" src="{{ url('/') }}/img/static/LOGO-ADJ-BLACK.jpg" alt="ADJ logo" title="ADJ">
+                <img class="logo-navbar" src="{{ url('/') }}/img/static/LOGO-ADJ-BLACK.jpg" alt="ADJ logo"
+                    title="ADJ">
             </a>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -38,9 +39,11 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="{{ route("setLang", ["lang" => "en"]) }}"><img class="img img-rounded" width="30px" src="{{ url('/') }}/img/flags/en.png"></a>
-                    <a href="{{ route("setLang", ["lang" => "it"]) }}"><img class="img img-rounded" width="30px" src="{{ url('/') }}/img/flags/it.png"></a>
                     @yield('right_navbar')
+                    <li><a href="{{ route('setLang', ['lang' => 'en']) }}" title="en" style="padding-right: 0"><img class="img img-rounded"
+                                width="30px" src="{{ url('/') }}/img/flags/en.png"></a></li>
+                    <li><a href="{{ route('setLang', ['lang' => 'it']) }}" title="it"><img class="img img-rounded"
+                                width="30px" src="{{ url('/') }}/img/flags/it.png"></a></li>
                 </ul>
             </div>
         </div>

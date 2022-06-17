@@ -16,7 +16,7 @@
             </li>
             @if ($logged)
                 <li class="divider"></li>
-                <li><a href="{{ route('event.index') }}">@include('icons.reservation')
+                <li><a href="{{ route('reservation.index') }}">@include('icons.reservation')
                         {{ trans('labels.myReservations') }}</a>
                 </li>
                 @if ($isAdmin)

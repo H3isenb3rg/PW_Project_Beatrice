@@ -42,5 +42,6 @@ return [
     "venue" => "Venue",
     "next_events" => "Upcoming Events",
     "max_seats_reached" => "There aren't enough available seats (:seats seats available)",
-    "confirmReservation" => "Reservation for :guests with table name ':name' for the event ':event_name' on :date done!"
+    "confirmReservation" => "Reservation for :guests with table name ':name' for the event ':event_name' on :date done!",
+    "next_reservations" => "Upcoming Reservations"
 ];

@@ -3,7 +3,7 @@
         <div class="jumbotron">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1>{{ trans('labels.next_events') }}</h1>
+                    <h2>{{ trans('labels.next_events') }}</h1>
                 </div>
             </div>
             <div class="row">
@@ -15,7 +15,7 @@
                         </li>
                         @if ($logged)
                             <li role="presentation">
-                                <a href="{{ route('event.index') }}">@include('icons.reservation')
+                                <a href="{{ route('reservation.index') }}">@include('icons.reservation')
                                     {{ trans('labels.myReservations') }}</a>
                             </li>
                             @if ($isAdmin)

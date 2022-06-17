@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="divider"></li>
-            <li><a href="{{ route('event.index') }}">@include('icons.reservation')
+            <li><a href="{{ route('reservation.index') }}">@include('icons.reservation')
                     {{ trans('labels.myReservations') }}</a>
             </li>
             @if ($isAdmin)
@@ -59,9 +59,15 @@
                             ])
                         </div>
                     @endif
-                    <div class="well">
-                        @include('components.book.bookForm', ['event_id' => $event->id])
-                    </div>
+                    @if (isset($event->available_seats) && $event->available_seats <= 0)
+                        <div class="alert alert-info" role="alert">
+                            <b>{{ trans('No more seats available') }}</b>
+                        </div>
+                    @else
+                        <div class="well">
+                            @include('components.book.bookForm', ['event_id' => $event->id])
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
