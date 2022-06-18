@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Arcangelo DJ')
+@section('title')
+    ADj | {{ ucwords($event->name) }}
+@endsection
 
 @section('left_navbar')
     <li class=><a href="{{ route('home') }}">@include('icons.home')</a></li>

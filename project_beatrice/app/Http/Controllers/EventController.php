@@ -37,10 +37,12 @@ class EventController extends Controller
             Session::put("alert", __('labels.missingField', ['field' => __('labels.name')]));
             return $curr_redirect;
         }
+        
         if ($desc == "") {
             Session::put("alert", __('labels.missingField', ['field' => __('labels.description')]));
             return $curr_redirect;
         }
+
         if ($date == "") {
             Session::put("alert", __('labels.missingField', ['field' => __('labels.date')]));
             return $curr_redirect;
@@ -52,24 +54,26 @@ class EventController extends Controller
                 return $curr_redirect;
             }
         }
+
         if ($venue_id == "") {
             Session::put("alert", __('labels.missingField', ['field' => __('labels.venue')]));
             return $curr_redirect;
-        }
-        if (!isset($dl->getVenueByID($venue_id)->id)) {
+        } else if (!$dl->checkVenueID($venue_id)) {
             Session::put("alert", __("Error while updating event"));
             return Redirect::to(route("home"));
         }
-        if ($dl->checkEventExists($name, $date)) {
+
+        if ($dl->checkEventExists($date)) {
             if ($dl->getEventByNameDate($name, $date)->id != $id) {
-                Session::put("alert", __("labels.eventAlreadyExists", ["name" => ucwords($name), "date" => $date]));
+                Session::put("alert", __("labels.eventAlreadyExists", ["date" => $date]));
                 return $curr_redirect;
             }
         }
+
         $booked_seats = $dl->countBooked($id);
         if ($seats == "") {
             $seats = 0;
-        }else if ($seats>0 && $booked_seats > (int)$seats) {
+        } else if ($seats > 0 && $booked_seats > (int)$seats) {
             Session::put("alert", __("There are already :seats guests booked. Can't lower total seats to :new_seats", ["seats" => $booked_seats, "new_seats" => $seats]));
             return $curr_redirect;
         }
@@ -120,7 +124,7 @@ class EventController extends Controller
         if (Session::has("logged")) {
             $current_view = $current_view->with("logged", Session::get("logged"))->with("loggedName", Session::get("loggedName"))->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
         } else {
-            $current_view = $current_view->with("logged", false);
+            $current_view = $current_view->with("logged", false)->with("isAdmin", false);
         }
 
         return $current_view;
@@ -163,6 +167,10 @@ class EventController extends Controller
             $seats = "";
         }
         $venue = $request->input("venue_id");
+        if (!$dl->checkVenueID($venue)) {
+            Session::put("alert", __("Error while creating event"));
+            return Redirect::route("home");
+        }
 
         // Check validity of fieds
         if ($name == "") {
@@ -190,7 +198,7 @@ class EventController extends Controller
         }
 
         // Insert in DB
-        if ($dl->checkEventExists($name, $date)) {
+        if ($dl->checkEventExists($date)) {
             Session::put("alert", __('labels.eventAlreadyExists', ['name' => $name, "date" => $date]));
             return Redirect::route("event.create");
         }
@@ -211,7 +219,7 @@ class EventController extends Controller
             $response = array("venue_valid" => true);
         }
 
-        if ($dl->checkEventExists($request->input("event_name"), $request->input("event_date"))) {
+        if ($dl->checkEventExists($request->input("event_date"))) {
             $response["unique"] = false;
         } else {
             $response["unique"] = true;

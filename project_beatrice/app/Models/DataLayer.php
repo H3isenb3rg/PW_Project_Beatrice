@@ -187,15 +187,14 @@ class DataLayer extends Model
     }
 
     /**
-     * Checks if an event with the same name on the same day is already in DB
+     * Checks if an event on the same day is already in DB
      *
-     * @param string $name
      * @param string $date
      * @return boolean
      */
-    public function checkEventExists(string $name, string $date)
+    public function checkEventExists(string $date)
     {
-        return Event::where("name", $name)->where("event_date", $date)->exists();
+        return Event::where("event_date", $date)->exists();
     }
 
     /**

@@ -19,22 +19,38 @@ class VenueController extends Controller {
         $city = strtolower($request->input("city"));
         $address = $request->input("address");
 
+        $redirect_create = Redirect::route("event.create");
+
         $maps_link = trim($request->input("maps"));
         if (filter_var($maps_link, FILTER_VALIDATE_URL) === FALSE) {
-            // Per semplicità rendo nullo il link
-            $maps_link = "";
+            Session::put("alert", __("Bad formatted location url"));
+            return $redirect_create;
+        }
+
+        if ($name == "") {
+            Session::put("alert", __("Missing required Venue name"));
+            return $redirect_create;
+        }
+
+        if ($city == "") {
+            Session::put("alert", __("Missing required field Venue city"));
+            return $redirect_create;
+        }
+
+        if ($address == "") {
+            Session::put("alert", __("Missing required field Venue address"));
+            return $redirect_create;
         }
 
         // Insert in DB
         if ($dl->checkVenueExists($name, $city)) {
             Session::put("alert", __('labels.venueAlreadyExists', ['name' => ucwords($name), "city" => ucwords($city)]));
-            return Redirect::route("event.create");
+            return $redirect_create;
         }
         $dl->addVenue($name, $city, $address, $maps_link);
 
-        
         Session::put("confirm", __('labels.confirmNewVenue', ['name' => ucwords($name), "city" => ucwords($city)]));
-        return Redirect::route("event.create");
+        return $redirect_create;
     }
 
     public function ajaxNewVenue(Request $request) {

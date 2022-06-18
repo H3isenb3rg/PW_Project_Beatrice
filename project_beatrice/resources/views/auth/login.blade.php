@@ -6,10 +6,10 @@
     <div class="form-group">
         <input type="password" name="password" class="form-control" placeholder="Password">
     </div>
-    <div class="form-group text-center">
+    <!--<div class="form-group text-center">
         <input type="checkbox" name="remember">
         <label for="remember"> {{ trans('labels.rememberMe') }}</label>
-    </div>
+    </div> -->
     <div class="form-group">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
@@ -18,6 +18,7 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="form-group">
 
         <div class="text-center">
@@ -25,4 +26,5 @@
         </div>
 
     </div>
+-->
 </form>

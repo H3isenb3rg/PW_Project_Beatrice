@@ -28,8 +28,8 @@ var newEventErrors = {
         it: "Il campo luogo è obbligatorio"
     },
     not_unique: {
-        en: "An event with this name already exists on the same day",
-        it: "Un evento con questo nome esiste già in questa data"
+        en: "There is already an event programmed on this day",
+        it: "Esiste già un evento in questa data"
     }
 }
 
@@ -133,7 +133,6 @@ function checkEvent(lang) {
 
         data: {
             venue: eventVenue.val().trim().toLowerCase(),
-            event_name: eventNameValue,
             event_date: eventDateValue
         },
 
@@ -147,8 +146,8 @@ function checkEvent(lang) {
             }
 
             if (!data.unique) {
-                registerError(eventName_msg, newEventErrors.not_unique[lang], eventName_div)
-                eventVenue.focus();
+                registerError(eventDate_msg, newEventErrors.not_unique[lang], eventDate_div)
+                eventDate.focus();
                 valid_data = false;
             }
 

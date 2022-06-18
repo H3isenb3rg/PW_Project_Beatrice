@@ -28,4 +28,27 @@ textarea {
 
 body {
     padding-top: 70px;
+    background-color: #363636;
+}
+
+.breadcrumb {
+    background-color: #363636;
+}
+
+#whiteContainer {
+    background-color: #eeeeee;
+    border: 1px solid;
+    border-radius: 1em;
+}
+
+.dropdown-menu {
+    background-color: #222222;
+}
+
+.dropdown-menu>li>a {
+    color: #ddd;
+}
+
+.dropdown-menu>.divider {
+    background-color: #ddd;
 }

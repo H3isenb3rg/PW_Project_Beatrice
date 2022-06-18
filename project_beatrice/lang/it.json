@@ -30,9 +30,14 @@
     "Event Page": "Pagina dell'evento",
     "Create Event": "Crea Evento",
     "Create Venue": "Crea Luogo",
+    "Error while creating event": "Errore durante la creazione dell'evento",
     "Error while updating event": "Errore durante la modifica dell'evento",
     "New Event date can't be before today": "La data dell'evento non può essere un giorno precedente ad oggi",
     "There are only :seats seats available": "Ci sono solamente :seats posti disponibili",
     "There are already :seats guests booked. Can't lower total seats to :new_seats": "Ci sono gi&agrave; :seats tavoli prenotati. Impossibile abbassare il numero di tavoli disponibili a :new_seats",
-    "Successfully updated the event": "Evento aggiornato con successo"
+    "Successfully updated the event": "Evento aggiornato con successo",
+    "Bad formatted location url": "Link posizione mal formattato",
+    "Missing required field Venue name": "Il Nome del luogo è obbligatorio",
+    "Missing required field Venue city": "La città del luogo è obbligatoria",
+    "Missing required field Venue address": "L'indirizzo del luogo è obbligatorio"
 }

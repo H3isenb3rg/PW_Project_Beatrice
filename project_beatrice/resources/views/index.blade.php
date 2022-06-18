@@ -40,7 +40,7 @@
 @endsection
 
 @section('breadcrumb')
-    <li><a class="active">@include("icons.home")</a></li>
+    <li class="active">@include("icons.home")</li>
 @endsection
 
 @section('corpo')

@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Arcangelo DJ')
+@section('title')
+    ADJ | {{ trans('labels.newEvent') }}
+@endsection
+
 
 @section('scripts')
     <script src="{{ url('/') }}/js/form_check/newEvent.js"></script>

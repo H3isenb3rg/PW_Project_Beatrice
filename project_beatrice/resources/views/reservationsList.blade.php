@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Arcangelo DJ')
+@section('title')
+    ADJ | {{ trans('labels.myReservations') }}
+@endsection
 
 @section('scripts')
     <script src="{{ url('/') }}/js/event_well.js"></script>
