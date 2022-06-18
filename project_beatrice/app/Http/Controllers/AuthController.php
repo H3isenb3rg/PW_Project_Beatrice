@@ -21,7 +21,7 @@ class AuthController extends Controller {
             $current_view->with("inRegistration", true);
         }
 
-        return $current_view;
+        return $current_view->with("lang", Session::get("language"));
     }
 
     public function logout() {
@@ -31,6 +31,15 @@ class AuthController extends Controller {
     }
 
     public function login(Request $request) {
+        // To avoid double authentication after ajax auth
+        if (Session::has("logged") && Session::get("logged")) {
+            if (Session::has("fromPage")) {
+                return Redirect::to(Session::pull("fromPage"));
+            } else {
+                return Redirect::to(route("home"));
+            }
+        }
+
         $dl = new DataLayer();
 
         $username = $request->input("username");
@@ -65,6 +74,21 @@ class AuthController extends Controller {
         }
 
         return Redirect::to(route("user.login"));
+    }
+
+    public function ajaxLogin(Request $request) {
+        $dl = new Datalayer();
+        $username = $request->input("username");
+        $password = $request->input("password");
+
+        $response = array("valid" => $dl->validUser($username, $password));
+
+        if ($response["valid"]) {
+            Session::put("logged", true);
+            Session::put("loggedName", $username);
+        }
+
+        return response()->json($response);
     }
 
     /**

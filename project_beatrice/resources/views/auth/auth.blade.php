@@ -16,6 +16,7 @@
     <!-- JQuery e plugin Js -->
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/js/form_check/loginCheck.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
                     @endif
 
                     <ul class="nav nav-tabs">
-                        <li><a href="{{ route('home') }}">@include('icons.home')</a></li>
+                        <li><a id="link-home" href="{{ route('home') }}">@include('icons.home')</a></li>
                         @if (isset($inRegistration))
                             <li><a href="#login-form" data-toggle="tab">{{ trans('labels.login') }}</a></li>
                             <li class="active"><a href="#register-form"

@@ -29,6 +29,7 @@ Route::group(["prefix" => "user"], function () {
     Route::post("login", [AuthController::class, "login"])->name("user.login");
     Route::post("resister", [AuthController::class, "registration"])->name("user.register");
     Route::get("logout", [AuthController::class, "logout"])->name("user.logout");
+    Route::get("ajaxLogin", [AuthController::class, "ajaxLogin"])->name("user.ajaxLogin");
 });
 
 // EVENT

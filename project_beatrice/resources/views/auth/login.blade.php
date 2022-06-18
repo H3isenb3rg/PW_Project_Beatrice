@@ -1,10 +1,12 @@
-<form id="login-form" action="{{ route('user.login') }}" method="post" style="margin-top: 2em;">
+<form id="login-form" name="login-form" action="{{ route('user.login') }}" method="post" style="margin-top: 2em;">
     @csrf
-    <div class="form-group">
-        <input type="text" name="username" class="form-control" placeholder="Username">
+    <div class="form-group" id="username_div">
+        <input id="username" type="text" name="username" class="form-control" placeholder="Username">
+        <span class="help-block"></span>
     </div>
-    <div class="form-group">
-        <input type="password" name="password" class="form-control" placeholder="Password">
+    <div class="form-group" id="password_div">
+        <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+        <span class="help-block"></span>
     </div>
     <!--<div class="form-group text-center">
         <input type="checkbox" name="remember">
@@ -14,7 +16,8 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <input type="submit" name="login-submit" class="form-control btn btn-primary"
-                    value="{{ trans('labels.login') }}">
+                    value="{{ trans('labels.login') }}"
+                    onclick="event.preventDefault(); checkLogin('{{ $lang }}');">
             </div>
         </div>
     </div>
