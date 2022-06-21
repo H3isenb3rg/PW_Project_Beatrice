@@ -123,6 +123,20 @@ class DataLayer extends Model
 
         return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->get();
     }
+
+    /**
+     * Same as the above function but the results are paginated
+     *
+     * @param string|null $date
+     * @return void
+     */
+    public function fetchFutureEventsPaginate(string $date = null) {
+        if (!isset($date)) {
+            $date = date("Y-m-d");
+        }
+
+        return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->simplePaginate(5);
+    }
     
     /**
      * Returns the list of reservation of the given user
