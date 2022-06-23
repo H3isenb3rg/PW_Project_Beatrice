@@ -2,7 +2,7 @@
     <dl class="panel-heading" role="tab" id="heading{{ $event->id }}" style="margin-bottom: 0">
         <dt class="h2">
             {!! trans(date_format(date_create($event->event_date), 'l')) !!}
-            {{ date_format(date_create($event->event_date), 'd') }}
+            {{ (int)date_format(date_create($event->event_date), 'd') }}
             {{ trans(date_format(date_create($event->event_date), 'F')) }}
             <small>
                 {{ ucwords($event->venue->name) }}

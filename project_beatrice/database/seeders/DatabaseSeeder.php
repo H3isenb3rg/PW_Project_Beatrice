@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         $venue_total = 20;
         $event_total = 100;
         Venue::factory()->count($venue_total)->create();
-        $venues_list = json_decode($dl->allVenues());
+        $venues_list = json_decode($dl->listVenues());
 
         for ($i = 0; $i < $event_total; $i++) {
             $venue = $venues_list[array_rand($venues_list)];

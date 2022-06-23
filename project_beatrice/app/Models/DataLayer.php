@@ -135,7 +135,7 @@ class DataLayer extends Model
             $date = date("Y-m-d");
         }
 
-        return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->simplePaginate(5);
+        return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->paginate(10);
     }
     
     /**
@@ -169,7 +169,6 @@ class DataLayer extends Model
     /**
      * Returns the list of all the venues in the database
      *
-     * @return array
      */
     public function listVenues()
     {

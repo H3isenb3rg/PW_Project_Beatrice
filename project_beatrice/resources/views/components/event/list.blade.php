@@ -2,15 +2,25 @@
     <div class="col-sm-12">
         <h1>{{ trans('labels.next_events') }}</h1>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            @foreach ($eventsList as $event)
+            @foreach ($eventsList->items() as $event)
                 @include('components.event.well', ['event' => $event])
             @endforeach
         </div>
-        {{ $eventsList->links() }}
         <nav aria-label="...">
             <ul class="pager">
-                <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-                <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                @if (!$eventsList->onFirstPage())
+                    @php($first_event = $eventsList->items()[0])
+                    @php($first_date = __(date_format(date_create($first_event->event_date), 'l')) . ' ' . (int) date_format(date_create($first_event->event_date), 'd') . ' ' . __(date_format(date_create($first_event->event_date), 'F')))
+                    <li class="previous"><a href="{{ $eventsList->previousPageUrl() }}"><span
+                                aria-hidden="true">&larr;</span> {{ __('Before') }} {!! $first_date !!}</a></li>
+                @endif
+                @if (!$eventsList->onLastPage())
+                    @php($last_event = $eventsList->items()[$eventsList->count() - 1])
+                    @php($last_date = __(date_format(date_create($last_event->event_date), 'l')) . ' ' . (int) date_format(date_create($last_event->event_date), 'd') . ' ' . __(date_format(date_create($last_event->event_date), 'F')))
+                    <li class="next"><a href="{{ $eventsList->nextPageUrl() }}">{{ __('After') }}
+                            {!! $last_date !!}
+                            <span aria-hidden="true">&rarr;</span></a></li>
+                @endif
             </ul>
         </nav>
     </div>

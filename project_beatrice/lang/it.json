@@ -39,5 +39,7 @@
     "Bad formatted location url": "Link posizione mal formattato",
     "Missing required field Venue name": "Il Nome del luogo è obbligatorio",
     "Missing required field Venue city": "La città del luogo è obbligatoria",
-    "Missing required field Venue address": "L'indirizzo del luogo è obbligatorio"
+    "Missing required field Venue address": "L'indirizzo del luogo è obbligatorio",
+    "After": "Dopo",
+    "Before": "Prima di"
 }
