@@ -57,7 +57,11 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < $event_total; $i++) {
             $venue = $venues_list[array_rand($venues_list)];
-            Event::factory()->count(1)->create(['venue_id' => $venue->id]);
+            try {
+                Event::factory()->count(1)->create(['venue_id' => $venue->id]);
+            } catch (\Illuminate\Database\QueryException $e) {
+                continue;
+            }
         }
     }
 }

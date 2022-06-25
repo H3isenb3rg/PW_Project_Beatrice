@@ -37,7 +37,7 @@ class EventController extends Controller
             Session::put("alert", __('labels.missingField', ['field' => __('labels.name')]));
             return $curr_redirect;
         }
-        
+
         if ($desc == "") {
             Session::put("alert", __('labels.missingField', ['field' => __('labels.description')]));
             return $curr_redirect;
@@ -117,9 +117,14 @@ class EventController extends Controller
     public function goToCurrentEvents()
     {
         $dl = new DataLayer();
-        $events = $dl->fetchFutureEventsPaginate();
+        $events = $dl->fetchFutureEvents(11);
+        $total = $events->count();
+        Session::put("lastLoadedDate", $events[$total - 1]->event_date);
+        if ($total > 10) {
+            $events->pop();
+        }
 
-        $current_view = view("eventsList")->with("eventsList", $events);
+        $current_view = view("eventsList")->with("eventsList", $events)->with("alert", Session::get("lastLoadedDate"));
 
         if (Session::has("logged")) {
             $current_view = $current_view->with("logged", Session::get("logged"))->with("loggedName", Session::get("loggedName"))->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
@@ -128,6 +133,38 @@ class EventController extends Controller
         }
 
         return $current_view;
+    }
+
+    public function ajaxFetchNextEvents(Request $request)
+    {
+        $dl = new DataLayer();
+        $future_events = $dl->fetchFutureEvents(6, Session::get("lastLoadedDate"));
+        $total = $future_events->count();
+        if ($total > 5) {
+            Session::put("lastLoadedDate", $future_events[$total - 1]->event_date);
+            $future_events->pop();
+            $total -= 1;
+        }
+        $response = array("count" => $total);
+
+        // Build wells
+        $isAdmin = false;
+        if (Session::has("loggedName")) {
+            $isAdmin = $dl->isAdmin(Session::get("loggedName"));
+        }
+
+        $wells = array();
+        foreach ($future_events as $event) {
+            $wells[] = $this->build_well($event, $isAdmin);
+        }
+
+        $response["wells"] = $wells;
+        return response()->json($response);
+    }
+
+    private function build_well($event, $isAdmin)
+    {   
+        return view('components.event.well')->with("event", $event)->with("isAdmin", $isAdmin)->render();
     }
 
     /**

@@ -42,6 +42,7 @@ Route::group(["prefix" => "event"], function () {
     Route::post("edit", [EventController::class, "edit"])->name("event.edit")->middleware(["lang", "isLogged", "isAdmin"]);
 });
 Route::get("ajaxNewEvent", [EventController::class, "ajaxNewEvent"])->name("ajaxNewEvent")->middleware(["isLogged", "isAdmin"]);
+Route::get("ajaxFetchNextEvents", [EventController::class, "ajaxFetchNextEvents"])->name("ajaxFetchNextEvents")->middleware(["lang"]);
 
 // VENUE
 Route::group(["prefix" => "venue"], function () {

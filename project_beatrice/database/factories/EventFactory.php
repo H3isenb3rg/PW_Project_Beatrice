@@ -22,7 +22,7 @@ class EventFactory extends Factory
         return [
             "name" => $this->faker->sentence(3),
             "description" => $this->faker->paragraphs(2, true),
-            "event_date" => $this->faker->dateTimeThisYear("+6 months"),
+            "event_date" => $this->faker->unique()->dateTimeThisYear("+6 months"),
             "seats" => $this->faker->randomNumber(3, true)
         ];
     }

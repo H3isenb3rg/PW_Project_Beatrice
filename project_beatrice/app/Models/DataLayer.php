@@ -109,7 +109,6 @@ class DataLayer extends Model
      * 
      * @param int $number If set to greater than 0 retrieves only specified amount ov events otherwise everyone
      * @param string $date Sets the minimal date to retrieve avents if not set uses today
-     * @return object
      */
     public function fetchFutureEvents(int $number = 0, string $date = null)
     {

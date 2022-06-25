@@ -7,6 +7,43 @@
 
 @section('scripts')
     <script src="{{ url('/') }}/js/event_well.js"></script>
+    <script src="{{ url('/') }}/js/event_loader.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                    // ajax call to get next events data
+                    $.ajax({
+
+                        type: 'GET',
+
+                        url: '/ajaxFetchNextEvents',
+
+                        data:'_token = {{ csrf_token() }}',
+
+                        success: function(data) {
+                            console.log(data);
+                            if (parseInt(data.count) > 0) {
+                                for (well in data.wells) {
+                                    $("#accordion").append(data.wells[well]);
+                                }
+
+                                if (parseInt(data.count) < 5) {
+                                    $(window).unbind("scroll");
+                                }
+                            } else {
+                                $(window).unbind("scroll");
+                            }
+                        }
+
+                    });
+
+
+                }
+
+            });
+        })
+    </script>
 @endsection
 
 @section('left_navbar')
@@ -49,7 +86,7 @@
 @endsection
 
 @section('corpo')
-    <div id="whiteContainer" class="container">
-            @include('components.event.list', ['eventsList' => $eventsList])
+    <div id="whiteContainer" class="container" style="margin-bottom: 2em;">
+        @include('components.event.list', ['eventsList' => $eventsList])
     </div>
 @endsection

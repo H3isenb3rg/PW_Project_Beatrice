@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <div id="page-top"></div>
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
         <div class="container">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -56,5 +57,4 @@
     </div>
 
     @yield('corpo')
-
 </html>
