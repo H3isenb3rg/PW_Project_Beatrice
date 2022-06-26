@@ -6,5 +6,6 @@
                 @include('components.event.well', ['event' => $event])
             @endforeach
         </div>
+        @include('icons.svg.180-ring-loading')
     </div>
 </div>

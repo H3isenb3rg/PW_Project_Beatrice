@@ -7,40 +7,56 @@
 
 @section('scripts')
     <script src="{{ url('/') }}/js/event_well.js"></script>
-    <script src="{{ url('/') }}/js/event_loader.js"></script>
     <script>
-        $(document).ready(function() {
-            $(window).scroll(function() {
-                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                    // ajax call to get next events data
-                    $.ajax({
+        var has_more = true;
 
-                        type: 'GET',
+        function load_events(sync_type) {
+            // ajax call to get next events data
+            $.ajax({
 
-                        url: '/ajaxFetchNextEvents',
+                type: 'GET',
 
-                        data:'_token = {{ csrf_token() }}',
+                url: '/ajaxFetchNextEvents',
 
-                        success: function(data) {
-                            console.log(data);
-                            if (parseInt(data.count) > 0) {
-                                for (well in data.wells) {
-                                    $("#accordion").append(data.wells[well]);
-                                }
+                data: '_token = {{ csrf_token() }}',
 
-                                if (parseInt(data.count) < 5) {
-                                    $(window).unbind("scroll");
-                                }
-                            } else {
-                                $(window).unbind("scroll");
-                            }
+                async: sync_type,
+
+                success: function(data) {
+                    // console.log(data);
+
+                    if (parseInt(data.count) > 0) {
+                        for (well in data.wells) {
+                            $("#accordion").append(data.wells[well]);
                         }
 
-                    });
+                        if (parseInt(data.count) < 5) {
+                            has_more = false;
+                            $(window).unbind("scroll");
+                        }
+                    } else {
+                        has_more = false;
+                        $(window).unbind("scroll");
+                    }
 
-
+                    $("#loading-div").hide();
                 }
 
+            });
+        }
+
+        $(document).ready(function() {
+            // If the window height 
+            while (($(document).height() <= $(window).height()) && has_more) {
+                load_events(false);
+            }
+            $("#loading-div").hide();
+
+            $(window).scroll(function() {
+                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                    $("#loading-div").show();
+                    load_events(true);
+                }
             });
         })
     </script>
@@ -86,7 +102,7 @@
 @endsection
 
 @section('corpo')
-    <div id="whiteContainer" class="container" style="margin-bottom: 2em;">
+    <div id="whiteContainer" class="container" style="margin-bottom: 7.5em;">
         @include('components.event.list', ['eventsList' => $eventsList])
     </div>
 @endsection

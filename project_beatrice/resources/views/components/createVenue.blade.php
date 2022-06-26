@@ -3,7 +3,7 @@
         <h1 class="panel-title">
             <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                 aria-expanded="true" aria-controls="collapseOne">
-                <span>
+                <span class="h1">
                     {{ trans('labels.newVenueTitle') }}
                 </span>
             </div>
