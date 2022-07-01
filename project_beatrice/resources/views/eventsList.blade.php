@@ -41,7 +41,6 @@
 
                     $("#loading-div").hide();
                 }
-
             });
         }
 
@@ -52,13 +51,23 @@
             }
             $("#loading-div").hide();
 
+            var scrollTimer = null;
             $(window).scroll(function() {
-                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                    $("#loading-div").show();
-                    load_events(true);
+                if (scrollTimer) {
+                    clearTimeout(scrollTimer); // clear previous timer
                 }
-            });
-        })
+
+                // set timer while we wait for a pause in scroll events
+                scrollTimer = setTimeout(function() {
+                    scrollTimer = null; // timer done here
+                    if (!$("#loading-div").is(':visible') && (window.innerHeight + Math.ceil(window
+                            .pageYOffset)) >= document.body.offsetHeight) {
+                        $("#loading-div").show();
+                        load_events(true);
+                    }
+                }, 250);
+            })
+        });
     </script>
 @endsection
 
