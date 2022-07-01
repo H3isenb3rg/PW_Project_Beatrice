@@ -38,7 +38,8 @@
                 <dd class="h4">{!! nl2br(e($event->description)) !!}</dd>
                 <dd>
                     @if ($isAdmin)
-                        <a class="btn btn-primary" href="{{ route('event.goToDetails', ['id' => $event->id]) }}">{{ trans("Event Page") }}</a>
+                        <a class="btn btn-primary" href="{{ route('event.goToDetails', ['id' => $event->id]) }}" style="min-width: 15em; margin-bottom: 0.5em;">@include("icons.journal") {{ trans("Event Page") }}</a></dd>
+                        <dd>@include("components.event.deleteWmodal", ["event"=>$event])
                     @else
                         <a class="btn btn-primary" href="{{ route('event.goToBook', ['id' => $event->id]) }}">{{ trans('Book') }}</a>
                     @endif

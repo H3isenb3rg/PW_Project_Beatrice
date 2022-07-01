@@ -41,5 +41,7 @@
     "Missing required field Venue city": "La città del luogo è obbligatoria",
     "Missing required field Venue address": "L'indirizzo del luogo è obbligatorio",
     "After": "Dopo",
-    "Before": "Prima di"
+    "Before": "Prima di",
+    "Delete Event": "Cancella Evento",
+    "Confirm Delete": "Conferma Cancellazione"
 }

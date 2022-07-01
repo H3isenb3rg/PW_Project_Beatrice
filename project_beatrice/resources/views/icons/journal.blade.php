@@ -1,0 +1,1 @@
+<span class="bi bi-journal-text"></span>
