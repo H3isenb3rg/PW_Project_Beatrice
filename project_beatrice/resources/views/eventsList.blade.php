@@ -7,6 +7,7 @@
 
 @section('scripts')
     <script src="{{ url('/') }}/js/event_well.js"></script>
+    <script src="{{ url('/') }}/js/showFillDelete.js"></script>
     <script>
         var has_more = true;
 
