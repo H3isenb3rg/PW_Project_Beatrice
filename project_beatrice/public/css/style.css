@@ -52,3 +52,7 @@ body {
 .dropdown-menu>.divider {
     background-color: #ddd;
 }
+
+.event-description {
+    white-space: pre-wrap !important;
+}

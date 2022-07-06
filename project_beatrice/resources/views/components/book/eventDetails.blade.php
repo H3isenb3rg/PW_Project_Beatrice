@@ -14,5 +14,5 @@
         {{ ucwords($event->venue->city) }}
         <small>{{ ucwords($event->venue->address) }}</small>
     </dd>
-    <dd class="h4">{{ $event->description }}</dd>
+    <dd class="h4">{!! nl2br($event->description) !!}</dd>
 </dl>

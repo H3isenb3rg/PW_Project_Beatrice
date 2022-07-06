@@ -35,7 +35,7 @@
                     @endif
                     {{ ucwords($event->venue->address) }}
                 </dd>
-                <dd class="h4">{!! nl2br(e($event->description)) !!}</dd>
+                <dd class="h4">{!! nl2br($event->description) !!}</dd>
                 <dd>
                     @if ($isAdmin)
                         <a class="btn btn-primary" href="{{ route('event.goToDetails', ['id' => $event->id]) }}">{{ trans("Event Page") }}</a>
