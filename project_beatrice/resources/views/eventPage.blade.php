@@ -53,7 +53,7 @@
 
                 <div class="jumbotron">
                     @include('components.book.eventDetails', ['event' => $event])
-                    @if (isset($editEvent) && $editEvent)
+                    @if ($isAdmin)
                         <div class="well">
                             @include('components.book.editEvent', [
                                 'event' => $event,
@@ -61,14 +61,21 @@
                             ])
                         </div>
                     @endif
-                    @if (isset($event->available_seats) && $event->available_seats <= 0)
-                        <div class="alert alert-info" role="alert">
-                            <b>{{ trans('No more seats available') }}</b>
+                    @if (isset($reservation))
                         </div>
+                        <div class="jumbotron">
+                        <h2>{{ __('Your reservation') }}</h2>
+                        @include('components.reservation.well', ['reservation' => $reservation])
                     @else
-                        <div class="well">
-                            @include('components.book.bookForm', ['event_id' => $event->id])
-                        </div>
+                        @if (isset($event->available_seats) && $event->available_seats <= 0)
+                            <div class="alert alert-info" role="alert">
+                                <b>{{ trans('No more seats available') }}</b>
+                            </div>
+                        @else
+                            <div class="well">
+                                @include('components.book.bookForm', ['event_id' => $event->id])
+                            </div>
+                        @endif
                     @endif
                 </div>
             </div>

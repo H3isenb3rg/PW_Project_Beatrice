@@ -1,8 +1,8 @@
-<div class="well panel" style="padding-top: 0; padding-bottom: 0;" >
+<div class="well panel" style="padding-top: 0; padding-bottom: 0;">
     <dl class="panel-heading" role="tab" id="heading{{ $event->id }}" style="margin-bottom: 0">
         <dt class="h2">
             {!! trans(date_format(date_create($event->event_date), 'l')) !!}
-            {{ (int)date_format(date_create($event->event_date), 'd') }}
+            {{ (int) date_format(date_create($event->event_date), 'd') }}
             {{ trans(date_format(date_create($event->event_date), 'F')) }}
             <small>
                 {{ ucwords($event->venue->name) }}
@@ -13,7 +13,7 @@
             <a class="h3" role="button" data-toggle="collapse" data-parent="#accordion"
                 href="#collapse{{ $event->id }}" aria-expanded="true" aria-controls="collapse{{ $event->id }}"
                 title="More Info">
-                @include('icons.collapse', ["id" => $event->id]) 
+                @include('icons.collapse', ['id' => $event->id])
                 {{ ucwords($event->name) }}
             </a>
         </dd>
@@ -22,7 +22,8 @@
         aria-labelledby="heading{{ $event->id }}" style="padding-top: 1%">
         <div class="panel-body" style="padding-top: 0; padding-bottom: 0;">
             <dl>
-                <dt class="h3">{{ ucwords($event->venue->name) }} <small>({{ ucwords($event->venue->city) }})</small></dt>
+                <dt class="h3">{{ ucwords($event->venue->name) }}
+                    <small>({{ ucwords($event->venue->city) }})</small></dt>
                 <dd class="h4">
                     @if (isset($event->venue->maps_link))
                         <a target="_blank" href="{{ $event->venue->maps_link }}" class="btn">
@@ -36,13 +37,12 @@
                     {{ ucwords($event->venue->address) }}
                 </dd>
                 <dd class="h4">{!! nl2br($event->description) !!}</dd>
-                <dd>
-                    @if ($isAdmin)
-                        <a class="btn btn-primary" href="{{ route('event.goToDetails', ['id' => $event->id]) }}" style="min-width: 15em; margin-bottom: 0.5em;">@include("icons.journal") {{ trans("Event Page") }}</a></dd>
-                        <dd>@include("components.event.deleteWmodal", ["event"=>$event])
-                    @else
-                        <a class="btn btn-primary" href="{{ route('event.goToBook', ['id' => $event->id]) }}">{{ trans('Book') }}</a>
-                    @endif
+                <dd><a class="btn btn-primary" href="{{ route('event.goToDetails', ['id' => $event->id]) }}"
+                        style="min-width: 15em; margin-bottom: 0.5em;">@include('icons.journal')
+                        {{ trans('Event Page') }}</a></dd>
+                @if ($isAdmin)
+                    <dd>@include('components.event.deleteWmodal', ['event' => $event])</dd>
+                @endif
                 </dd>
             </dl>
         </div>

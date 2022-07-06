@@ -45,5 +45,7 @@
     "Delete Event": "Cancella Evento",
     "Confirm Delete": "Conferma Cancellazione",
     "Guests booked": "Posti prenotati",
-    "Reservations": "Prenotazioni"
+    "Reservations": "Prenotazioni",
+    "Reservation Name": "Nome per la prenotazione",
+    "Your reservation": "La tua prenotazione"
 }

@@ -97,12 +97,19 @@ class EventController extends Controller
         $venueList = $dl->listVenues();
         $event = $dl->getEventByID($id);
         $event->setAttribute("available_seats", $event->seats - $dl->countBooked($id));
+        $isAdmin = $dl->isAdmin(Session::get("loggedName"));
 
         $current_view = view("eventPage")->with("event", $event)
             ->with("loggedName", Session::get("loggedName"))
-            ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")))
-            ->with("editEvent", true)
+            ->with("isAdmin", $isAdmin)
             ->with("venueList", $venueList);
+        
+        if (!$isAdmin) {
+            $reservation = $dl->getUserReservationForEvent($event->id, Session::get("loggedName"));
+            if (count($reservation)>0) {
+                $current_view = $current_view->with("reservation", $reservation[0]);
+            }
+        }
 
         if (Session::has("alert")) {
             $current_view = $current_view->with("alert", Session::pull("alert"));

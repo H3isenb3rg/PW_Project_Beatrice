@@ -38,8 +38,7 @@ Route::group(["prefix" => "event"], function () {
     Route::get("create", [EventController::class, "goToCreate"])->name("event.create")->middleware(["lang", "isLogged", "isAdmin"]);
     Route::post("create", [EventController::class, "create"])->name("event.create")->middleware(["isLogged", "isAdmin"]);
     Route::get("index", [EventController::class, "goToCurrentEvents"])->name("event.index")->middleware(["lang"]);
-    Route::get("{id}/book", [ReservationController::class, "goToCreate"])->name("event.goToBook")->middleware(["lang", "isLogged"]);
-    Route::get("{id}/details", [EventController::class, "goToDetails"])->name("event.goToDetails")->middleware(["lang", "isLogged", "isAdmin"]);
+    Route::get("{id}/details", [EventController::class, "goToDetails"])->name("event.goToDetails")->middleware(["lang", "isLogged"]);
     Route::post("edit", [EventController::class, "edit"])->name("event.edit")->middleware(["lang", "isLogged", "isAdmin"]);
 });
 Route::get("ajaxNewEvent", [EventController::class, "ajaxNewEvent"])->name("ajaxNewEvent")->middleware(["isLogged", "isAdmin"]);

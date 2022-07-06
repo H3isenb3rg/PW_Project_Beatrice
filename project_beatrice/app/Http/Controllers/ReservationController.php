@@ -9,33 +9,6 @@ use Illuminate\Support\Facades\Session;
 
 class ReservationController extends Controller
 {
-    /**
-     * Gets the page to create a new reservation
-     * 
-     * User is logged
-     *
-     * @return view
-     */
-    public function goToCreate(Request $request, $id)
-    {
-        $dl = new DataLayer();
-        $event = $dl->getEventByID($id);
-        $event->setAttribute("available_seats", $event->seats - $dl->countBooked($id));
-
-        if (is_null($event)) {
-            return Redirect::to(route("home"));
-        }
-
-        $current_view = view("eventPage")->with("event", $event)
-            ->with("loggedName", Session::get("loggedName"))
-            ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
-
-        if (Session::has("alert")) {
-            $current_view = $current_view->with("alert", Session::pull("alert"));
-        }
-
-        return $current_view;
-    }
 
     public function store(Request $request)
     {
@@ -58,7 +31,7 @@ class ReservationController extends Controller
 
 
             $dl->addReservation($table_name, $guests, $user, $event);
-            Session::put("confirmReservation", __("labels.confirmReservation", [
+            Session::put("confirm", __("labels.confirmReservation", [
                 "guests" => $guests,
                 "name" => ucwords($table_name),
                 "event_name" => ucwords($event_obj->name),
@@ -67,7 +40,7 @@ class ReservationController extends Controller
         }
 
 
-        return Redirect::to(route("home"));
+        return Redirect::to(route('event.goToDetails', ['id' => $event]));
     }
 
     public function index() {

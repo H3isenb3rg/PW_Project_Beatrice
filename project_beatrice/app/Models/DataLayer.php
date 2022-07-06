@@ -383,4 +383,14 @@ class DataLayer extends Model
 
         return $venue->name;
     }
+
+    /**
+     * Retrieves the reservation for the specified event for the given user (not admin)
+     *
+     * @return object
+     */
+    public function getUserReservationForEvent($event_id, $username) {
+        $user_id = $this->getUserID($username);
+        return Reservation::where("user_id", $user_id)->where("event_id", $event_id)->get();
+    }
 }

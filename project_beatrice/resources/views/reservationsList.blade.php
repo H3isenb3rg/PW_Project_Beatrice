@@ -40,17 +40,18 @@
 @endsection
 
 @section('corpo')
-    <div class="container" style="background-color: #eeeeee;">
+    <div id="whiteContainer" class="container" style="margin-bottom: 7.5em;">
+        @if (isset($alert))
+            @include('components.alert', ['alert' => $alert])
+        @endif
+        @if (isset($confirm))
+            @include('components.confirm', ['confirm' => $confirm])
+        @endif
         <div class="row">
             <div class="col-sm-12">
-                @if (isset($alert))
-                    @include('components.alert', ['alert' => $alert])
-                @endif
-                @if (isset($confirm))
-                    @include('components.confirm', ['confirm' => $confirm])
-                @endif
+                <h2>{{ trans('labels.next_reservations') }}</h1>
+                @include('components.reservation.list', ['reservationsList' => $reservationsList])
             </div>
         </div>
-        @include('components.reservation.list', ['reservationsList' => $reservationsList])
     </div>
 @endsection
