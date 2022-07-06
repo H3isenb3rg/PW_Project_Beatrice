@@ -16,7 +16,18 @@ class DataLayer extends Model
      */
     public function countBooked(string $event)
     {
-        return Reservation::where("event_id", $event)->sum("guests");
+        return (int)Reservation::where("event_id", $event)->sum("guests");
+    }
+
+    /**
+     * Returns the count of reservations for the specified event
+     *
+     * @param string $event
+     * @return int
+     */
+    public function countReservations(string $event)
+    {
+        return Reservation::where("event_id", $event)->count();
     }
 
     /**

@@ -89,4 +89,13 @@ class ReservationController extends Controller
 
         return $current_view;
     }
+
+    public function ajaxUpdateReservationCount(Request $request) {
+        $dl = new DataLayer();
+        $event_id = $request->input("event_id");
+
+        $response = array("guests" => $dl->countBooked($event_id));
+        $response["reservations"] = $dl->countReservations($event_id);
+        return response()->json($response);
+    }
 }
