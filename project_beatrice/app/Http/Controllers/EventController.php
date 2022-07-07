@@ -10,12 +10,6 @@ use Illuminate\Support\Facades\Session;
 
 class EventController extends Controller
 {
-
-    public function index()
-    {
-        return Redirect::route("home");
-    }
-
     public function edit(Request $request)
     {
         $dl = new DataLayer();
@@ -131,7 +125,9 @@ class EventController extends Controller
             $events->pop();
         }
 
-        $current_view = view("eventsList")->with("eventsList", $events)->with("alert", Session::get("lastLoadedDate"));
+        $current_view = view("eventsList", [
+            "eventsList" => $events
+        ]);
 
         if (Session::has("logged")) {
             $current_view = $current_view->with("logged", Session::get("logged"))->with("loggedName", Session::get("loggedName"))->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));

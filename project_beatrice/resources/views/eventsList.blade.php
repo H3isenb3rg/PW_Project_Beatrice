@@ -112,6 +112,13 @@
 @endsection
 
 @section('corpo')
+    @if (isset($alert))
+        @include('components.alert', ['alert' => $alert])
+    @endif
+
+    @if (isset($confirm))
+        @include('components.confirm', ['confirm' => $confirm])
+    @endif
     <div id="whiteContainer" class="container" style="margin-bottom: 7.5em;">
         @include('components.event.list', ['eventsList' => $eventsList])
     </div>

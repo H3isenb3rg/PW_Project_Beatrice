@@ -120,18 +120,25 @@ class DataLayer extends Model
      * 
      * @param int $number If set to greater than 0 retrieves only specified amount ov events otherwise everyone
      * @param string $date Sets the minimal date to retrieve avents if not set uses today
+     * @param string $venue_filter ID of the venue to filter the events by
      */
-    public function fetchFutureEvents(int $number = 0, string $date = null)
+    public function fetchFutureEvents(int $number = 0, string $date = null, string $venue_filter = null)
     {
         if (!isset($date)) {
             $date = date("Y-m-d");
         }
 
+        if (isset($venue_filter)) {
+            $partial_query = Event::where("venue_id", $venue_filter)->whereDate("event_date", ">=", $date)->orderBy("event_date");
+        } else {
+            $partial_query = Event::whereDate("event_date", ">=", $date)->orderBy("event_date");
+        }        
+
         if ($number > 0) {
-            return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->take($number)->get();
+            return $partial_query->take($number)->get();
         }
 
-        return Event::whereDate("event_date", ">=", $date)->orderBy("event_date")->get();
+        return $partial_query->get();
     }
 
     /**
