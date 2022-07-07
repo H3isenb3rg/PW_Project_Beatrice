@@ -433,4 +433,40 @@ class DataLayer extends Model
     public function deleteEvent(string $event_id) {
         Event::destroy($event_id);
     }
+
+    /**
+     * Updates the given reservation with the given info
+     *
+     * @param string $reservation
+     * @param string $table_name
+     * @param integer $guests
+     * @return void
+     */
+    public function updateReservation(string $reservation, string $table_name, int $guests) {
+        $reservation = Reservation::where("id", $reservation)->first();
+        $reservation->name = $table_name;
+        $reservation->guests = $guests;
+        $reservation->save();
+    }
+
+    /**
+     * Returns the reservation with the given ID
+     *
+     * @param string $reservation_id
+     * @return object
+     */
+    public function getReservationByID(string $reservation_id) {
+        return Reservation::where("id", $reservation_id)->first();
+    }
+
+    /**
+     * Checks if the given table name for the event reservation is already used
+     *
+     * @param string $event_id
+     * @param string $name
+     * @return boolean True -> name already used | False -> valid name 
+     */
+    public function usedResName(string $event_id, string $name) {
+        return Reservation::where("event_id", $event_id)->where("name", $name)->exists();
+    }
 }

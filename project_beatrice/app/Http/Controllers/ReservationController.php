@@ -49,9 +49,12 @@ class ReservationController extends Controller
 
         $userReservations = $dl->fetchFutureReservations($user_id);
 
-        $current_view = view("reservationsList")->with("reservationsList", $userReservations)
-                                                ->with("loggedName", Session::get("loggedName"))
-                                                ->with("isAdmin", $dl->isAdmin(Session::get("loggedName")));
+        $current_view = view("reservationsList", [
+            "reservationsList" => $userReservations,
+            "loggedName" => Session::get("loggedName"),
+            "isAdmin" => $dl->isAdmin(Session::get("loggedName")),
+            "lang" => Session::get("language")
+        ]);
         
         if(Session::has("alert")) {
             $current_view = $current_view->with("alert", Session::pull("alert"));
@@ -63,12 +66,50 @@ class ReservationController extends Controller
         return $current_view;
     }
 
+    public function edit(Request $request, $reservation) {
+        $dl = new DataLayer();
+        $table_name = $request->input("table_name");
+        $guests = (int)$request->input("guests");
+
+        $dl->updateReservation($reservation, $table_name, $guests);
+
+        return Redirect::route("reservation.index");
+    }
+
     public function ajaxUpdateReservationCount(Request $request) {
         $dl = new DataLayer();
         $event_id = $request->input("event_id");
 
         $response = array("guests" => $dl->countBooked($event_id));
         $response["reservations"] = $dl->countReservations($event_id);
+        return response()->json($response);
+    }
+
+    public function ajaxEditReservation(Request $request) {
+        $dl = new DataLayer();
+        $table_name = $request->input("table_name");
+        $guests = $request->input("guests");
+        $id = $request->input("reservation_id");
+
+        $curr_reservation = $dl->getReservationByID($id);
+        $event = $curr_reservation->event;
+        $available_seats = $event->seats - $dl->countBooked($event->id);
+
+        $validGuests = -1;
+        if ($guests>$curr_reservation->guests) {
+            if ($available_seats < $guests-$curr_reservation->guests) {
+                $validGuests = $available_seats;
+            }
+        } 
+
+        $validName = !($dl->usedResName($event->id, $table_name));
+
+        $response = [
+            "validGuests" => $validGuests,
+            "validName" => $validName,
+            "eventName" => $event->seats
+        ];
+
         return response()->json($response);
     }
 }
