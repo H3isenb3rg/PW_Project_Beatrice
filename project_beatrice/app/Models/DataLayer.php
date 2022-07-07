@@ -393,4 +393,44 @@ class DataLayer extends Model
         $user_id = $this->getUserID($username);
         return Reservation::where("user_id", $user_id)->where("event_id", $event_id)->get();
     }
+
+    /**
+     * Returns the list of reservations for the given event
+     *
+     * @param string $event_id
+     * @return object
+     */
+    public function getEventReservations(string $event_id) {
+        return Reservation::where("event_id", $event_id)->get();
+    }
+
+    /**
+     * Checks if the given event has reservations
+     *
+     * @param string $event_id
+     * @return boolean
+     */
+    public function eventHasReservations(string $event_id) {
+        return Reservation::where("event_id", $event_id)->exists();
+    }
+
+    /**
+     * Deletes all the reservations for the given event
+     *
+     * @param mixed $event_id
+     * @return void
+     */
+    public function deleteEventReservations($event_id) {
+        Reservation::where("event_id", $event_id)->delete();
+    }
+
+    /**
+     * Deletes the event with the given ID
+     *
+     * @param string $event_id
+     * @return void
+     */
+    public function deleteEvent(string $event_id) {
+        Event::destroy($event_id);
+    }
 }

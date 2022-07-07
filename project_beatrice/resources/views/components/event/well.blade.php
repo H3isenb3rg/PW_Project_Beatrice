@@ -20,31 +20,50 @@
     </dl>
     <div id="collapse{{ $event->id }}" class="panel-collapse collapse" role="tabpanel"
         aria-labelledby="heading{{ $event->id }}" style="padding-top: 1%">
-        <div class="panel-body" style="padding-top: 0; padding-bottom: 0;">
-            <dl>
-                <dt class="h3">{{ ucwords($event->venue->name) }}
-                    <small>({{ ucwords($event->venue->city) }})</small></dt>
-                <dd class="h4">
-                    @if (isset($event->venue->maps_link))
-                        <a target="_blank" href="{{ $event->venue->maps_link }}" class="btn">
-                            @include('icons.location')
-                        </a>
-                    @else
-                        <span title="{{ trans('Link to Maps not available') }}">
-                            @include('icons.location')
-                        </span>
-                    @endif
-                    {{ ucwords($event->venue->address) }}
-                </dd>
-                <dd class="h4">{!! nl2br($event->description) !!}</dd>
-                <dd><a class="btn btn-primary" href="{{ route('event.goToDetails', ['id' => $event->id]) }}"
-                        style="min-width: 15em; margin-bottom: 0.5em;">@include('icons.journal')
-                        {{ trans('Event Page') }}</a></dd>
-                @if ($isAdmin)
-                    <dd>@include('components.event.deleteWmodal', ['event' => $event])</dd>
+        <div class="panel-body" style="padding-top: 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>
+                            {{ ucwords($event->venue->name) }} <small>({{ ucwords($event->venue->city) }})</small>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>
+                            @if (isset($event->venue->maps_link))
+                                <a target="_blank" href="{{ $event->venue->maps_link }}" class="btn">
+                                    @include('icons.location')
+                                </a>
+                            @else
+                                <span title="{{ trans('Link to Maps not available') }}">
+                                    @include('icons.location')
+                                </span>
+                            @endif
+                            {{ ucwords($event->venue->address) }}
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>
+                            {!! nl2br($event->description) !!}
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a class="btn btn-primary btn-block" href="{{ route('event.goToDetails', ['id' => $event->id]) }}">@include('icons.journal')
+                            {{ trans('Event Page') }}</a>
+                    </div>
+                    @if ($isAdmin)
+                    <div class="col-sm-4">
+                        @include('components.event.deleteWmodal', ['event' => $event])
+                    </div> 
                 @endif
-                </dd>
-            </dl>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -40,6 +40,7 @@ Route::group(["prefix" => "event"], function () {
     Route::get("index", [EventController::class, "goToCurrentEvents"])->name("event.index")->middleware(["lang"]);
     Route::get("{id}/details", [EventController::class, "goToDetails"])->name("event.goToDetails")->middleware(["lang", "isLogged"]);
     Route::post("edit", [EventController::class, "edit"])->name("event.edit")->middleware(["lang", "isLogged", "isAdmin"]);
+    Route::get("{id}/destroy", [EventController::class, "destroy"])->name("event.destroy")->middleware(["isLogged", "isAdmin"]);
 });
 Route::get("ajaxNewEvent", [EventController::class, "ajaxNewEvent"])->name("ajaxNewEvent")->middleware(["isLogged", "isAdmin"]);
 Route::get("ajaxFetchNextEvents", [EventController::class, "ajaxFetchNextEvents"])->name("ajaxFetchNextEvents")->middleware(["lang"]);

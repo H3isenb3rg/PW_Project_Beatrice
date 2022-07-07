@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<a type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal{{ $event->id }}" style="min-width: 15em;">
+<a type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal{{ $event->id }}">
     @include('icons.calendarX') {{ trans('Delete Event') }}
 </a>
 
@@ -28,8 +28,7 @@
                 </dl>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('Cancel') }}</button>
-                <button type="button" class="btn btn-danger">{{ __('Delete Event') }}</button>
+                <a type="button" class="btn btn-danger btn-block" href="{{ route("event.destroy", ["id"=>$event->id]) }}">{{ __('Delete Event') }}</a>
             </div>
         </div>
     </div>

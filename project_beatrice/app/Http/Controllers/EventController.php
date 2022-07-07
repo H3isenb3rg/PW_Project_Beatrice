@@ -253,6 +253,19 @@ class EventController extends Controller
         return Redirect::route("event.create");
     }
 
+    public function destroy(Request $request, $id) {
+        $dl = new DataLayer();
+
+        if ($dl->eventHasReservations($id)) {
+            $dl->deleteEventReservations($id);
+        }
+        $dl->deleteEvent($id);
+
+        Session::put("confirm", __("Successfully deleted the event"));
+
+        return Redirect::route("home");
+    }
+
     public function ajaxNewEvent(Request $request)
     {
         $dl = new DataLayer();
