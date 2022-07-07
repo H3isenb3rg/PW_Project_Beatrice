@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal{{ $event->id }}" style="min-width: 15em;">
+<a type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal{{ $event->id }}" style="min-width: 15em;">
     @include('icons.calendarX') {{ trans('Delete Event') }}
 </a>
 

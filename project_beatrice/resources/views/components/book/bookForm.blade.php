@@ -31,11 +31,6 @@
                         {{ trans('Book') }}</label>
                     <input id="mySubmit" type="submit" value='Save' class="hidden" />
                 </div>
-                <div class="col-sm-5" style="padding-top: 1%">
-                    <a href="{{ route('home') }}" role="button"
-                        class="btn btn-danger btn-large btn-block">@include('icons.close')</span>
-                        {{ trans('Cancel') }}</a>
-                </div>
             </div>
         </div>
     </div>

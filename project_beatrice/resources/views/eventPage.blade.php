@@ -4,6 +4,10 @@
     ADj | {{ ucwords($event->name) }}
 @endsection
 
+@section('scripts')
+    <script src="{{ url('/') }}/js/showFillDelete.js"></script>
+@endsection
+
 @section('left_navbar')
     <li class=><a href="{{ route('home') }}">@include('icons.home')</a></li>
     <li class="dropdown active">
