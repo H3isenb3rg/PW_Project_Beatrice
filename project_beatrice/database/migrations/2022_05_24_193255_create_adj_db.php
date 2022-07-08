@@ -45,7 +45,7 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->text("description");
-            $table->date("event_date");
+            $table->date("event_date")->unique();
             $table->integer("seats")->nullable();
             $table->foreignId("venue_id");
         });
