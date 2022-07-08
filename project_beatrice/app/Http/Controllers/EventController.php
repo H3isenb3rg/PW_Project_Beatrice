@@ -120,13 +120,16 @@ class EventController extends Controller
         $dl = new DataLayer();
         $events = $dl->fetchFutureEvents(11);
         $total = $events->count();
-        Session::put("lastLoadedDate", $events[$total - 1]->event_date);
+        $venueList = $dl->listVenues();
+        $lastLoadedDate = $events[$total - 1]->event_date;
         if ($total > 10) {
             $events->pop();
         }
 
         $current_view = view("eventsList", [
-            "eventsList" => $events
+            "eventsList" => $events,
+            "venueList" => $venueList,
+            "last_loaded_date" => $lastLoadedDate
         ]);
 
         if (Session::has("logged")) {
@@ -140,15 +143,20 @@ class EventController extends Controller
 
     public function ajaxFetchNextEvents(Request $request)
     {
+        $lastLoadedDate = $request->input("lastLoadedDate");
+        $venue_filter = $request->input("venue_filter");
+
+
         $dl = new DataLayer();
-        $future_events = $dl->fetchFutureEvents(6, Session::get("lastLoadedDate"));
+        $future_events = $dl->fetchFutureEvents(6, $lastLoadedDate, $venue_filter);
         $total = $future_events->count();
+        $response = array();
         if ($total > 5) {
-            Session::put("lastLoadedDate", $future_events[$total - 1]->event_date);
+            $response["lastLoadedDate"] = $future_events[$total - 1]->event_date;
             $future_events->pop();
             $total -= 1;
         }
-        $response = array("count" => $total);
+        $response["count"] = $total;
 
         // Build wells
         $isAdmin = false;

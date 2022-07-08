@@ -7,20 +7,24 @@
                 <div class="col-sm-4">
                     <div class="form-group" id="venueFilter_div">
                         <div class="input-group">
-                            <div class="input-group-addon">{{ __("Venue") }}</div>
-                            <input id="venueFilter" type="text" name="venueFilter" class="form-control"
-                            placeholder="{{ __('Venue') }}">
+                            <div class="input-group-addon">@include('icons.location')</div>
+                            <select required id="venueFilter" class="form-control" name="venueFilter" onchange="filterVenue()">
+                                <option value="" disabled selected>--
+                                    {{ trans('labels.chooseVenue') }} --
+                                </option>
+                                @foreach ($venueList as $venue)
+                                    <option value="{{ $venue->id }}">
+                                        {{ ucwords($venue->name) }}
+                                        ({{ ucwords($venue->city) }})
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <span class="help-block"></span>
                     </div>
                 </div>
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <label for="filter-submit"
-                            class="btn btn-primary btn-block">@include('icons.funnel')</label>
-                        <input type="submit" id="filter-submit" name="filter-submit" class="hidden"
-                            onclick="event.preventDefault(); setFilters()">
-                    </div>
+                <div class="col-sm-1">
+                    <a type="button" class="btn btn-primary btn-block" href="{{ route('event.index') }}">@include("icons.reload")</a>
                 </div>
             </div>
         </form>
