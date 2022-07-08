@@ -148,14 +148,15 @@ class EventController extends Controller
 
 
         $dl = new DataLayer();
-        $future_events = $dl->fetchFutureEvents(6, $lastLoadedDate, $venue_filter);
+        $future_events = $dl->fetchFutureEvents(5, $lastLoadedDate, $venue_filter);
         $total = $future_events->count();
         $response = array();
-        if ($total > 5) {
-            $response["lastLoadedDate"] = $future_events[$total - 1]->event_date;
-            $future_events->pop();
-            $total -= 1;
+        if ($total<=0) {
+            $response["count"] = 0;
+            return response()->json($response);
         }
+
+        $response["lastLoadedDate"] = $future_events[$total - 1]->event_date;
         $response["count"] = $total;
 
         // Build wells

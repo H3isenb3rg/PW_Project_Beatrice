@@ -30,16 +30,12 @@ function load_events(sync_type) {
                 for (well in data.wells) {
                     $("#accordion").append(data.wells[well]);
                 }
+                last_loaded_date = data.lastLoadedDate;
 
-                if (parseInt(data.count) < 5) {
-                    has_more = false;
-                    $(window).unbind("scroll");
-                } else {
-                    last_loaded_date = data.lastLoadedDate;
-                }
             } else {
                 has_more = false;
                 $(window).unbind("scroll");
+                $("#accordion").append("<p>No more</p>");
             }
 
             $("#loading-div").hide();

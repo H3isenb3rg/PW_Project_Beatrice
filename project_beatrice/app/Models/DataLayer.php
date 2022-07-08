@@ -119,7 +119,7 @@ class DataLayer extends Model
      * Gets from the database all events that are on the same day or after the given date
      * 
      * @param int $number If set to greater than 0 retrieves only specified amount ov events otherwise everyone
-     * @param string $date Sets the minimal date to retrieve avents if not set uses today
+     * @param string $date Sets the minimal date(not included) to retrieve avents if not set uses today
      * @param string $venue_filter ID of the venue to filter the events by
      */
     public function fetchFutureEvents(int $number = 0, string $date = null, string $venue_filter = null)
@@ -129,9 +129,9 @@ class DataLayer extends Model
         }
 
         if (isset($venue_filter)) {
-            $partial_query = Event::where("venue_id", $venue_filter)->whereDate("event_date", ">=", $date)->orderBy("event_date");
+            $partial_query = Event::where("venue_id", $venue_filter)->whereDate("event_date", ">", $date)->orderBy("event_date");
         } else {
-            $partial_query = Event::whereDate("event_date", ">=", $date)->orderBy("event_date");
+            $partial_query = Event::whereDate("event_date", ">", $date)->orderBy("event_date");
         }        
 
         if ($number > 0) {
