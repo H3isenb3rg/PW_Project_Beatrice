@@ -35,7 +35,10 @@ function load_events(sync_type) {
             } else {
                 has_more = false;
                 $(window).unbind("scroll");
-                $("#accordion").append("<p>No more</p>");
+                row = $("<div class='row'></div>");
+                col = $("<div class='col-sm-2 col-sm-offset-5 col-xs-2 col-xs-offset-5'></div>");
+                row.html(col.html("<a class='btn btn-primary btn-block' href='#page-top' style='margin-top: 1em;'>" + icon_arrow_up + "</a>"));
+                $("#accordion").append(row);
             }
 
             $("#loading-div").hide();
@@ -70,10 +73,12 @@ function bind_scroll() {
             scrollTimer = null; // timer done here
             if (!$("#loading-div").is(':visible') && (window.innerHeight + Math.ceil(window
                 .pageYOffset)) >= document.body.offsetHeight) {
-                $("#loading-div").show();
-                load_events(true);
+                if (has_more) {
+                    $("#loading-div").show();
+                    load_events(true);
+                }
             }
-        }, 250);
+        }, 100);
     })
 }
 

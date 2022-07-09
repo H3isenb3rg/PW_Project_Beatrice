@@ -1,0 +1,1 @@
+<span class='bi bi-arrow-up-circle'></span>

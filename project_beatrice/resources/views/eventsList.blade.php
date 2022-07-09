@@ -11,6 +11,7 @@
     <script>
         /** @type {string} The date of the last loaded event*/
         var last_loaded_date = "{{ $last_loaded_date }}";
+        var icon_arrow_up = "@include('icons.arrow-up-circle')";
     </script>
     <script src="{{ url('/') }}/js/load_events.js"></script>
 @endsection
