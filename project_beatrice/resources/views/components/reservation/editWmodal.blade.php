@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <h3>
-    <a type="button" data-toggle="modal" data-target="#modalRes{{ $reservation->id }}">
+    <a title="{{ __('Edit') }}" type="button" data-toggle="modal" data-target="#modalRes{{ $reservation->id }}">
         @include('icons.edit')
     </a>
 </h3>

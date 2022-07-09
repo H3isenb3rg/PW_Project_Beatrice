@@ -49,5 +49,7 @@
     "Reservation Name": "Nome per la prenotazione",
     "Your reservation": "La tua prenotazione",
     "Successfully deleted the event": "Evento rimosso con successo",
-    "Edit reservation": "Modifica prenotazione"
+    "Edit reservation": "Modifica prenotazione",
+    "Edit": "Modifica",
+    "Add to Calendar": "Aggiungi al calendario"
 }

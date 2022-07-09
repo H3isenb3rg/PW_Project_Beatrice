@@ -2,6 +2,14 @@ img.logo-navbar {
     height: 5rem !important;
 }
 
+a {
+    cursor: pointer;
+}
+
+body {
+    min-width: 350px;
+}
+
 a.logo-navbar {
     padding-top: 0;
     padding-left: 0;
