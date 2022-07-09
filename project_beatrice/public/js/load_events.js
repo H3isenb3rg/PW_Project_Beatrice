@@ -37,7 +37,15 @@ function load_events(sync_type) {
                 $(window).unbind("scroll");
                 row = $("<div class='row'></div>");
                 col = $("<div class='col-sm-2 col-sm-offset-5 col-xs-2 col-xs-offset-5'></div>");
-                row.html(col.html("<a class='btn btn-primary btn-block' href='#page-top' style='margin-top: 1em;'>" + icon_arrow_up + "</a>"));
+                anchor = $("<a class='btn btn-primary btn-block' href='#page-top' style='margin-top: 1em;'></a>");
+                if (sync_type) {
+                    // From async load so some events are loaded
+                    row.html(col.html(anchor.html(icon_arrow_up)));
+                } else {
+                    // From sync load so first load didn't get any events
+                    row.html(col.html(anchor.html(icon_calendar_x)));
+                }
+                
                 $("#accordion").append(row);
             }
 

@@ -6,6 +6,7 @@
 
 @section('scripts')
     <script src="{{ url('/') }}/js/showFillDelete.js"></script>
+    <script src="{{ url('/') }}/js/form_check/checkResEdit.js"></script>
 @endsection
 
 @section('left_navbar')

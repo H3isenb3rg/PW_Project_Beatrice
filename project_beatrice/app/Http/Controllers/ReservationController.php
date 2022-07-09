@@ -39,7 +39,6 @@ class ReservationController extends Controller
             ]));
         }
 
-
         return Redirect::to(route('event.goToDetails', ['id' => $event]));
     }
 
@@ -102,7 +101,10 @@ class ReservationController extends Controller
             }
         } 
 
-        $validName = !($dl->usedResName($event->id, $table_name));
+        $validName= true;
+        if (strtolower($table_name) != strtolower($curr_reservation->name)) {
+            $validName = !($dl->usedResName($event->id, $table_name));
+        }
 
         $response = [
             "validGuests" => $validGuests,

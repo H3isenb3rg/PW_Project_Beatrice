@@ -101,7 +101,7 @@ class EventController extends Controller
         if (!$isAdmin) {
             $reservation = $dl->getUserReservationForEvent($event->id, Session::get("loggedName"));
             if (count($reservation)>0) {
-                $current_view = $current_view->with("reservation", $reservation[0]);
+                $current_view = $current_view->with("reservation", $reservation[0])->with("lang", Session::get("language"));
             }
         }
 

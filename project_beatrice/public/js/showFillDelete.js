@@ -11,7 +11,6 @@ function update_reservation_count(event_id, modal_id) {
         },
 
         success: function(data) {
-            console.log(data);
             $(modal_id + " #reservations-count").html(data.reservations);
             $(modal_id + " #guests-count").html(data.guests);
         }
