@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-2 col-xs-6">
                 <h3>
-                    @include('icons.user') {{ ucwords($reservation->name) }}
+                    @include('icons.user') {{ $reservation->name }}
                 </h3>
             </div>
             <div class="col-sm-2 col-xs-2">
@@ -43,8 +43,8 @@
                         href="#collapse{{ $reservation->id }}" aria-expanded="true"
                         aria-controls="collapse{{ $reservation->id }}" title="More Info">
                         @include('icons.collapse', ['id' => $reservation->id])
-                        {{ ucwords($reservation->event->name) }}
-                        <small>{{ ucwords($reservation->event->venue->name) }}</small>
+                        {{ $reservation->event->name }}
+                        <small>{{ $reservation->event->venue->name }}</small>
                     </a>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                                         @include('icons.location')
                                     </span>
                                 @endif
-                                <small>{{ ucwords($reservation->event->venue->address) }}</small>
+                                <small>{{ $reservation->event->venue->address }}</small>
                             </h3>
                         </div>
                     </div>

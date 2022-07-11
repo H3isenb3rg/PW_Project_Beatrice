@@ -207,7 +207,7 @@ class EventController extends Controller
     public function create(Request $request)
     {
         $dl = new DataLayer();
-        $name = strtolower($request->input("name"));
+        $name = $request->input("name");
         $description = $request->input("description");
         $date = $request->input("date");
         if (!$request->input("seats") == "") {
@@ -254,7 +254,7 @@ class EventController extends Controller
         $dl->addEvent($name, $description, $date, $seats, $venue);
 
         $venue_name = $dl->getVenueName($venue);
-        Session::put("confirm", __('labels.confirmNewEvent', ['name' => ucwords($name), "venue" => ucwords($venue_name), "date" => $date]));
+        Session::put("confirm", __('labels.confirmNewEvent', ['name' => $name, "venue" => $venue_name, "date" => $date]));
         return Redirect::route("event.create");
     }
 

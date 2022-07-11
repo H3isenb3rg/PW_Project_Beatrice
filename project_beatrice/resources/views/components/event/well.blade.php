@@ -5,7 +5,7 @@
             {{ (int) date_format(date_create($event->event_date), 'd') }}
             {{ trans(date_format(date_create($event->event_date), 'F')) }}
             <small>
-                {{ ucwords($event->venue->name) }}
+                {{ $event->venue->name }}
                 ({{ ucwords($event->venue->city) }})
             </small>
         </dt>
@@ -14,7 +14,7 @@
                 href="#collapse{{ $event->id }}" aria-expanded="true" aria-controls="collapse{{ $event->id }}"
                 title="More Info">
                 @include('icons.collapse', ['id' => $event->id])
-                {{ ucwords($event->name) }}
+                {{ $event->name }}
             </a>
         </dd>
     </dl>
@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h3>
-                            {{ ucwords($event->venue->name) }} <small>({{ ucwords($event->venue->city) }})</small>
+                            {{ $event->venue->name }} <small>({{ ucwords($event->venue->city) }})</small>
                         </h3>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                                     @include('icons.location')
                                 </span>
                             @endif
-                            {{ ucwords($event->venue->address) }}
+                            {{ $event->venue->address }}
                         </h4>
                     </div>
                 </div>

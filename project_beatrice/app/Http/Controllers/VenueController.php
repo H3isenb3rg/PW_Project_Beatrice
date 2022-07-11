@@ -15,7 +15,7 @@ class VenueController extends Controller {
 
     public function create(Request $request) {
         $dl = new DataLayer();
-        $name = strtolower($request->input("name"));
+        $name = $request->input("name");
         $city = strtolower($request->input("city"));
         $address = $request->input("address");
 
@@ -44,12 +44,12 @@ class VenueController extends Controller {
 
         // Insert in DB
         if ($dl->checkVenueExists($name, $city)) {
-            Session::put("alert", __('labels.venueAlreadyExists', ['name' => ucwords($name), "city" => ucwords($city)]));
+            Session::put("alert", __('labels.venueAlreadyExists', ['name' => $name, "city" => ucwords($city)]));
             return $redirect_create;
         }
         $dl->addVenue($name, $city, $address, $maps_link);
 
-        Session::put("confirm", __('labels.confirmNewVenue', ['name' => ucwords($name), "city" => ucwords($city)]));
+        Session::put("confirm", __('labels.confirmNewVenue', ['name' => $name, "city" => ucwords($city)]));
         return $redirect_create;
     }
 
