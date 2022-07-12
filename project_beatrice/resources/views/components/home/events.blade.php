@@ -32,10 +32,11 @@
                 <div class="col-sm-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         @foreach ($eventsList as $event)
-                            @include('components.event.well', ['event' => $event, "isAdmin" => $isAdmin])
+                            @include('components.event.well', ['event' => $event, 'isAdmin' => $isAdmin])
                         @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

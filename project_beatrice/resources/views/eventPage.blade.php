@@ -94,7 +94,7 @@
                         @if (count($event->reservations) > 0)
                             @include('components.reservation.compactList', ['reservationsList' => $event->reservations, "lang"=>$lang])
                         @else
-                            <h4>No res</h4>
+                            <h4>{{ __("No Reservations for this event") }}</h4>
                         @endif
                     </div>
                 @endif

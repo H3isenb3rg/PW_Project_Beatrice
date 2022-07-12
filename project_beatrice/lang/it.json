@@ -56,5 +56,7 @@
     "Choose venue to edit": "Scegli luogo da modificare",
     "Venue successfully modified": "Luogo modificato con successo",
     "All Reservations": "Tutte le prenotazioni",
-    "Table Name already in use": "Nome del tavolo già in uso"
+    "Table Name already in use": "Nome del tavolo già in uso",
+    "No Reservations for this event": "Nessuna prenotazione per questo evento",
+    "Our Team": "Il Nostro Team"
 }

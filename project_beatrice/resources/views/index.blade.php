@@ -61,5 +61,7 @@
         @else
             @include('components.home.events', ['eventsList' => $eventsList, "isAdmin" => false])
         @endif
+
+        @include('components.home.team')
     </div>
 @endsection
