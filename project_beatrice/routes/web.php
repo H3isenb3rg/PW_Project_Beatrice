@@ -48,8 +48,10 @@ Route::get("ajaxFetchNextEvents", [EventController::class, "ajaxFetchNextEvents"
 // VENUE
 Route::group(["prefix" => "venue"], function () {
     Route::post("create", [VenueController::class, "create"])->name("venue.create")->middleware(["lang", "isLogged", "isAdmin"]);
+    Route::post("edit", [VenueController::class, "edit"])->name("venue.edit")->middleware(["lang", "isLogged", "isAdmin"]);
 });
 Route::get("ajaxNewVenue", [VenueController::class, "ajaxNewVenue"])->name("ajaxNewVenue")->middleware(["isLogged", "isAdmin"]);
+Route::get("ajaxEditVenue", [VenueController::class, "ajaxEditVenue"])->name("ajaxEditVenue")->middleware(["isLogged", "isAdmin"]);
 
 // RESERVATION
 Route::middleware(['isLogged'])->group(function () {

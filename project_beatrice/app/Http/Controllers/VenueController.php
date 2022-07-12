@@ -53,10 +53,24 @@ class VenueController extends Controller {
         return $redirect_create;
     }
 
+    public function edit(Request $request) {
+        $dl = new DataLayer();
+        $curr_venue = $dl->getVenueByID($request->input("venueID"));
+
+        Session::put("confirm", json_encode($curr_venue));
+        return Redirect::route("event.create");
+    }
+
     public function ajaxNewVenue(Request $request) {
         $dl = new DataLayer();
         $name = $request->input("name");
         $city = $request->input("city");
+
+        return response()->json(["found" => $dl->checkVenueExists($name, $city)]);
+    }
+
+    public function ajaxEditVenue(Request $request) {
+        
 
         return response()->json(["found" => $dl->checkVenueExists($name, $city)]);
     }
