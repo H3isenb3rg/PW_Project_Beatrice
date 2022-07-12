@@ -76,7 +76,7 @@
                         <h2>{{ __('Your reservation') }}</h2>
                         @include('components.reservation.well', ['reservation' => $reservation])
                     @else
-                        @if (isset($event->available_seats) && $event->available_seats <= 0)
+                        @if (isset($event->seats) && $event->available_seats <= 0)
                             <div class="alert alert-info" role="alert">
                                 <b>{{ trans('No more seats available') }}</b>
                             </div>
