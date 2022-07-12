@@ -62,6 +62,6 @@
             @include('components.home.events', ['eventsList' => $eventsList, "isAdmin" => false])
         @endif
 
-        @include('components.home.team')
+        @include('components.home.team', ["teamMembers" => $teamMembers])
     </div>
 @endsection

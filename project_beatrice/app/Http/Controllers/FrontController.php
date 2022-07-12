@@ -32,7 +32,10 @@ class FrontController extends Controller {
         // Retrieve upcoming events
         $upcoming_events = $dl->fetchFutureEvents(4);
 
-        return $current_view->with("eventsList", $upcoming_events);
+        // Retrieve Team Members
+        $team_members = $dl->getTeamMembers();
+
+        return $current_view->with("eventsList", $upcoming_events)->with("teamMembers", $team_members);
     }
     
 }

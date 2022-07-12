@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\AdjUser;
 use App\Models\DataLayer;
 use App\Models\Event;
+use App\Models\Team;
 use App\Models\Venue;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -43,8 +44,46 @@ class DatabaseSeeder extends Seeder
 
         //$this->random_events($dl);
         $this->real_events($dl);
+
+        Team::create([
+            'image' => 'Giulia.png',
+            'name' => 'Giuly',
+            'role' => 'Dancer',
+        ]);
+        Team::create([
+            'image' => 'ADJ.png',
+            'name' => 'Arcangelo DJ',
+            'role' => 'Frontman',
+        ]);
+        
+        Team::create([
+            'image' => 'Silvia.png',
+            'name' => 'Silvy',
+            'role' => 'Dancer',
+        ]);
+        Team::create( [
+            'image' => 'Giulia.png',
+            'name' => 'Matteo',
+            'role' => 'Lights',
+        ]);
+        Team::create([
+            'image' => 'Mario.png',
+            'name' => 'Mario Broglia DJ',
+            'role' => 'Regia',
+        ]);
+        Team::create([
+            'image' => 'Alice.png',
+            'name' => 'Alice',
+            'role' => 'Lights & Management',
+        ]);
     }
 
+    /**
+     * Creates randomly generated venues and events
+     *
+     * @param DataLayer $dl
+     * @return void
+     */
     private function random_events($dl)
     {
         $venue_total = 20;
@@ -62,8 +101,12 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-
-    private function real_events($dl)
+    /**
+     * Creates all 2022 official events
+     *
+     * @return void
+     */
+    private function real_events()
     {
         $asdGiravolta = Venue::create(["name"=>"ASD Giravolta Studio Danze", "city"=>"Volta Mantovana MN", "address"=>"Via Friuli, 46049 Volta Mantovana MN", "maps_link"=>"https://g.page/ASD-giravolta-studio-danze?share"]);
         Event::create(["name" => "ASD Giravolta", "description" => "SAB 24 SETTEMBRE- ASD GIRAVOLTA - Volta Mantovana MN", "event_date" => "2022-09-24", "venue_id" => $asdGiravolta->id]);

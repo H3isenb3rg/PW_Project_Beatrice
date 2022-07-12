@@ -476,4 +476,13 @@ class DataLayer extends Model
     public function usedResName(string $event_id, string $name) {
         return Reservation::where("event_id", $event_id)->where("name", $name)->exists();
     }
+
+    /**
+     * Returns the list of all team members
+     *
+     * @return object
+     */
+    public function getTeamMembers() {
+        return Team::all();
+    }
 }
