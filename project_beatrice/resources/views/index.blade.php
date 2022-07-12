@@ -9,6 +9,7 @@
 
 @section('left_navbar')
     <li class='active'><a href="{{ route('home') }}">@include('icons.home')</a></li>
+    <li><a href="{{ route('gallery.index') }}">@include('icons.images')</a></li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('labels.events') }} <b
                 class="caret"></b></a>

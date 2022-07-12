@@ -88,11 +88,23 @@ class DatabaseSeeder extends Seeder
      */
     public function fillGallery() {
         $team2019 = new Gallery();
-        $team2019->path = "show2019.jpg";
+        $team2019->path = "show2020.jpg";
         $team2019->save();
         
         $team2019 = new Gallery();
         $team2019->path = "team2019.png";
+        $team2019->save();
+        
+        $team2019 = new Gallery();
+        $team2019->path = "show2016.jpg";
+        $team2019->save();
+
+        $team2019 = new Gallery();
+        $team2019->path = "show2019.jpg";
+        $team2019->save();
+        
+        $team2019 = new Gallery();
+        $team2019->path = "show2019_2.jpg";
         $team2019->save();
     }
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\VenueController;
@@ -60,4 +61,9 @@ Route::middleware(['isLogged'])->group(function () {
     Route::resource("reservation", ReservationController::class)->middleware(["lang"]);
     Route::get("ajaxUpdateReservationCount", [ReservationController::class, "ajaxUpdateReservationCount"])->name("ajaxUpdateReservationCount")->middleware("isAdmin");
     Route::get("ajaxEditReservation", [ReservationController::class, "ajaxEditReservation"])->name("ajaxEditReservation");
+});
+
+// GALLERY
+Route::group(["prefix" => "gallery"], function () {
+    Route::get("index", [GalleryController::class, "goToGallery"])->name("gallery.index")->middleware("lang");
 });

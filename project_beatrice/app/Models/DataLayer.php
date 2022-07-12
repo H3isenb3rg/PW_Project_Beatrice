@@ -494,4 +494,14 @@ class DataLayer extends Model
     public function getLatestImage() {
         return Gallery::latest()->first();
     }
+
+    /**
+     * Retrieves the latest images
+     *
+     * @param integer $count number of images to retrieve
+     * @return object
+     */
+    public function latestImages(int $count=5) {
+        return Gallery::latest()->take($count)->get();
+    }
 }
