@@ -6,6 +6,7 @@
 
 @section('scripts')
     <script src="{{ url('/') }}/js/showFillDelete.js"></script>
+    <script src="{{ url('/') }}/js/event_well.js"></script>
     <script src="{{ url('/') }}/js/form_check/checkResEdit.js"></script>
     <script src="{{ url('/') }}/js/ics/Blob.js"></script>
     <script src="{{ url('/') }}/js/ics/FileSaver.min.js"></script>
@@ -74,7 +75,7 @@
                         </div>
                         <div class="jumbotron">
                         <h2>{{ __('Your reservation') }}</h2>
-                        @include('components.reservation.well', ['reservation' => $reservation])
+                        @include('components.reservation.compactWell', ['reservation' => $reservation])
                     @else
                         @if (isset($event->seats) && $event->available_seats <= 0)
                             <div class="alert alert-info" role="alert">
@@ -87,6 +88,16 @@
                         @endif
                     @endif
                 </div>
+                @if ($isAdmin)
+                    <div class="jumbotron">
+                        <h3>{{ __("All Reservations") }}</h3>
+                        @if (count($event->reservations) > 0)
+                            @include('components.reservation.compactList', ['reservationsList' => $event->reservations, "lang"=>$lang])
+                        @else
+                            <h4>No res</h4>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
     </div>

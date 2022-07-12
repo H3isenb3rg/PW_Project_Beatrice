@@ -54,5 +54,7 @@
     "Add to Calendar": "Aggiungi al calendario",
     "Edit Venues": "Modifica Luoghi",
     "Choose venue to edit": "Scegli luogo da modificare",
-    "Venue successfully modified": "Luogo modificato con successo"
+    "Venue successfully modified": "Luogo modificato con successo",
+    "All Reservations": "Tutte le prenotazioni",
+    "Table Name already in use": "Nome del tavolo già in uso"
 }

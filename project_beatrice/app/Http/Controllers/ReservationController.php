@@ -21,6 +21,11 @@ class ReservationController extends Controller
 
         $event_obj = $dl->getEventByID($event);
         if (!is_null($event_obj)) {
+            if ($dl->usedResName($event_obj->id, $table_name)) {
+                Session::put("alert", __("Table Name already in use"));
+                return redirect()->back();
+            }
+
             $total_seats = $event_obj->seats;
             $available_seats = $total_seats - $dl->countBooked($event);
 

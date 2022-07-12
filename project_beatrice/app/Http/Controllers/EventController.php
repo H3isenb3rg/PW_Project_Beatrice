@@ -103,6 +103,8 @@ class EventController extends Controller
             if (count($reservation)>0) {
                 $current_view = $current_view->with("reservation", $reservation[0])->with("lang", Session::get("language"));
             }
+        } else {
+            $current_view = $current_view->with("lang", Session::get("language"));
         }
 
         if (Session::has("alert")) {
