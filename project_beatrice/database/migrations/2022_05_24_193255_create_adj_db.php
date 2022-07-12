@@ -23,8 +23,10 @@ return new class extends Migration
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
             $table->string("path");
-            $table->boolean("is_home");
+            $table->dateTime("updated_at"); 
+            $table->dateTime("created_at");
         });
+
         Schema::create('user', function (Blueprint $table) {
             $table->id();
             $table->string("username");

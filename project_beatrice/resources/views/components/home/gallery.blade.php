@@ -10,7 +10,7 @@
                             role="button">{{ trans('labels.jumbotronGalleryButton') }}</a></p>
                 </div>
                 <div class="col-sm-6">
-                    <img src="{{ url('/') }}/img/static/team.PNG" class="img-rounded img-responsive"
+                    <img src="{{ url('/') }}/img/gallery/{{ $latest->path }}" class="img-rounded img-responsive"
                         alt="Il team Arcangelo DJ" title="Team ADJ">
                 </div>
             </div>

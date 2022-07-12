@@ -35,7 +35,10 @@ class FrontController extends Controller {
         // Retrieve Team Members
         $team_members = $dl->getTeamMembers();
 
-        return $current_view->with("eventsList", $upcoming_events)->with("teamMembers", $team_members);
+        // Retrieve latest image
+        $latest_image = $dl->getLatestImage();
+
+        return $current_view->with("eventsList", $upcoming_events)->with("teamMembers", $team_members)->with("latest_image", $latest_image);
     }
     
 }

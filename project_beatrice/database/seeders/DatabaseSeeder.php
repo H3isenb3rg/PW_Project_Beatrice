@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\AdjUser;
 use App\Models\DataLayer;
 use App\Models\Event;
+use App\Models\Gallery;
 use App\Models\Team;
 use App\Models\Venue;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -76,6 +77,23 @@ class DatabaseSeeder extends Seeder
             'name' => 'Alice',
             'role' => 'Lights & Management',
         ]);
+
+        $this->fillGallery();
+    }
+
+    /**
+     * Fills the gallery with static images already present
+     *
+     * @return void
+     */
+    public function fillGallery() {
+        $team2019 = new Gallery();
+        $team2019->path = "show2019.jpg";
+        $team2019->save();
+        
+        $team2019 = new Gallery();
+        $team2019->path = "team2019.png";
+        $team2019->save();
     }
 
     /**

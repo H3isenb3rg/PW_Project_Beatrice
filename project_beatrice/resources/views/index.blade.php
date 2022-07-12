@@ -54,7 +54,7 @@
             @include('components.confirm', ['confirm' => $confirm])
         @endif
 
-        @include('components.home.gallery')
+        @include('components.home.gallery', ["latest" => $latest_image])
 
         @if (isset($isAdmin))
             @include('components.home.events', ['eventsList' => $eventsList, "isAdmin" => $isAdmin])

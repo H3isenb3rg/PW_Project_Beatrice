@@ -485,4 +485,13 @@ class DataLayer extends Model
     public function getTeamMembers() {
         return Team::all();
     }
+
+    /**
+     * Retrieves the latest image iserted in the gallery
+     *
+     * @return object
+     */
+    public function getLatestImage() {
+        return Gallery::latest()->first();
+    }
 }
