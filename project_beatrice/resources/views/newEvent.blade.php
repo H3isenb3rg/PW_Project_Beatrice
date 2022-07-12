@@ -8,6 +8,7 @@
 @section('scripts')
     <script src="{{ url('/') }}/js/form_check/newEvent.js"></script>
     <script src="{{ url('/') }}/js/form_check/newVenue.js"></script>
+    <script src="{{ url('/') }}/js/form_check/editVenue.js"></script>
 @endsection
 
 @section('left_navbar')

@@ -56,8 +56,44 @@ class VenueController extends Controller {
     public function edit(Request $request) {
         $dl = new DataLayer();
         $curr_venue = $dl->getVenueByID($request->input("venueID"));
+        $new_name = $request->input("name");
+        $new_city = $request->input("city");
+        $new_address = $request->input("address");
+        $new_maps = $request->input("maps");
 
-        Session::put("confirm", json_encode($curr_venue));
+        $has_changed = false;
+        if ($curr_venue->name != $new_name) {
+            $curr_venue->name = $new_name;
+            $has_changed = true;
+        }
+
+        if ($curr_venue->city != $new_city) {
+            $curr_venue->city = $new_city;
+            $has_changed = true;
+        }
+
+        if ($curr_venue->address != $new_address) {
+            $curr_venue->address = $new_address;
+            $has_changed = true;
+        }
+
+        if (isset($new_maps)) {
+            if (isset($curr_venue->maps_link)) {
+                if ($curr_venue->maps_link != $new_maps) {
+                    $curr_venue->maps_link = $new_maps;
+                    $has_changed = true;
+                }
+            } else {
+                $curr_venue->maps_link = $new_maps;
+                $has_changed = true;
+            }
+        }
+        
+        if ($has_changed) {
+            $curr_venue->save();
+            Session::put("confirm", __("Venue successfully modified"));
+        }
+
         return Redirect::route("event.create");
     }
 
@@ -70,9 +106,39 @@ class VenueController extends Controller {
     }
 
     public function ajaxEditVenue(Request $request) {
-        
+        $dl = new DataLayer();
+        $id = $request->input("id");
+        $name = $request->input("name");
+        $city = $request->input("city");
+        $curr_venue =  $dl->getVenueByID($id);
+        $found = false;
 
-        return response()->json(["found" => $dl->checkVenueExists($name, $city)]);
+        if(strtolower($name) != strtolower($curr_venue->name) || strtolower($city) != strtolower($curr_venue->city)) {
+            $found = $dl->checkVenueExists($name, $city);
+        }
+
+        return response()->json(["found" => $found]);
+    }
+
+    public function ajaxGetVenue(Request $request) {
+        $dl = new DataLayer();
+
+        $venue = $dl->getVenueByID($request->input("venueID"));
+
+        $data = [
+            "id" => $venue->id,
+            "name" => $venue->name,
+            "address" => $venue->address,
+            "city" => $venue->city,
+        ];
+
+        if (isset($venue->maps_link)) {
+            $data["maps"] = $venue->maps_link;
+        } else {
+            $data["maps"] = "";
+        }
+
+        return response()->json($data);
     }
 
     /**

@@ -52,5 +52,7 @@
     "Edit reservation": "Modifica prenotazione",
     "Edit": "Modifica",
     "Add to Calendar": "Aggiungi al calendario",
-    "Edit Venues": "Modifica Luoghi"
+    "Edit Venues": "Modifica Luoghi",
+    "Choose venue to edit": "Scegli luogo da modificare",
+    "Venue successfully modified": "Luogo modificato con successo"
 }

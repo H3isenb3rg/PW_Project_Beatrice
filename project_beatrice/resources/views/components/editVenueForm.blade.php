@@ -16,8 +16,8 @@
                     <input id="edit-venue-city" type="text" name="city" class="form-control"
                         placeholder="{!! trans('labels.city') !!}"
                         value="{{ ucwords($venue->city) }}">
-                    <span class="help-block"></span>
                 </div>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-sm-3">
@@ -30,8 +30,8 @@
                         @isset($venue->maps_link)
                             value="{{ $venue->maps_link }}"
                         @endisset>
-                    <span class="help-block"></span>
                 </div>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -43,8 +43,8 @@
                     <input id="edit-venue-address" type="text" name="address" class="form-control"
                         placeholder="{{ trans('labels.address') }}"
                         value="{{ $venue->address }}">
-                    <span class="help-block"></span>
                 </div>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-sm-6">
@@ -55,7 +55,7 @@
                     class="btn btn-primary btn-block">@include('icons.confirm')
                     {{ __("Confirm") }}</label>
                 <input id="mySubmit" type="submit" value="{{ __("Confirm") }}" class="hidden"
-                    onclick="event.preventDefault(); checkVenueEdit('{{ $lang }}');" />
+                    onclick="event.preventDefault(); checkVenueEdit('{{ $lang }}', 'edit-venue{{ $venue->id }}-form');" />
             </div>
         </div>
     </div>
