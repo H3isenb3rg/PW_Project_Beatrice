@@ -9,6 +9,13 @@ class Reservation extends Model {
     protected $table = "reservation";
     public $timestamps = false;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'guests', 'user_id', 'event_id'];
+
     public function user() {
         return $this->belongsTo("App\Models\AdjUser");
     }

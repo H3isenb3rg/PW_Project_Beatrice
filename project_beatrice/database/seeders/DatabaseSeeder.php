@@ -6,9 +6,9 @@ use App\Models\AdjUser;
 use App\Models\DataLayer;
 use App\Models\Event;
 use App\Models\Gallery;
+use App\Models\Reservation;
 use App\Models\Team;
 use App\Models\Venue;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -46,6 +46,9 @@ class DatabaseSeeder extends Seeder
         //$this->random_events($dl);
         $this->real_events($dl);
 
+        $next_events = $dl->fetchFutureEvents(4);
+        $this->createReservations($user2, $user1, $next_events);
+
         Team::create([
             'image' => 'Giulia.png',
             'name' => 'Giuly',
@@ -81,31 +84,85 @@ class DatabaseSeeder extends Seeder
         $this->fillGallery();
     }
 
+    private function createReservations($user2, $matteo, $next_events) {
+        Reservation::create([
+            'name' => "user", 
+            'guests' => 10, 
+            'user_id' => $user2, 
+            'event_id' => $next_events[0]->id]
+        );
+        Reservation::create([
+            'name' => "user", 
+            'guests' => 10, 
+            'user_id' => $user2, 
+            'event_id' => $next_events[1]->id]
+        );
+        Reservation::create([
+            'name' => "user", 
+            'guests' => 10, 
+            'user_id' => $user2, 
+            'event_id' => $next_events[2]->id]
+        );
+        Reservation::create([
+            'name' => "user", 
+            'guests' => 10, 
+            'user_id' => $user2, 
+            'event_id' => $next_events[3]->id]
+        );
+        Reservation::create([
+            'name' => "Marco", 
+            'guests' => 15, 
+            'user_id' => $matteo, 
+            'event_id' => $next_events[0]->id]
+        );
+        Reservation::create([
+            'name' => "Massimo", 
+            'guests' => 20, 
+            'user_id' => $matteo, 
+            'event_id' => $next_events[1]->id]
+        );
+        Reservation::create([
+            'name' => "Alessandro", 
+            'guests' => 50, 
+            'user_id' => $matteo, 
+            'event_id' => $next_events[2]->id]
+        );
+        Reservation::create([
+            'name' => "Maria", 
+            'guests' => 10, 
+            'user_id' => $matteo, 
+            'event_id' => $next_events[3]->id]
+        );
+    }
+
     /**
      * Fills the gallery with static images already present
      *
      * @return void
      */
     public function fillGallery() {
-        $team2019 = new Gallery();
-        $team2019->path = "show2020.jpg";
-        $team2019->save();
-        
-        $team2019 = new Gallery();
-        $team2019->path = "team2019.png";
-        $team2019->save();
-        
-        $team2019 = new Gallery();
-        $team2019->path = "show2016.jpg";
-        $team2019->save();
+        $this->new_image("37638124_2279925485365934_2584690793084092416_o.jpg");
+        $this->new_image("adj5.PNG");
+        $this->new_image("adj15.PNG");
+        $this->new_image("show2020.jpg");
+        $this->new_image("DSC06172.JPG");
+        $this->new_image("team2019.png");
+        $this->new_image("DSC07343.JPG");
+        $this->new_image("IMG-20190721-WA0149.jpg");
+        $this->new_image("IMG-20200801-WA0035.jpg");
+        $this->new_image("IMG-20210719-WA0044.jpg");
+        $this->new_image("IMG-20210720-WA0072.jpg");
+        $this->new_image("IMG-20210720-WA0121.jpg");
+        $this->new_image("IMG-20210720-WA0144.jpg");
+        $this->new_image("show2016.jpg");
+        $this->new_image("show2019.jpg");
+        $this->new_image("show2019_2.jpg");
+    }
 
-        $team2019 = new Gallery();
-        $team2019->path = "show2019.jpg";
-        $team2019->save();
-        
-        $team2019 = new Gallery();
-        $team2019->path = "show2019_2.jpg";
-        $team2019->save();
+    private function new_image($name) {
+        $image = new Gallery();
+        $image->path = $name;
+        $image->save();
     }
 
     /**
