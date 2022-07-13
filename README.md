@@ -11,7 +11,6 @@ Progetto per il corso di Programmazione Web e Servizi Digitali (AA. 2021/2022) d
 The same as for the running example
 
 ## Setup
-- Download the zip of the project
 - Start XAMPP (Apache + MySQL)
   - Fix the DB paremeters in the .env file
 - Create in mysql an empty db called 'arcangelodj'
