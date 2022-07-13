@@ -14,12 +14,12 @@ The same as for the running example
 - Download the zip of the project
 - Start XAMPP (Apache + MySQL)
   - Fix the DB paremeters in the .env file
-- Create in mysql an empty db named 'arcangelodj'
+- Create in mysql an empty db called 'arcangelodj'
 - Enter in the folder "project_beatrice"
   - Run `composer update`
   - Execute the migration `php artisan migrate`
   - Execute the seed `php artisan db:seed --class=DatabaseSeeder`
-  - Execute `php artisan serve` and the site is live at the given link
+  - Execute `php artisan serve` and the site should be live and working at the given link
 
 ## Descrizione
 Creare versione aggiornata e dinamica del sito già esistente [arcangelodj.it](https://www.arcangelodj.it/)
