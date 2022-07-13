@@ -39,7 +39,7 @@ class GalleryController extends Controller
         $current_view->with("carousel", $carousel);
 
         // Retrieve older images
-        $images = $dl->retrieveOtherImages($imagesInCarousel);
+        $images = $dl->retrieveOtherImages(0);
         $current_view->with("images", $images);
 
         return $current_view;
