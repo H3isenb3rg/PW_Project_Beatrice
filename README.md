@@ -13,7 +13,7 @@ The same as for the running example
 ## Setup
 - Download the zip of the project
 - Start XAMPP (Apache + MySQL)
-  - Fix in the .env file the DB paremeters
+  - Fix the DB paremeters in the .env file
 - Create in mysql an empty db named 'arcangelodj'
 - Enter in the folder "project_beatrice"
   - Run `composer update`
