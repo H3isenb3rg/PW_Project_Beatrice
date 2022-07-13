@@ -66,4 +66,5 @@ Route::middleware(['isLogged'])->group(function () {
 // GALLERY
 Route::group(["prefix" => "gallery"], function () {
     Route::get("index", [GalleryController::class, "goToGallery"])->name("gallery.index")->middleware("lang");
+    Route::post("upload", [GalleryController::class, "upload"])->name("gallery.upload")->middleware(["lang", "isLogged", "isAdmin"]);
 });

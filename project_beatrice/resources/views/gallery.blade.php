@@ -6,6 +6,7 @@
 
 
 @section('scripts')
+    <script src="{{ url('/') }}/js/gallery.js"></script>
 @endsection
 
 @section('left_navbar')
@@ -49,17 +50,19 @@
 @endsection
 
 @section('corpo')
-    @if (isset($alert))
-        @include('components.alert', ['alert' => $alert])
-    @endif
+    <div class="container">
+        @if (isset($alert))
+            @include('components.alert', ['alert' => $alert])
+        @endif
 
-    @if (isset($confirm))
-        @include('components.confirm', ['confirm' => $confirm])
-    @endif
-    
-    <div id="whiteContainer" class="container" style="margin-bottom: 7.5em;">
-        @include('components.gallery.page', [
-            "carousel" => $carousel
-        ])
+        @if (isset($confirm))
+            @include('components.confirm', ['confirm' => $confirm])
+        @endif
+
+        <div id="whiteContainer" class="container">
+            @include('components.gallery.page', [
+                'carousel' => $carousel,
+            ])
+        </div>
     </div>
 @endsection

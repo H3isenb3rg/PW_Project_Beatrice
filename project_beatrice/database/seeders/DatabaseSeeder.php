@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'Dancer',
         ]);
         Team::create( [
-            'image' => 'Giulia.png',
+            'image' => 'Matteo.jpg',
             'name' => 'Matteo',
             'role' => 'Lights',
         ]);
