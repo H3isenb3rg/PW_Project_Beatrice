@@ -504,4 +504,14 @@ class DataLayer extends Model
     public function latestImages(int $count=5) {
         return Gallery::latest()->take($count)->get();
     }
+
+    /**
+     * Retrieves images inc ronological order and skips the first $to_skip images if specified
+     *
+     * @param integer $to_skip number of images to skip
+     * @return object
+     */
+    public function retrieveOtherImages(int $to_skip=0) {
+        return Gallery::latest()->get()->skip($to_skip);
+    }
 }

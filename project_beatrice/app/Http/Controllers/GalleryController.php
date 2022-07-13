@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataLayer;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -33,8 +34,13 @@ class GalleryController extends Controller
         }
 
         // Retrieve carousel images
-        $carousel = $dl->latestImages(5);
+        $imagesInCarousel = 5;
+        $carousel = $dl->latestImages($imagesInCarousel);
         $current_view->with("carousel", $carousel);
+
+        // Retrieve older images
+        $images = $dl->retrieveOtherImages($imagesInCarousel);
+        $current_view->with("images", $images);
 
         return $current_view;
     }
@@ -54,7 +60,15 @@ class GalleryController extends Controller
             }
         }
 
-        //Move Uploaded File
+        // Save the new image in the DB
+        $new_gallery_item = new Gallery();
+        $new_gallery_item->path = $name;
+        $new_gallery_item->save();
+
+        //Save Uploaded File
         $file->move($destinationPath, $name);
+
+        Session::put("confirm", $name . __(" - Image successfully uploaded!"));
+        return redirect()->back();
     }
 }

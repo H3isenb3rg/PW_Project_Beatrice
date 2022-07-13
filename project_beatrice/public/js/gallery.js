@@ -8,7 +8,7 @@ function resizeCarousel(item) {
 
 function checkImgUpload(lang) {
     if ($("#img").val() != "") {
-        $('form[name=reservation]').submit();
+        $('form[name=image-form]').submit();
         return
     }
 

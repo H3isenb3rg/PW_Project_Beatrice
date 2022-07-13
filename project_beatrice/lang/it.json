@@ -60,5 +60,6 @@
     "No Reservations for this event": "Nessuna prenotazione per questo evento",
     "Our Team": "Il Nostro Team",
     "Upload an Image": "Carica immagine",
-    "A file with that name is already present!": "Un file con quel nome è già presente sul server"
+    "A file with that name is already present!": "Un file con quel nome è già presente sul server",
+    " - Image successfully uploaded!": " - Immagine caricata con successo!"
 }

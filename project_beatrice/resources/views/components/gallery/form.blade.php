@@ -1,4 +1,4 @@
-<form id="event-form" name="event-form" action="{{ route('gallery.upload') }}" method="post" enctype="multipart/form-data">
+<form id="image-form" name="image-form" action="{{ route('gallery.upload') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-sm-1 col-xs-2">
