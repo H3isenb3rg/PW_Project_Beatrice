@@ -11,15 +11,14 @@ Progetto per il corso di Programmazione Web e Servizi Digitali (AA. 2021/2022) d
 The same as for the running example
 
 ## Setup
-- Download the zip of the project
 - Start XAMPP (Apache + MySQL)
-  - Fix in the .env file the DB paremeters
-- Create in mysql an empty db named 'arcangelodj'
+  - Fix the DB paremeters in the .env file
+- Create in mysql an empty db called 'arcangelodj'
 - Enter in the folder "project_beatrice"
   - Run `composer update`
   - Execute the migration `php artisan migrate`
   - Execute the seed `php artisan db:seed --class=DatabaseSeeder`
-  - Execute `php artisan serve` and the site is live at the given link
+  - Execute `php artisan serve` and the site should be live and working at the given link
 
 ## Descrizione
 Creare versione aggiornata e dinamica del sito già esistente [arcangelodj.it](https://www.arcangelodj.it/)
