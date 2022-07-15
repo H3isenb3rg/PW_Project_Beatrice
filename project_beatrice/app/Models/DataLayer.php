@@ -20,6 +20,16 @@ class DataLayer extends Model
     }
 
     /**
+     * Deletes the reservation with the given id
+     *
+     * @param string $id
+     * @return void
+     */
+    public function deleteResByID(string $id) {
+        Reservation::destroy($id);
+    }
+
+    /**
      * Returns the count of reservations for the specified event
      *
      * @param string $event

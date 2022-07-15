@@ -8,20 +8,23 @@
                     {{ trans(date_format(date_create($reservation->event->event_date), 'F')) }}
                 </h2>
             </div>
-            <div class="col-sm-2 col-xs-6">
+            <div class="col-sm-2 col-xs-8">
                 <h3>
                     @include('icons.user') {{ $reservation->name }}
                 </h3>
             </div>
-            <div class="col-sm-2 col-xs-2">
+            <div class="col-sm-1 col-xs-4">
                 <h3>
                     @include('icons.people') {{ $reservation->guests }}
                 </h3>
             </div>
-            <div class="col-sm-2 col-xs-2">
+            <div class="col-sm-1 col-xs-4">
                 @include('components.reservation.editWmodal', ["reservation" => $reservation])
             </div>
-            <div class="col-sm-1 col-xs-1">
+            <div class="col-sm-1 col-xs-4">
+                @include('components.reservation.deleteWmodal', ['reservation' => $reservation])
+            </div>
+            <div class="col-sm-1 col-xs-4">
                 <h3>
                     <a type="button" title="{{ __("Add to Calendar") }}" onclick='create_download_ics(
                         "{{ $reservation->event->name }}", 

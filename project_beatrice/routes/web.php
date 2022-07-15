@@ -61,6 +61,7 @@ Route::middleware(['isLogged'])->group(function () {
     Route::resource("reservation", ReservationController::class)->middleware(["lang"]);
     Route::get("ajaxUpdateReservationCount", [ReservationController::class, "ajaxUpdateReservationCount"])->name("ajaxUpdateReservationCount")->middleware("isAdmin");
     Route::get("ajaxEditReservation", [ReservationController::class, "ajaxEditReservation"])->name("ajaxEditReservation");
+    Route::get("reservation/{id}/delete", [ReservationController::class, "delete"])->name("reservation.delete")->middleware(["lang"]);
 });
 
 // GALLERY

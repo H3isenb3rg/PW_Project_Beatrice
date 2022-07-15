@@ -119,4 +119,14 @@ class ReservationController extends Controller
 
         return response()->json($response);
     }
+
+    public function delete(Request $request, $id) {
+        $dl = new DataLayer();
+
+        $dl->deleteResByID($id);
+
+        Session::put("confirm", __("Reservation successfully deleted"));
+
+        return redirect()->back();
+    }
 }

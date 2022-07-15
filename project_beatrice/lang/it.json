@@ -61,5 +61,7 @@
     "Our Team": "Il Nostro Team",
     "Upload an Image": "Carica immagine",
     "A file with that name is already present!": "Un file con quel nome è già presente sul server",
-    " - Image successfully uploaded!": " - Immagine caricata con successo!"
+    " - Image successfully uploaded!": " - Immagine caricata con successo!",
+    "Delete Reservation": "Cancella Prenotazione",
+    "Reservation successfully deleted": "Prenotazione cancellata con successo"
 }
